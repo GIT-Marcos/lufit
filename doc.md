@@ -88,25 +88,48 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 
 | Página | title | description |
 |---|---|---|
-| `/` | Ludmila — Personal Trainer | Transformá tu cuerpo con planes personalizados. Online o presencial. |
-| `/asesorias` | Planes Personalizados con Seguimiento | Planes a tu medida con acompañamiento continuo. Online o presencial. |
-| `/mi-gimnasio` | Mi Espacio de Entrenamiento | Conocé mi gimnasio y las sesiones presenciales con Ludmila. |
-| `/sobre-mi` | Conocé a Ludmila | Personal trainer. Filosofía, certificaciones y experiencia. |
+| `/` | Ludmila — Personal Trainer | Transformá tu cuerpo con planes de entrenamiento personalizados. Online o presencial. Empezá hoy tu cambio. |
+| `/asesorias` | Planes Personalizados con Seguimiento | Planes de entrenamiento a tu medida con acompañamiento continuo. Online o presencial. Consultá sin compromiso. |
+| `/mi-gimnasio` | Mi Espacio de Entrenamiento | Conocé mi gimnasio y las sesiones presenciales con Ludmila. También disponible 100% online. Elegí la modalidad que mejor se adapte a vos. |
+| `/sobre-mi` | Conocé a Ludmila — Personal Trainer | Conocé a Ludmila, personal trainer. Filosofía, certificaciones y experiencia. Empezá hoy tu transformación con acompañamiento real. |
 
-**Open Graph:** Las 4 páginas deben incluir og:title, og:description, og:image, og:url, og:type.
+**Reglas:**
+- Titles únicos por página, 50–60 caracteres, keyword principal al inicio
+- Descriptions únicas, 150–160 caracteres, incluir llamado a la acción
+
+**Open Graph (obligatorio en las 4 páginas):**
+- `og:title`, `og:description`, `og:image` (1200×630), `og:url`, `og:type: website`
+- `og:locale: es_ES`
+- `og:site_name: Ludmila PT`
+
+**Twitter Card (obligatorio en las 4 páginas):**
+- `twitter:card: summary_large_image`
+- `twitter:title`, `twitter:description`, `twitter:image` (mismos valores que OG)
+
+**URLs canónicas:**
+- Implementar `<link rel="canonical">` en `Layout.astro`
+- Usar `Astro.url.origin + Astro.url.pathname` como URL canónica mientras no haya dominio definido
+- Cuando se configure `site` en `astro.config.mjs`, migrar a `Astro.site + Astro.url.pathname`
 
 **JSON-LD Structured Data:**
 - `Person` en Sobre Mí — nombre, descripción, sameAs (redes), knowsAbout ("Personal Training")
 - `FAQPage` en Asesorías — las 8 preguntas con sus respuestas
-- `LocalBusiness` en Mi Gimnasio — nombre, tipo (PersonalTraining), dirección placeholder
+- `LocalBusiness` en Mi Gimnasio — nombre, tipo (PersonalTraining). Posponer hasta tener dirección real (no usar placeholder en schema).
+- `BreadcrumbList` en páginas interiores (Asesorías, Mi Gimnasio, Sobre Mí) — Inicio (position 1) → Página actual (position 2)
 
 **robots.txt** en `public/robots.txt`:
 ```
 User-agent: *
 Allow: /
 
+# AI crawlers — permitidos (contenido original con valor EEAT)
+# No se agregan reglas de bloqueo para GPTBot, ClaudeBot,
+# PerplexityBot ni Google-Extended.
+
 Sitemap: https://[dominio]/sitemap.xml
 ```
+
+**Nota sobre AI crawlers:** Se permite el acceso a todos los crawlers de IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) porque el contenido es original de una profesional con certificaciones. Esto aumenta la probabilidad de ser citado en AI Overviews, ChatGPT y Perplexity.
 
 **Sitemap:** Agregar `@astrojs/sitemap` vía `npx astro add sitemap` cuando se defina la URL del sitio. Configurar `site` en `astro.config.mjs` con la URL final.
 
@@ -287,6 +310,7 @@ Sitemap: https://[dominio]/sitemap.xml
 
 | Componente | Archivo | Descripción |
 |---|---|---|
+| `Layout.astro` | `src/layouts/Layout.astro` | Layout global: `<html lang="es">`, `<head>` con meta tags globales, reset CSS, variables `:root`, Header, Footer, `<slot />` |
 | `Header.astro` | `src/components/Header.astro` | Nav, logo, hamburguesa |
 | `Footer.astro` | `src/components/Footer.astro` | Redes, copyright |
 | `Hero.astro` | `src/components/Hero.astro` | Hero reutilizable (identity, title, subtitle, ctas[], image) |
@@ -391,6 +415,7 @@ interface StatsProps {
 
 - Componentes: `PascalCase.astro`
 - Páginas: `kebab-case.astro`
+- Layouts: `PascalCase.astro` en `src/layouts/`
 - Carpetas: `kebab-case`
 
 ### 6.4 Imágenes
