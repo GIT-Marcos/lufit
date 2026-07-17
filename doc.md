@@ -70,7 +70,7 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 
 - **Header**: Logo texto "Ludmila PT", navegación horizontal, menú hamburguesa en mobile
 - **Footer**: Copyright, iconos redes sociales (WhatsApp, Instagram, Email)
-- **SEO**: `<meta>` tags por página, Open Graph básico
+- **SEO**: Ver sección 3.3 para especificación completa
 
 ### 3.2 Rutas
 
@@ -80,6 +80,35 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 | `/asesorias` | Asesorías | `src/pages/asesorias.astro` |
 | `/mi-gimnasio` | Mi Gimnasio | `src/pages/mi-gimnasio.astro` |
 | `/sobre-mi` | Sobre Mí | `src/pages/sobre-mi.astro` |
+| `*` | 404 | `src/pages/404.astro` |
+
+### 3.3 SEO
+
+**Meta tags por página:**
+
+| Página | title | description |
+|---|---|---|
+| `/` | Ludmila — Personal Trainer | Transformá tu cuerpo con planes personalizados. Online o presencial. |
+| `/asesorias` | Planes Personalizados con Seguimiento | Planes a tu medida con acompañamiento continuo. Online o presencial. |
+| `/mi-gimnasio` | Mi Espacio de Entrenamiento | Conocé mi gimnasio y las sesiones presenciales con Ludmila. |
+| `/sobre-mi` | Conocé a Ludmila | Personal trainer. Filosofía, certificaciones y experiencia. |
+
+**Open Graph:** Las 4 páginas deben incluir og:title, og:description, og:image, og:url, og:type.
+
+**JSON-LD Structured Data:**
+- `Person` en Sobre Mí — nombre, descripción, sameAs (redes), knowsAbout ("Personal Training")
+- `FAQPage` en Asesorías — las 8 preguntas con sus respuestas
+- `LocalBusiness` en Mi Gimnasio — nombre, tipo (PersonalTraining), dirección placeholder
+
+**robots.txt** en `public/robots.txt`:
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://[dominio]/sitemap.xml
+```
+
+**Sitemap:** Agregar `@astrojs/sitemap` vía `npx astro add sitemap` cuando se defina la URL del sitio. Configurar `site` en `astro.config.mjs` con la URL final.
 
 ---
 
@@ -239,6 +268,17 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 
 6. **CTA**: "Empezá hoy" → `/asesorias`
 
+### 4.5 Página 404 (`/404.astro`)
+
+**Objetivo**: Mantener al usuario en el sitio cuando llega a una URL inexistente.
+
+**Secciones:**
+1. Título: "Página no encontrada"
+2. Subtítulo: "Parece que te perdiste... pero siempre estás a tiempo de volver al movimiento"
+3. Botón "Volver al inicio" → `/`
+4. Diseño acorde al resto del sitio (misma paleta, tipografía)
+5. Sin Header ni Footer complejos — diseño mínimo y funcional
+
 ---
 
 ## 5. Árbol de componentes
@@ -360,6 +400,14 @@ interface StatsProps {
 - Atributo `alt` siempre presente y descriptivo
 - Usar `fetchpriority` en hero images
 
+### 6.5 Accesibilidad
+
+- `:focus-visible` visible en todos los elementos interactivos (botones, links, del menú)
+- `aria-label` en iconos sociales, menú hamburguesa y enlaces sin texto visible
+- `aria-current="page"` en el nav item activo
+- Roles semánticos: `<nav>`, `<main>`, `<footer>` en Layout
+- Contraste suficiente: la paleta cumple AA mínimo (naranja 4.5:1 sobre blanco)
+
 ---
 
 ## 7. Estrategia de imágenes placeholder
@@ -400,8 +448,11 @@ Ejemplos:
 - [ ] Página Sobre Mí (hero, biografía, certificaciones, testimonios inline, frase, CTA)
 
 ### Fase 3 — Pulido
-- [ ] Testimonios en Inicio
 - [ ] Transiciones y animaciones sutiles
-- [ ] SEO meta tags y Open Graph
+- [ ] SEO meta tags y Open Graph por página
+- [ ] JSON-LD structured data (Person, FAQPage, LocalBusiness)
+- [ ] Página 404 personalizada
+- [ ] robots.txt en public/
+- [ ] Accesibilidad: focus-visible, aria labels, roles semánticos
 - [ ] Favicon personalizado
 - [ ] Build y preview de producción
