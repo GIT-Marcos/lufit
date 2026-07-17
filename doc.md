@@ -21,7 +21,7 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 |---|---|---|
 | `--color-primary` | `#EA580C` | Naranja — botones, acentos, hover states |
 | `--color-primary-dark` | `#C2410C` | Naranja oscuro — hover de botones |
-| `--color-secondary` | `#059669` | Verde — detalles, badges, iconos secundarios |
+| `--color-secondary` | `#05804A` | Verde — detalles, badges, iconos secundarios |
 | `--color-secondary-dark` | `#047857` | Verde oscuro — hover de elementos secundarios |
 | `--color-bg` | `#FAFAF9` | Fondo claro principal |
 | `--color-surface` | `#FFFFFF` | Tarjetas, contenedores |
@@ -427,11 +427,16 @@ interface StatsProps {
 
 ### 6.5 Accesibilidad
 
+- `<html lang="es">` en Layout.astro
+- Skip link al inicio del `<body>` en Layout.astro:
+  `<a href="#main-content" class="skip-link">Ir al contenido</a>`
+  Visible en `:focus`, destino `<main id="main-content">` envolviendo el `<slot />`
 - `:focus-visible` visible en todos los elementos interactivos (botones, links, del menú)
 - `aria-label` en iconos sociales, menú hamburguesa y enlaces sin texto visible
+- `aria-hidden="true"` en todos los iconos SVG decorativos (redes sociales, menú hamburguesa)
 - `aria-current="page"` en el nav item activo
 - Roles semánticos: `<nav>`, `<main>`, `<footer>` en Layout
-- Contraste suficiente: la paleta cumple AA mínimo (naranja 4.5:1 sobre blanco)
+- Contraste suficiente: el naranja `#EA580C` y el verde `#05804A` sobre blanco cumplen AA
 
 ---
 
@@ -444,9 +449,14 @@ https://placehold.co/{width}x{height}/{bg}/{text}?text={texto}
 Ejemplos:
 - Hero principal → `https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+PT`
 - Ludmila en el gimnasio → `https://placehold.co/800x600/EA580C/FFFFFF?text=Ludmila+en+mi+gimnasio`
-- Retrato → `https://placehold.co/400x400/059669/FFFFFF?text=Ludmila`
+- Retrato → `https://placehold.co/400x400/05804A/FFFFFF?text=Ludmila`
 - Gimnasio → `https://placehold.co/800x600/1C1917/FAFAF9?text=Mi+Gimnasio`
 - Avatar testimonio → `https://placehold.co/80x80/E7E5E4/1C1917?text=Avatar`
+
+**Migración a producción:** Cuando se tengan las fotos reales de Ludmila:
+1. Reemplazar cada URL de placehold.co por el archivo local en `src/assets/images/`
+2. Mantener las mismas dimensiones (1200×600 hero, 800×600 galería, 400×400 retrato) para evitar CLS
+3. Actualizar las rutas en los componentes `Hero` y galerías
 
 ---
 
