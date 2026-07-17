@@ -91,15 +91,22 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 
 **Secciones:**
 1. **Hero** (full viewport)
+   - **Identidad**: "Ludmila — Personal Trainer" visible encima del headline
    - Foto placeholder de Ludmila entrenando
    - Headline: "Transformá tu cuerpo, transformá tu vida"
    - Subtítulo breve
-   - CTA principal: "Empezá hoy" → link a `/asesorias`
-2. **Servicio destacado** (2 columnas)
-   - Icono + título: "Planes personalizados"
-   - Descripción: "Online o presencial con seguimiento continuo"
-   - CTA secundario: "Conocé más"
-3. **Testimonios / Resultados** (grid de 4 tarjetas, escalable)
+   - CTA primario: "Empezá hoy" → `/asesorias`
+   - CTA secundario: "Consultá por WhatsApp" → link directo a WhatsApp
+2. **Stats de credibilidad** (barra horizontal, 3 cifras)
+   - 5+ años de experiencia
+   - 100+ alumnos transformados
+   - Online y Presencial
+   - Escalable: datos desde array tipado en frontmatter
+3. **Servicio destacado** (2 mini-cards: Online | Presencial)
+   - **Online** — "Entrená desde tu casa" → "Conocé más" → `/asesorias`
+   - **Presencial** — "Entrená en mi gimnasio" → "Conocé más" → `/asesorias`
+   - Preview de la comparativa de `/asesorias`, ambos CTA apuntan allí
+4. **Testimonios / Resultados** (grid de 4 tarjetas, escalable)
    - Tarjetas sin foto — solo nombre + testimonio placeholder
    - Grid CSS responsivo: 4 columnas en desktop, 2 en tablet, 1 en mobile
    - Escalable: los datos provienen de un array tipado en frontmatter Astro;
@@ -123,8 +130,9 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
    ```
 
    **Componente**: `TestimonialCard.astro` recibe `{ nombre: string; texto: string }` (sin prop de imagen).
-4. **CTA final**
-   - Frase motivacional + botón "Contactame por WhatsApp"
+5. **CTA final**
+   - Frase: "¿Lista/o para empezar tu transformación?"
+   - Botón: "Escribime por WhatsApp" → `https://wa.me/549XXXXXXXXXX`
 
 ### 4.2 Asesorías (`/asesorias`)
 
@@ -132,8 +140,10 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 
 **Secciones:**
 
-1. **Hero interior** (título + descripción)
+1. **Hero interior** (título + subtítulo + CTA)
    - "Planes Personalizados con Seguimiento"
+   - Subtítulo: "Online o presencial, vos elegís"
+   - CTA: "Empezá hoy" → WhatsApp
 
 2. **¿Online o presencial?** (comparativa lado a lado, 2 columnas)
 
@@ -151,16 +161,7 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
    - **3. Seguimiento continuo** — Acompañamiento semanal con ajustes según evolución (online o presencial)
    - **4. Resultados reales** — Cambios visibles en fuerza, composición corporal y bienestar general
 
-4. **Detalle del plan único**
-   - Qué incluye:
-     - Rutina diseñada a medida
-     - Seguimiento continuo (online y/o presencial)
-     - Ajustes periódicos
-     - Acompañamiento por WhatsApp
-   - Modalidades: Online | Presencial (en su gimnasio) | Híbrido
-   - Precio: "Consultar"
-
-5. **Diferenciales** (grid de 6 datos concretos)
+4. **Diferenciales** (grid de 6 datos concretos)
    - "Planes 100% a tu medida — no hay rutinas genéricas ni copiadas"
    - "Ajustes semanales según tu evolución real"
    - "Acompañamiento por WhatsApp — no soy un bot, respondo yo"
@@ -168,13 +169,13 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
    - "Flexibilidad total: online, presencial o combinado"
    - "No necesitás experiencia previa — arrancamos desde donde estés"
 
-6. **¿Para quién es?** (grid o lista con íconos)
+5. **¿Para quién es?** (grid o lista con íconos)
    - Principiantes que nunca pisaron un gimnasio
    - Personas que quieren retomar después de un tiempo
    - Intermedios que estancaron y no ven resultados
    - Cualquiera que busque un cambio real con acompañamiento profesional
 
-7. **FAQ** (acordeón, 8 preguntas predefinidas)
+6. **FAQ** (acordeón, 8 preguntas predefinidas)
    - ¿Necesito experiencia previa para empezar?
    - ¿Cuántos días a la semana entreno?
    - ¿Qué necesito para la modalidad online?
@@ -184,34 +185,59 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
    - ¿Cómo son los pagos?
    - ¿Qué pasa si no puedo una semana?
 
-8. **CTA**: Botón de WhatsApp
+7. **CTA final**: Botón "Consultá por WhatsApp" → `https://wa.me/549XXXXXXXXXX`
 
 ### 4.3 Mi Gimnasio (`/mi-gimnasio`)
 
-**Objetivo**: Mostrar el espacio físico.
+**Objetivo**: Presentar el gimnasio como el espacio donde se realizan las sesiones presenciales, posicionándolo como una opción complementaria dentro del servicio principal de asesorías. El foco está en Ludmila y su metodología, no en el gimnasio como instalación comercial.
 
 **Secciones:**
-1. **Hero** con imagen placeholder del gimnasio
-2. **Galería de imágenes** (grid de placeholders)
-3. **Dirección** (placeholder)
-   - Mapa embebido placeholder
-   - Dirección textual placeholder
-4. **Horarios** (placeholders)
-5. **Servicios disponibles en el gimnasio** (descriptivo)
+
+1. **Hero** (foto de Ludmila en el gimnasio)
+   - Título: "Mi espacio de entrenamiento"
+   - Texto breve: "Este es mi gimnasio, donde recibimos a quienes prefieren el entrenamiento presencial. Pero mi método también está disponible 100% online — vos elegís."
+
+2. **Galería mínima** (grid de 3-4 fotos placeholder)
+   - Sin paginación ni carrusel
+   - Fotos de equipamiento, ambiente y zona de entrenamiento
+
+3. **Dirección + horarios** (texto plano)
+   - Dirección textual placeholder (sin mapa embebido)
+   - Horarios en una línea: "Consultá disponibilidad de turnos"
+
+4. **Redirección suave a online**
+   - Título: "¿No estás en la zona?"
+   - Texto: "Todos mis planes personalizados también están disponibles 100% online con el mismo seguimiento. Entrená desde tu casa con mi método."
+
+5. **CTA**: Botón "Conocé los planes" → `/asesorias`
 
 ### 4.4 Sobre Mí (`/sobre-mi`)
 
 **Objetivo**: Generar confianza, conectar con la historia de Ludmila.
 
 **Secciones:**
-1. **Hero** con foto placeholder de Ludmila (retrato)
-2. **Biografía**
-   - Quién es, filosofía de entrenamiento, por qué empezó
-   - Placeholder para texto real
-3. **Certificaciones / Formación**
-   - Lista con iconos, placeholders
-4. **Frase personal** (blockquote destacado)
-5. **CTA**: "Entrenemos juntos" → WhatsApp
+
+1. **Hero** (foto placeholder de Ludmila, retrato)
+   - "Ludmila — Personal Trainer"
+   - Propósito: "Ayudo a personas como vos a transformar su cuerpo y su relación con el movimiento"
+
+2. **Biografía** (3 párrafos estructurados)
+   - **Quién soy**: presentación personal, qué me llevó al fitness
+   - **Mi filosofía**: cómo entreno, constancia sobre intensidad, hábitos sobre dietas mágicas
+   - **Mi compromiso**: qué puede esperar alguien que trabaja conmigo
+   - Los 3 párrafos son placeholder para texto real
+
+3. **Certificaciones / Formación** (grid de badges de texto, sin fotos)
+   - Grid responsivo de 4 badges (2 en mobile, 4 en desktop)
+   - Cada badge solo contiene texto (nombre de la certificación)
+   - Escalable: datos desde array tipado en frontmatter
+
+4. **Testimonios inline** (1-2 tarjetas, reutilizando `TestimonialCard`)
+   - Mismo componente que en Inicio: `{ nombre: string; texto: string }` sin foto
+
+5. **Frase personal** (blockquote destacado)
+
+6. **CTA**: "Empezá hoy" → `/asesorias`
 
 ---
 
@@ -223,7 +249,7 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 |---|---|---|
 | `Header.astro` | `src/components/Header.astro` | Nav, logo, hamburguesa |
 | `Footer.astro` | `src/components/Footer.astro` | Redes, copyright |
-| `Hero.astro` | `src/components/Hero.astro` | Hero reutilizable (title, subtitle, cta, image) |
+| `Hero.astro` | `src/components/Hero.astro` | Hero reutilizable (identity, title, subtitle, ctas[], image) |
 | `Button.astro` | `src/components/Button.astro` | Botón reutilizable (variant, href, children) |
 | `Card.astro` | `src/components/Card.astro` | Tarjeta genérica (title, description, image, icon) |
 | `PlanCard.astro` | `src/components/PlanCard.astro` | Tarjeta de plan de asesoría |
@@ -231,6 +257,7 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 | `FAQ.astro` | `src/components/FAQ.astro` | Acordeón de preguntas frecuentes |
 | `Steps.astro` | `src/components/Steps.astro` | Proceso paso a paso (numero, titulo, descripcion) |
 | `Comparativa.astro` | `src/components/Comparativa.astro` | Tabla comparativa 2 columnas |
+| `Stats.astro` | `src/components/Stats.astro` | Barra horizontal de estadísticas (valor + label) |
 | `IconWhatsApp.astro` | `src/components/icons/IconWhatsApp.astro` | SVG inline WhatsApp |
 | `IconInstagram.astro` | `src/components/icons/IconInstagram.astro` | SVG inline Instagram |
 | `IconEmail.astro` | `src/components/icons/IconEmail.astro` | SVG inline Email |
@@ -239,10 +266,17 @@ Sitio web estático promocional para **Ludmila**, personal trainer. Marca comerc
 ### 5.2 Convención de props
 
 ```ts
+interface CTA {
+  text: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+}
+
 interface HeroProps {
   title: string;
   subtitle?: string;
-  cta?: { text: string; href: string };
+  identity?: string;
+  ctas?: CTA[];
   image?: { src: string; alt: string };
 }
 
@@ -268,6 +302,24 @@ interface ComparativaProps {
     { titulo: string; items: string[] },
     { titulo: string; items: string[] },
   ];
+}
+
+interface FAQItem {
+  pregunta: string;
+  respuesta: string;
+}
+
+interface FAQProps {
+  items: FAQItem[];
+}
+
+interface StatsItem {
+  valor: string;
+  label: string;
+}
+
+interface StatsProps {
+  items: StatsItem[];
 }
 ```
 
@@ -318,6 +370,7 @@ https://placehold.co/{width}x{height}/{bg}/{text}?text={texto}
 
 Ejemplos:
 - Hero principal → `https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+PT`
+- Ludmila en el gimnasio → `https://placehold.co/800x600/EA580C/FFFFFF?text=Ludmila+en+mi+gimnasio`
 - Retrato → `https://placehold.co/400x400/059669/FFFFFF?text=Ludmila`
 - Gimnasio → `https://placehold.co/800x600/1C1917/FAFAF9?text=Mi+Gimnasio`
 - Avatar testimonio → `https://placehold.co/80x80/E7E5E4/1C1917?text=Avatar`
@@ -338,13 +391,13 @@ Ejemplos:
 
 ### Fase 1 — Fundación
 - [ ] Layout global (Header, Footer, variables CSS en `:root`)
-- [ ] Página Inicio (hero + servicio destacado)
-- [ ] Página Asesorías (comparativa, proceso, plan, diferenciales, para quién, FAQ)
+- [ ] Página Inicio (hero, stats, servicio destacado, testimonios, CTA)
+- [ ] Página Asesorías (hero, comparativa, proceso, diferenciales, para quién, FAQ, CTA)
 - [ ] Navegación responsive con menú hamburguesa
 
 ### Fase 2 — Contenido restante
-- [ ] Página Mi Gimnasio
-- [ ] Página Sobre Mí
+- [ ] Página Mi Gimnasio (hero, galería, dirección, redirección online, CTA)
+- [ ] Página Sobre Mí (hero, biografía, certificaciones, testimonios inline, frase, CTA)
 
 ### Fase 3 — Pulido
 - [ ] Testimonios en Inicio
