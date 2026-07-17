@@ -1,0 +1,28 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+*.log
+
+# environment variables
+.env*
+
+# os files
+Thumbs.db
+Desktop.ini
+
+# editor/ide
+.idea/
+
+# astro
+.cache/
+.temp/
+
+# test coverage
+coverage/
