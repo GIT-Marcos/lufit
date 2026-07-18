@@ -1,0 +1,39 @@
+---
+export interface Props {
+  nombre: string;
+  texto: string;
+}
+
+const { nombre, texto } = Astro.props;
+---
+
+<article class="testimonial">
+  <blockquote class="testimonial__texto">"{texto}"</blockquote>
+  <footer class="testimonial__author">— {nombre}</footer>
+</article>
+
+<style>
+  .testimonial {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .testimonial__texto {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .testimonial__author {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+</style>

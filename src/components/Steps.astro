@@ -1,0 +1,79 @@
+---
+export interface Step {
+  numero: number;
+  titulo: string;
+  descripcion: string;
+}
+
+export interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="steps">
+  {
+    steps.map((step) => (
+      <div class="step">
+        <div class="step__numero" aria-hidden="true">{step.numero}</div>
+        <h3 class="step__titulo">{step.titulo}</h3>
+        <p class="step__descripcion">{step.descripcion}</p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .step {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .step__numero {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .step__titulo {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .step__descripcion {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 24rem;
+  }
+
+  @media (min-width: 768px) {
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

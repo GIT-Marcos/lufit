@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+const galeria = [
+  { src: 'https://placehold.co/800x600/EA580C/FFFFFF?text=Zona+de+entrenamiento', alt: 'Zona de entrenamiento del gimnasio de Ludmila' },
+  { src: 'https://placehold.co/800x600/1C1917/FAFAF9?text=Equipamiento', alt: 'Equipamiento del gimnasio' },
+  { src: 'https://placehold.co/800x600/EA580C/FFFFFF?text=Ambiente', alt: 'Ambiente del gimnasio de Ludmila' },
+  { src: 'https://placehold.co/800x600/1C1917/FAFAF9?text=Box+de+entrenamiento', alt: 'Box de entrenamiento personal' },
+];
+---
+
+<Layout
+  title="Mi Espacio de Entrenamiento"
+  description="Conocé mi gimnasio y las sesiones presenciales con Ludmila. También disponible 100% online. Elegí la modalidad que mejor se adapte a vos."
+  breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Mi Gimnasio', href: '/mi-gimnasio' }]}
+>
+  <section class="hero-gimnasio">
+    <img src="https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+en+mi+gimnasio" alt="Ludmila en su gimnasio" class="hero-gimnasio__image" fetchpriority="high" />
+    <div class="hero-gimnasio__content">
+      <h1 class="hero-gimnasio__title">Mi espacio de entrenamiento</h1>
+      <p class="hero-gimnasio__texto">
+        Este es mi gimnasio, donde recibimos a quienes prefieren el entrenamiento presencial. Pero mi método también está disponible 100% online — vos elegís.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__container">
+      <h2 class="section__title">Galería</h2>
+      <div class="galeria-grid">
+        {galeria.map((foto) => (
+          <img src={foto.src} alt={foto.alt} class="galeria__img" loading="lazy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="section__container section__container--narrow">
+      <h2 class="section__title">Dirección y horarios</h2>
+      <div class="info-box">
+        <p class="info-box__line">Dirección: [Dirección del gimnasio — placeholder]</p>
+        <p class="info-box__line">Horarios: Consultá disponibilidad de turnos</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__container section__container--narrow">
+      <h2 class="section__title">¿No estás en la zona?</h2>
+      <p class="section__texto">
+        Todos mis planes personalizados también están disponibles 100% online con el mismo seguimiento. Entrená desde tu casa con mi método.
+      </p>
+      <div class="section__cta-wrapper">
+        <Button href="/asesorias" variant="primary">Conocé los planes</Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-gimnasio {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .hero-gimnasio__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-gimnasio__content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 40rem;
+  }
+
+  .hero-gimnasio__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero-gimnasio__texto {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 4rem 1rem;
+  }
+
+  .section--surface {
+    background: var(--color-surface);
+  }
+
+  .section__container {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+
+  .section__container--narrow {
+    max-width: 48rem;
+  }
+
+  .section__title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section__texto {
+    text-align: center;
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .section__cta-wrapper {
+    text-align: center;
+  }
+
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .galeria__img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+  }
+
+  .info-box {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .info-box__line {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 768px) {
+    .galeria-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galeria__img {
+      height: 240px;
+    }
+  }
+</style>

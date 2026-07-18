@@ -1,0 +1,62 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: { src: string; alt: string };
+  icon?: string;
+}
+
+const { title, description, image, icon } = Astro.props;
+---
+
+<article class="card">
+  {image && <img src={image.src} alt={image.alt} class="card__image" loading="lazy" />}
+  <div class="card__body">
+    {icon && <span class="card__icon" aria-hidden="true">{icon}</span>}
+    <h3 class="card__title">{title}</h3>
+    {description && <p class="card__description">{description}</p>}
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card__body {
+    padding: 1.25rem;
+  }
+
+  .card__icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .card__description {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+</style>

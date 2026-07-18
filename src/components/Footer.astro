@@ -1,0 +1,55 @@
+---
+import IconWhatsApp from './icons/IconWhatsApp.astro';
+import IconInstagram from './icons/IconInstagram.astro';
+import IconEmail from './icons/IconEmail.astro';
+import { CONTACTO } from '../data/contacto';
+---
+
+<footer class="footer">
+  <div class="footer__social">
+    <a href={CONTACTO.WHATSAPP_URL} class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+      <IconWhatsApp />
+    </a>
+    <a href={CONTACTO.INSTAGRAM_URL} class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+      <IconInstagram />
+    </a>
+    <a href={CONTACTO.EMAIL_URL} class="footer__social-link" aria-label="Email">
+      <IconEmail />
+    </a>
+  </div>
+  <p class="footer__copyright">&copy; Ludmila PT</p>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__social {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .footer__social-link:hover {
+    color: var(--color-primary);
+  }
+
+  .footer__copyright {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+</style>

@@ -1,0 +1,158 @@
+---
+import IconMenu from './icons/IconMenu.astro';
+import IconClose from './icons/IconClose.astro';
+
+export interface Props {
+  currentPage: string;
+}
+
+const { currentPage } = Astro.props;
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Asesorías', href: '/asesorias' },
+  { label: 'Mi Gimnasio', href: '/mi-gimnasio' },
+  { label: 'Sobre Mí', href: '/sobre-mi' },
+];
+---
+
+<header class="header">
+  <a href="/" class="header__logo">Ludmila PT</a>
+  <button class="header__toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+    <span class="header__toggle-icon header__toggle-icon--open"><IconMenu /></span>
+    <span class="header__toggle-icon header__toggle-icon--close"><IconClose /></span>
+  </button>
+  <nav class="header__nav" id="nav-menu" aria-label="Navegación principal">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="header__link"
+        aria-current={currentPage === item.href ? 'page' : undefined}
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav-menu');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+      nav.classList.toggle('header__nav--open');
+    });
+  }
+</script>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  .header__logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .header__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--color-text);
+    z-index: 10;
+  }
+
+  .header__toggle-icon--close {
+    display: none;
+  }
+
+  .header__nav--open ~ .header__toggle .header__toggle-icon--open {
+    display: none;
+  }
+
+  .header__nav--open ~ .header__toggle .header__toggle-icon--close {
+    display: block;
+  }
+
+  .header__nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem;
+    z-index: 9;
+  }
+
+  .header__nav--open {
+    display: flex;
+  }
+
+  .header__link {
+    padding: 0.75rem 1rem;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+
+  .header__link:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+  }
+
+  .header__link[aria-current="page"] {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    .header {
+      padding: 1rem 2rem;
+    }
+
+    .header__toggle {
+      display: none;
+    }
+
+    .header__nav {
+      display: flex;
+      flex-direction: row;
+      position: static;
+      gap: 0.5rem;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+
+    .header__link {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+</style>

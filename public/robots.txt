@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — permitidos (contenido original con valor EEAT)
+# No se agregan reglas de bloqueo para GPTBot, ClaudeBot,
+# PerplexityBot ni Google-Extended.
+
+Sitemap: https://[dominio]/sitemap.xml
