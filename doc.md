@@ -326,6 +326,7 @@ Sitemap: https://[dominio]/sitemap.xml
 | `IconInstagram.astro` | `src/components/icons/IconInstagram.astro` | SVG inline Instagram |
 | `IconEmail.astro` | `src/components/icons/IconEmail.astro` | SVG inline Email |
 | `IconMenu.astro` | `src/components/icons/IconMenu.astro` | SVG inline hamburguesa |
+| `IconClose.astro` | `src/components/icons/IconClose.astro` | SVG inline X (cerrar menú) |
 
 ### 5.2 Convención de props
 
@@ -352,7 +353,6 @@ interface ButtonProps {
 
 interface Step {
   numero: number;
-  icono: string;
   titulo: string;
   descripcion: string;
 }
@@ -472,22 +472,106 @@ Ejemplos:
 
 ## 9. Plan de implementación
 
-### Fase 1 — Fundación
-- [ ] Layout global (Header, Footer, variables CSS en `:root`)
-- [ ] Página Inicio (hero, stats, servicio destacado, testimonios, CTA)
-- [ ] Página Asesorías (hero, comparativa, proceso, diferenciales, para quién, FAQ, CTA)
-- [ ] Navegación responsive con menú hamburguesa
+**Estrategia:** Componentes atómicos primero → Layout → Páginas core → Páginas secundarias → SEO + Pulido → Producción.
+Cada fase incluye verificación (`npx astro check` y `npm run build`) para validar que no se introduzcan errores.
 
-### Fase 2 — Contenido restante
-- [ ] Página Mi Gimnasio (hero, galería, dirección, redirección online, CTA)
-- [ ] Página Sobre Mí (hero, biografía, certificaciones, testimonios inline, frase, CTA)
+**Dependencias entre fases:**
+```
+Fase 0 ──► Fase 1 ──► Fase 2 ──► Fase 3 ──► Fase 4 ──► Fase 5
+(scaffold)   (comp.)    (layout +    (págs.     (SEO +      (deploy)
+                         págs. core)  secund.)   pulido)
+```
+Cada fase depende de que la anterior esté completa y verificada. Las tareas dentro de una misma fase no tienen dependencias ordenadas salvo que se indique.
 
-### Fase 3 — Pulido
-- [ ] Transiciones y animaciones sutiles
-- [ ] SEO meta tags y Open Graph por página
-- [ ] JSON-LD structured data (Person, FAQPage, LocalBusiness)
-- [ ] Página 404 personalizada
-- [ ] robots.txt en public/
-- [ ] Accesibilidad: focus-visible, aria labels, roles semánticos
-- [ ] Favicon personalizado
-- [ ] Build y preview de producción
+---
+
+### Fase 0 — Bootstrap del proyecto
+
+Limpieza del scaffold Astro Starter + cimientos del sistema de diseño.
+
+- [ ] Remover boilerplate: eliminar `src/components/Welcome.astro`, `src/assets/astro.svg`, `src/assets/background.svg`
+- [ ] Crear `src/styles/global.css` con reset CSS, variables `:root` (paleta completa), jerarquía tipográfica
+- [ ] Crear estructura de directorios: `src/components/icons/`, `src/assets/images/`
+- [ ] Inicializar `astro.config.mjs` sin `site` por ahora
+- [ ] Migrar estilos de reset desde `Layout.astro` embebido a `global.css` e importarlo en Layout
+- **Verificación:** `npx astro check` → 0 errores, `npm run build` → éxito
+
+---
+
+### Fase 1 — Librería de componentes atómicos
+
+Todos los componentes UI construidos y verificados antes de tocar páginas. Se construyen en orden de dependencias (iconos → botón → compuestos).
+
+- [ ] **Iconos SVG inline** (sin dependencias):
+  - `IconWhatsApp.astro`, `IconInstagram.astro`, `IconEmail.astro`
+  - `IconMenu.astro`, `IconClose.astro`
+- [ ] `Button.astro` (variants: `primary`, `secondary`, `outline`; prop `href` para link, prop `children` para texto)
+- [ ] `Card.astro` — tarjeta genérica reutilizable (title, description, image opcional, icon opcional)
+- [ ] `Stats.astro` — barra horizontal de estadísticas (`StatsItem[]`)
+- [ ] `Hero.astro` — hero reutilizable (`HeroProps`: identity, title, subtitle, ctas, image)
+- [ ] `TestimonialCard.astro` — tarjeta de testimonio sin foto (`{ nombre: string; texto: string }`)
+- [ ] `Steps.astro` — proceso paso a paso horizontal (`Step[]`)
+- [ ] `Comparativa.astro` — tabla comparativa 2 columnas
+- [ ] `FAQ.astro` — acordeón con JS de cliente para toggle (único JS del sitio junto al menú hamburguesa)
+- [ ] `PlanCard.astro` — tarjeta de plan de asesoría
+- **Verificación:** Renderizar cada componente en página de prueba, `npx astro check`, `npm run build`
+
+---
+
+### Fase 2 — Layout y páginas core
+
+Armado del esqueleto del sitio + las 2 páginas principales. El Layout incluye SEO mínimo (title/description dinámicos, canonical) desde el vamos para no reabrir estas páginas después.
+
+- [ ] `Header.astro` — nav con logo texto "Ludmila PT", ítems de navegación, menú hamburguesa con JS de cliente (`IconMenu`/`IconClose`), `aria-current="page"`, `aria-label` en hamburguesa
+- [ ] `Footer.astro` — copyright "© Ludmila PT", iconos redes sociales con `aria-label`, enlaces a WhatsApp/Instagram/Email
+- [ ] `Layout.astro` — `<html lang="es">`, skip link (`<a href="#main-content">Ir al contenido</a>`), `<main id="main-content">` envolviendo `<slot />`, import de `global.css`, props `title` y `description` para `<head>`, `<link rel="canonical">` con `Astro.url.origin + Astro.url.pathname`, roles semánticos (`<nav>`, `<main>`, `<footer>`), Header, Footer
+- [ ] Página **Inicio** (`/`) — Hero (identity + headline + CTAs + foto placeholder), Stats (3 cifras desde array), Servicio destacado (2 mini-cards), Testimonios (grid de 4 desde array), CTA final WhatsApp
+- [ ] Página **Asesorías** (`/asesorias`) — Hero interior, Comparativa Online vs Presencial, Steps (4 pasos), Diferenciales (grid de 6), ¿Para quién es? (lista), FAQ (8 preguntas desde array), CTA WhatsApp
+- **Verificación:** Navegación completa menu→páginas, menú hamburguesa funcional en mobile, `npx astro check`, `npm run build`
+
+---
+
+### Fase 3 — Páginas secundarias
+
+Incluye la 404 desde esta fase para cubrir todas las rutas del sitio.
+
+- [ ] Página **Mi Gimnasio** (`/mi-gimnasio`) — Hero (foto placeholder Ludmila entrenando), Galería mínima (grid 3-4 fotos), Dirección + horarios (texto plano), Redirección suave a online, CTA "Conocé los planes" → `/asesorias`
+- [ ] Página **Sobre Mí** (`/sobre-mi`) — Hero (retrato placeholder), Biografía (3 párrafos placeholder), Certificaciones (grid de badges desde array), Testimonios inline (1-2 tarjetas con `TestimonialCard`), Frase personal (blockquote), CTA "Empezá hoy" → `/asesorias`
+- [ ] Página **404** (`/404.astro`) — Título "Página no encontrada", subtítulo "Parece que te perdiste...", botón "Volver al inicio" → `/`, diseño acorde al sitio, sin Header/Footer complejos
+- **Verificación:** Rutas `/mi-gimnasio`, `/sobre-mi`, y ruta inexistente funcionan, `npx astro check`, `npm run build`
+
+---
+
+### Fase 4 — SEO avanzado y pulido
+
+Se aplica sobre todas las páginas existentes. Los datos de contacto reales (WhatsApp, Instagram) se centralizan en una constante y se referencian desde Header/Footer/Hero en lugar de estar hardcodeados.
+
+- [ ] Centralizar datos de contacto en constante compartida (`src/data/contacto.ts`): WhatsApp URL, Instagram handle, Email
+- [ ] Refactorizar Header, Footer y páginas para usar la constante de contacto en lugar de valores hardcodeados
+- [ ] Meta tags completos por página (title 50–60 caracteres, description 150–160, según tabla de sección 3.3)
+- [ ] Open Graph: `og:title`, `og:description`, `og:image` (1200×630 placeholder), `og:url`, `og:type: website`, `og:locale: es_ES`, `og:site_name: Ludmila PT`
+- [ ] Twitter Card: `summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`
+- [ ] JSON-LD `Person` en Sobre Mí (nombre, descripción, `sameAs` redes, `knowsAbout`: "Personal Training")
+- [ ] JSON-LD `FAQPage` en Asesorías (8 preguntas-respuestas desde el array de FAQ)
+- [ ] JSON-LD `BreadcrumbList` en páginas interiores (Inicio position 1 → Página actual position 2)
+- [ ] `robots.txt` en `public/robots.txt` con política de AI crawlers permitidos (según sección 3.3)
+- [ ] Transiciones y animaciones sutiles CSS (`transition: all 0.2s ease` en hovers, fade-in en secciones al scroll si aplica)
+- [ ] Favicon personalizado (reemplazar `public/favicon.svg` y `public/favicon.ico`)
+- [ ] Verificar accesibilidad: `lang="es"`, skip link, `:focus-visible`, `aria-label` en iconos, `aria-hidden` en SVGs decorativos, roles semánticos
+- **Verificación:** Lighthouse audit (target: ≥90 SEO, ≥90 Accesibilidad, ≥90 Performance), Google Rich Results Test (FAQPage, Person, BreadcrumbList), `npx astro check`, `npm run build`
+
+---
+
+### Fase 5 — Producción
+
+Depende de tener el dominio definido. Todo lo anterior funciona sin dominio; esta fase lo prepara para publicación.
+
+- [ ] Configurar `site` en `astro.config.mjs` con la URL final del sitio
+- [ ] Agregar `@astrojs/sitemap` vía `npx astro add sitemap`
+- [ ] Migrar canonical URL en Layout de `Astro.url.origin + Astro.url.pathname` a `Astro.site + Astro.url.pathname`
+- [ ] Actualizar `robots.txt` con URL real del sitemap
+- [ ] Reemplazar placeholders de imágenes de `placehold.co` por fotos reales en `src/assets/images/` (solo si están disponibles)
+- [ ] Reemplazar placeholder de WhatsApp con número real en la constante de contacto
+- [ ] Build de producción: `npm run build`
+- [ ] Preview: `npm run preview` y verificar todas las rutas
+- **Verificación:** Build exitoso, preview funcionando, sitemap generado en `dist/sitemap.xml`
