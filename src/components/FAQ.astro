@@ -17,7 +17,9 @@ const { items } = Astro.props;
       <details class="faq__item">
         <summary class="faq__pregunta">
           {item.pregunta}
-          <span class="faq__icono" aria-hidden="true">+</span>
+          <span class="faq__icono" aria-hidden="true">
+            +
+          </span>
         </summary>
         <div class="faq__respuesta">
           <p>{item.respuesta}</p>

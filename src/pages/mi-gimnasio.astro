@@ -1,26 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 
 const galeria = [
-  { src: 'https://placehold.co/800x600/EA580C/FFFFFF?text=Zona+de+entrenamiento', alt: 'Zona de entrenamiento del gimnasio de Ludmila' },
-  { src: 'https://placehold.co/800x600/1C1917/FAFAF9?text=Equipamiento', alt: 'Equipamiento del gimnasio' },
-  { src: 'https://placehold.co/800x600/EA580C/FFFFFF?text=Ambiente', alt: 'Ambiente del gimnasio de Ludmila' },
-  { src: 'https://placehold.co/800x600/1C1917/FAFAF9?text=Box+de+entrenamiento', alt: 'Box de entrenamiento personal' },
+  {
+    src: "https://placehold.co/800x600/EA580C/FFFFFF?text=Zona+de+entrenamiento",
+    alt: "Zona de entrenamiento del gimnasio de Ludmila",
+  },
+  {
+    src: "https://placehold.co/800x600/1C1917/FAFAF9?text=Equipamiento",
+    alt: "Equipamiento del gimnasio",
+  },
+  {
+    src: "https://placehold.co/800x600/EA580C/FFFFFF?text=Ambiente",
+    alt: "Ambiente del gimnasio de Ludmila",
+  },
+  {
+    src: "https://placehold.co/800x600/1C1917/FAFAF9?text=Box+de+entrenamiento",
+    alt: "Box de entrenamiento personal",
+  },
 ];
 ---
 
 <Layout
   title="Mi Espacio de Entrenamiento"
   description="Conocé mi gimnasio y las sesiones presenciales con Ludmila. También disponible 100% online. Elegí la modalidad que mejor se adapte a vos."
-  breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Mi Gimnasio', href: '/mi-gimnasio' }]}
+  breadcrumb={[
+    { label: "Inicio", href: "/" },
+    { label: "Mi Gimnasio", href: "/mi-gimnasio" },
+  ]}
 >
   <section class="hero-gimnasio">
-    <img src="https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+en+mi+gimnasio" alt="Ludmila en su gimnasio" class="hero-gimnasio__image" fetchpriority="high" />
+    <img
+      src="https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+en+mi+gimnasio"
+      alt="Ludmila en su gimnasio"
+      class="hero-gimnasio__image"
+      fetchpriority="high"
+    />
     <div class="hero-gimnasio__content">
       <h1 class="hero-gimnasio__title">Mi espacio de entrenamiento</h1>
       <p class="hero-gimnasio__texto">
-        Este es mi gimnasio, donde recibimos a quienes prefieren el entrenamiento presencial. Pero mi método también está disponible 100% online — vos elegís.
+        Este es mi gimnasio, donde recibimos a quienes prefieren el
+        entrenamiento presencial. Pero mi método también está disponible 100%
+        online — vos elegís.
       </p>
     </div>
   </section>
@@ -29,9 +51,16 @@ const galeria = [
     <div class="section__container">
       <h2 class="section__title">Galería</h2>
       <div class="galeria-grid">
-        {galeria.map((foto) => (
-          <img src={foto.src} alt={foto.alt} class="galeria__img" loading="lazy" />
-        ))}
+        {
+          galeria.map((foto) => (
+            <img
+              src={foto.src}
+              alt={foto.alt}
+              class="galeria__img"
+              loading="lazy"
+            />
+          ))
+        }
       </div>
     </div>
   </section>
@@ -40,8 +69,12 @@ const galeria = [
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Dirección y horarios</h2>
       <div class="info-box">
-        <p class="info-box__line">Dirección: [Dirección del gimnasio — placeholder]</p>
-        <p class="info-box__line">Horarios: Consultá disponibilidad de turnos</p>
+        <p class="info-box__line">
+          Dirección: [Dirección del gimnasio — placeholder]
+        </p>
+        <p class="info-box__line">
+          Horarios: Consultá disponibilidad de turnos
+        </p>
       </div>
     </div>
   </section>
@@ -50,7 +83,8 @@ const galeria = [
     <div class="section__container section__container--narrow">
       <h2 class="section__title">¿No estás en la zona?</h2>
       <p class="section__texto">
-        Todos mis planes personalizados también están disponibles 100% online con el mismo seguimiento. Entrená desde tu casa con mi método.
+        Todos mis planes personalizados también están disponibles 100% online
+        con el mismo seguimiento. Entrená desde tu casa con mi método.
       </p>
       <div class="section__cta-wrapper">
         <Button href="/asesorias" variant="primary">Conocé los planes</Button>

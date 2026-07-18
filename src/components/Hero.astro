@@ -1,10 +1,10 @@
 ---
-import Button from './Button.astro';
+import Button from "./Button.astro";
 
 export interface CTA {
   text: string;
   href: string;
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
 }
 
 export interface Props {
@@ -19,20 +19,31 @@ const { title, subtitle, identity, ctas, image } = Astro.props;
 ---
 
 <section class="hero">
-  {image && (
-    <img src={image.src} alt={image.alt} class="hero__image" fetchpriority="high" />
-  )}
+  {
+    image && (
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="hero__image"
+        fetchpriority="high"
+      />
+    )
+  }
   <div class="hero__content">
     {identity && <p class="hero__identity">{identity}</p>}
     <h1 class="hero__title">{title}</h1>
     {subtitle && <p class="hero__subtitle">{subtitle}</p>}
-    {ctas && ctas.length > 0 && (
-      <div class="hero__ctas">
-        {ctas.map((cta) => (
-          <Button href={cta.href} variant={cta.variant || 'primary'}>{cta.text}</Button>
-        ))}
-      </div>
-    )}
+    {
+      ctas && ctas.length > 0 && (
+        <div class="hero__ctas">
+          {ctas.map((cta) => (
+            <Button href={cta.href} variant={cta.variant || "primary"}>
+              {cta.text}
+            </Button>
+          ))}
+        </div>
+      )
+    }
   </div>
 </section>
 

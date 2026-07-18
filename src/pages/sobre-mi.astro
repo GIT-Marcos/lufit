@@ -1,32 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
-import { CONTACTO } from '../data/contacto';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import { CONTACTO } from "../data/contacto";
 
 const certificaciones = [
-  'Certificación en Entrenamiento Personal',
-  'Especialización en Nutrición Deportiva',
-  'Técnicas de Corrección Postural',
-  'Entrenamiento Funcional Avanzado',
+  "Certificación en Entrenamiento Personal",
+  "Especialización en Nutrición Deportiva",
+  "Técnicas de Corrección Postural",
+  "Entrenamiento Funcional Avanzado",
 ];
 
 const testimonios = [
-  { nombre: 'María G.', texto: 'Entrenar con Ludmila cambió mi forma de ver el ejercicio. Su acompañamiento es inigualable.' },
-  { nombre: 'Carlos P.', texto: 'Después de años sin resultados, en 3 meses vi cambios que no creía posibles. Recomiendo su método.' },
+  {
+    nombre: "María G.",
+    texto:
+      "Entrenar con Ludmila cambió mi forma de ver el ejercicio. Su acompañamiento es inigualable.",
+  },
+  {
+    nombre: "Carlos P.",
+    texto:
+      "Después de años sin resultados, en 3 meses vi cambios que no creía posibles. Recomiendo su método.",
+  },
 ];
 ---
 
 <Layout
   title="Conocé a Ludmila — Personal Trainer"
   description="Conocé a Ludmila, personal trainer. Filosofía, certificaciones y experiencia. Empezá hoy tu transformación con acompañamiento real."
-  breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Sobre Mí', href: '/sobre-mi' }]}
+  breadcrumb={[
+    { label: "Inicio", href: "/" },
+    { label: "Sobre Mí", href: "/sobre-mi" },
+  ]}
 >
   <section class="hero-sobremi">
     <div class="hero-sobremi__content">
-      <img src="https://placehold.co/400x400/05804A/FFFFFF?text=Ludmila" alt="Retrato de Ludmila, personal trainer" class="hero-sobremi__image" fetchpriority="high" />
+      <img
+        src="https://placehold.co/400x400/05804A/FFFFFF?text=Ludmila"
+        alt="Retrato de Ludmila, personal trainer"
+        class="hero-sobremi__image"
+        fetchpriority="high"
+      />
       <h1 class="hero-sobremi__title">Ludmila — Personal Trainer</h1>
-      <p class="hero-sobremi__proposito">Ayudo a personas como vos a transformar su cuerpo y su relación con el movimiento</p>
+      <p class="hero-sobremi__proposito">
+        Ayudo a personas como vos a transformar su cuerpo y su relación con el
+        movimiento
+      </p>
     </div>
   </section>
 
@@ -36,15 +55,28 @@ const testimonios = [
       <div class="bio">
         <div class="bio__parrafo">
           <h3 class="bio__heading">Quién soy</h3>
-          <p class="bio__texto">[Texto placeholder — presentación personal, qué me llevó al fitness. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]</p>
+          <p class="bio__texto">
+            [Texto placeholder — presentación personal, qué me llevó al fitness.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+          </p>
         </div>
         <div class="bio__parrafo">
           <h3 class="bio__heading">Mi filosofía</h3>
-          <p class="bio__texto">[Texto placeholder — cómo entreno, constancia sobre intensidad, hábitos sobre dietas mágicas. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]</p>
+          <p class="bio__texto">
+            [Texto placeholder — cómo entreno, constancia sobre intensidad,
+            hábitos sobre dietas mágicas. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.]
+          </p>
         </div>
         <div class="bio__parrafo">
           <h3 class="bio__heading">Mi compromiso</h3>
-          <p class="bio__texto">[Texto placeholder — qué puede esperar alguien que trabaja conmigo. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.]</p>
+          <p class="bio__texto">
+            [Texto placeholder — qué puede esperar alguien que trabaja conmigo.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.]
+          </p>
         </div>
       </div>
     </div>
@@ -54,9 +86,7 @@ const testimonios = [
     <div class="section__container">
       <h2 class="section__title">Certificaciones</h2>
       <div class="cert-grid">
-        {certificaciones.map((cert) => (
-          <div class="cert-badge">{cert}</div>
-        ))}
+        {certificaciones.map((cert) => <div class="cert-badge">{cert}</div>)}
       </div>
     </div>
   </section>
@@ -65,9 +95,11 @@ const testimonios = [
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Lo que dicen</h2>
       <div class="testimonios-inline">
-        {testimonios.map((t) => (
-          <TestimonialCard nombre={t.nombre} texto={t.texto} />
-        ))}
+        {
+          testimonios.map((t) => (
+            <TestimonialCard nombre={t.nombre} texto={t.texto} />
+          ))
+        }
       </div>
     </div>
   </section>
@@ -75,7 +107,9 @@ const testimonios = [
   <section class="section section--surface">
     <div class="section__container section__container--narrow">
       <blockquote class="frase">
-        <p class="frase__texto">[Frase personal de Ludmila — placeholder. Lorem ipsum dolor sit amet.]</p>
+        <p class="frase__texto">
+          [Frase personal de Ludmila — placeholder. Lorem ipsum dolor sit amet.]
+        </p>
       </blockquote>
     </div>
   </section>
@@ -88,19 +122,20 @@ const testimonios = [
   </section>
 </Layout>
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Ludmila",
-  "description": "Personal trainer. Ayudo a personas a transformar su cuerpo y su relación con el movimiento.",
-  "jobTitle": "Personal Trainer",
-  "knowsAbout": "Personal Training",
-  "sameAs": [
-    CONTACTO.WHATSAPP_URL,
-    CONTACTO.INSTAGRAM_URL,
-    CONTACTO.EMAIL_URL,
-  ],
-})} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ludmila",
+    description:
+      "Personal trainer. Ayudo a personas a transformar su cuerpo y su relación con el movimiento.",
+    jobTitle: "Personal Trainer",
+    knowsAbout: "Personal Training",
+    sameAs: [CONTACTO.WHATSAPP_URL, CONTACTO.INSTAGRAM_URL, CONTACTO.EMAIL_URL],
+  })}
+/>
 
 <style>
   .hero-sobremi {

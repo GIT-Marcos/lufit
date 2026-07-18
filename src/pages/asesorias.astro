@@ -1,19 +1,19 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Button from '../components/Button.astro';
-import Comparativa from '../components/Comparativa.astro';
-import Steps from '../components/Steps.astro';
-import FAQ from '../components/FAQ.astro';
-import { CONTACTO } from '../data/contacto';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+import Comparativa from "../components/Comparativa.astro";
+import Steps from "../components/Steps.astro";
+import FAQ from "../components/FAQ.astro";
+import { CONTACTO } from "../data/contacto";
 
 const diferenciales = [
-  'Planes 100% a tu medida — no hay rutinas genéricas ni copiadas',
-  'Ajustes semanales según tu evolución real',
-  'Acompañamiento por WhatsApp — no soy un bot, respondo yo',
-  'Corrección de técnica para evitar lesiones y maximizar resultados',
-  'Flexibilidad total: online, presencial o combinado',
-  'No necesitás experiencia previa — arrancamos desde donde estés',
+  "Planes 100% a tu medida — no hay rutinas genéricas ni copiadas",
+  "Ajustes semanales según tu evolución real",
+  "Acompañamiento por WhatsApp — no soy un bot, respondo yo",
+  "Corrección de técnica para evitar lesiones y maximizar resultados",
+  "Flexibilidad total: online, presencial o combinado",
+  "No necesitás experiencia previa — arrancamos desde donde estés",
 ];
 
 const paraQuien = [
@@ -38,13 +38,16 @@ const faqItems = [
 <Layout
   title="Planes Personalizados con Seguimiento"
   description="Planes de entrenamiento a tu medida con acompañamiento continuo. Online o presencial. Consultá sin compromiso."
-  breadcrumb={[{ label: 'Inicio', href: '/' }, { label: 'Asesorías', href: '/asesorias' }]}
+  breadcrumb={[
+    { label: "Inicio", href: "/" },
+    { label: "Asesorías", href: "/asesorias" },
+  ]}
 >
   <Hero
     title="Planes Personalizados con Seguimiento"
     subtitle="Online o presencial, vos elegís"
     ctas={[
-      { text: 'Empezá hoy', href: CONTACTO.WHATSAPP_URL, variant: 'primary' },
+      { text: "Empezá hoy", href: CONTACTO.WHATSAPP_URL, variant: "primary" },
     ]}
   />
 
@@ -54,23 +57,23 @@ const faqItems = [
       <Comparativa
         columnas={[
           {
-            titulo: 'Online',
+            titulo: "Online",
             items: [
-              'Entrená desde tu casa',
-              'Sin traslados, máximo aprovechamiento del tiempo',
-              'Seguimiento por videollamada + WhatsApp',
-              'Rutina adaptada a tu espacio y equipamiento',
-              'Flexibilidad total de horarios',
+              "Entrená desde tu casa",
+              "Sin traslados, máximo aprovechamiento del tiempo",
+              "Seguimiento por videollamada + WhatsApp",
+              "Rutina adaptada a tu espacio y equipamiento",
+              "Flexibilidad total de horarios",
             ],
           },
           {
-            titulo: 'Presencial',
+            titulo: "Presencial",
             items: [
-              'Entrená en mi gimnasio',
-              'Corrección de técnica en vivo',
-              'Seguimiento presencial sesión a sesión',
-              'Acceso a equipamiento completo',
-              'Box con fecha y hora fija',
+              "Entrená en mi gimnasio",
+              "Corrección de técnica en vivo",
+              "Seguimiento presencial sesión a sesión",
+              "Acceso a equipamiento completo",
+              "Box con fecha y hora fija",
             ],
           },
         ]}
@@ -83,10 +86,30 @@ const faqItems = [
       <h2 class="section__title">Cómo funciona</h2>
       <Steps
         steps={[
-          { numero: 1, titulo: 'Evaluación inicial', descripcion: 'Charla para conocerte, definir objetivos, evaluar condición física' },
-          { numero: 2, titulo: 'Plan a tu medida', descripcion: 'Diseño de rutina personalizada según tus metas, horarios y equipamiento' },
-          { numero: 3, titulo: 'Seguimiento continuo', descripcion: 'Acompañamiento semanal con ajustes según evolución (online o presencial)' },
-          { numero: 4, titulo: 'Resultados reales', descripcion: 'Cambios visibles en fuerza, composición corporal y bienestar general' },
+          {
+            numero: 1,
+            titulo: "Evaluación inicial",
+            descripcion:
+              "Charla para conocerte, definir objetivos, evaluar condición física",
+          },
+          {
+            numero: 2,
+            titulo: "Plan a tu medida",
+            descripcion:
+              "Diseño de rutina personalizada según tus metas, horarios y equipamiento",
+          },
+          {
+            numero: 3,
+            titulo: "Seguimiento continuo",
+            descripcion:
+              "Acompañamiento semanal con ajustes según evolución (online o presencial)",
+          },
+          {
+            numero: 4,
+            titulo: "Resultados reales",
+            descripcion:
+              "Cambios visibles en fuerza, composición corporal y bienestar general",
+          },
         ]}
       />
     </div>
@@ -96,12 +119,16 @@ const faqItems = [
     <div class="section__container">
       <h2 class="section__title">Diferenciales</h2>
       <div class="diferenciales-grid">
-        {diferenciales.map((d) => (
-          <div class="diferencial">
-            <span class="diferencial__check" aria-hidden="true">✓</span>
-            <p class="diferencial__texto">{d}</p>
-          </div>
-        ))}
+        {
+          diferenciales.map((d) => (
+            <div class="diferencial">
+              <span class="diferencial__check" aria-hidden="true">
+                ✓
+              </span>
+              <p class="diferencial__texto">{d}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -110,12 +137,16 @@ const faqItems = [
     <div class="section__container">
       <h2 class="section__title">¿Para quién es?</h2>
       <div class="para-quien-grid">
-        {paraQuien.map((item) => (
-          <div class="para-quien-item">
-            <span class="para-quien-item__icono" aria-hidden="true">{item.icono}</span>
-            <p class="para-quien-item__texto">{item.texto}</p>
-          </div>
-        ))}
+        {
+          paraQuien.map((item) => (
+            <div class="para-quien-item">
+              <span class="para-quien-item__icono" aria-hidden="true">
+                {item.icono}
+              </span>
+              <p class="para-quien-item__texto">{item.texto}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -130,23 +161,29 @@ const faqItems = [
   <section class="section section--cta">
     <div class="section__container">
       <h2 class="section__title">¿Lista/o para empezar?</h2>
-      <Button href={CONTACTO.WHATSAPP_URL} variant="primary">Consultá por WhatsApp</Button>
+      <Button href={CONTACTO.WHATSAPP_URL} variant="primary"
+        >Consultá por WhatsApp</Button
+      >
     </div>
   </section>
 </Layout>
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqItems.map((item) => ({
-    "@type": "Question",
-    "name": item.pregunta,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": item.respuesta,
-    },
-  })),
-})} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.pregunta,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.respuesta,
+      },
+    })),
+  })}
+/>
 
 <style>
   .section {

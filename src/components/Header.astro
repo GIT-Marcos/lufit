@@ -1,6 +1,6 @@
 ---
-import IconMenu from './icons/IconMenu.astro';
-import IconClose from './icons/IconClose.astro';
+import IconMenu from "./icons/IconMenu.astro";
+import IconClose from "./icons/IconClose.astro";
 
 export interface Props {
   currentPage: string;
@@ -14,42 +14,54 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Asesorías', href: '/asesorias' },
-  { label: 'Mi Gimnasio', href: '/mi-gimnasio' },
-  { label: 'Sobre Mí', href: '/sobre-mi' },
+  { label: "Inicio", href: "/" },
+  { label: "Asesorías", href: "/asesorias" },
+  { label: "Mi Gimnasio", href: "/mi-gimnasio" },
+  { label: "Sobre Mí", href: "/sobre-mi" },
 ];
 ---
 
 <header class="header">
   <a href="/" class="header__logo">Ludmila PT</a>
-  <button class="header__toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-    <span class="header__toggle-icon header__toggle-icon--open"><IconMenu /></span>
-    <span class="header__toggle-icon header__toggle-icon--close"><IconClose /></span>
+  <button
+    class="header__toggle"
+    id="menu-toggle"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="nav-menu"
+  >
+    <span class="header__toggle-icon header__toggle-icon--open"
+      ><IconMenu /></span
+    >
+    <span class="header__toggle-icon header__toggle-icon--close"
+      ><IconClose /></span
+    >
   </button>
   <nav class="header__nav" id="nav-menu" aria-label="Navegación principal">
-    {navItems.map((item) => (
-      <a
-        href={item.href}
-        class="header__link"
-        aria-current={currentPage === item.href ? 'page' : undefined}
-      >
-        {item.label}
-      </a>
-    ))}
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class="header__link"
+          aria-current={currentPage === item.href ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      ))
+    }
   </nav>
 </header>
 
 <script>
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('nav-menu');
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav-menu");
 
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
-      nav.classList.toggle('header__nav--open');
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
+      nav.classList.toggle("header__nav--open");
     });
   }
 </script>

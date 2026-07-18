@@ -1,15 +1,15 @@
 ---
-import Button from './Button.astro';
+import Button from "./Button.astro";
 
 export interface Props {
   title: string;
   description: string;
   features: string[];
   cta: { text: string; href: string };
-  variant?: 'primary' | 'secondary';
+  variant?: "primary" | "secondary";
 }
 
-const { title, description, features, cta, variant = 'primary' } = Astro.props;
+const { title, description, features, cta, variant = "primary" } = Astro.props;
 ---
 
 <article class={`plancard plancard--${variant}`}>
@@ -17,9 +17,7 @@ const { title, description, features, cta, variant = 'primary' } = Astro.props;
     <h3 class="plancard__title">{title}</h3>
     <p class="plancard__description">{description}</p>
     <ul class="plancard__features">
-      {features.map((feature) => (
-        <li class="plancard__feature">{feature}</li>
-      ))}
+      {features.map((feature) => <li class="plancard__feature">{feature}</li>)}
     </ul>
   </div>
   <div class="plancard__cta">

@@ -1,10 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Button from '../components/Button.astro';
-import Stats from '../components/Stats.astro';
-import TestimonialCard from '../components/TestimonialCard.astro';
-import { CONTACTO } from '../data/contacto';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+import Stats from "../components/Stats.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import { CONTACTO } from "../data/contacto";
+import bannerImage from "../assets/images/banner.jpg";
 
 interface Testimonio {
   nombre: string;
@@ -12,42 +13,65 @@ interface Testimonio {
 }
 
 const stats = [
-  { valor: '5+', label: 'años de experiencia' },
-  { valor: '100+', label: 'alumnos transformados' },
-  { valor: 'Online y Presencial', label: 'modalidades' },
+  { valor: "5+", label: "años de experiencia" },
+  { valor: "100+", label: "alumnos transformados" },
+  { valor: "Online y Presencial", label: "modalidades" },
 ];
 
 const servicios = [
   {
-    title: 'Online',
-    description: 'Entrená desde tu casa',
-    cta: { text: 'Conocé más', href: '/asesorias' },
+    title: "Online",
+    description: "Entrená desde tu casa",
+    cta: { text: "Conocé más", href: "/asesorias" },
   },
   {
-    title: 'Presencial',
-    description: 'Entrená en mi gimnasio',
-    cta: { text: 'Conocé más', href: '/asesorias' },
+    title: "Presencial",
+    description: "Entrená en mi gimnasio",
+    cta: { text: "Conocé más", href: "/asesorias" },
   },
 ];
 
 const testimonios: Testimonio[] = [
-  { nombre: 'María G.', texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.' },
-  { nombre: 'Carlos P.', texto: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.' },
-  { nombre: 'Ana L.', texto: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.' },
-  { nombre: 'Juan M.', texto: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.' },
+  {
+    nombre: "María G.",
+    texto:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+  },
+  {
+    nombre: "Carlos P.",
+    texto:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+  },
+  {
+    nombre: "Ana L.",
+    texto:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+  },
+  {
+    nombre: "Juan M.",
+    texto:
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+  },
 ];
 ---
 
-<Layout title="Ludmila — Personal Trainer" description="Transformá tu cuerpo con planes de entrenamiento personalizados. Online o presencial. Empezá hoy tu cambio.">
+<Layout
+  title="Ludmila — Personal Trainer"
+  description="Transformá tu cuerpo con planes de entrenamiento personalizados. Online o presencial. Empezá hoy tu cambio."
+>
   <Hero
     title="Transformá tu cuerpo, transformá tu vida"
     subtitle="Planes de entrenamiento personalizados con acompañamiento continuo. Online o presencial, vos elegís."
     identity="Ludmila — Personal Trainer"
     ctas={[
-      { text: 'Empezá hoy', href: '/asesorias', variant: 'primary' },
-      { text: 'Consultá por WhatsApp', href: CONTACTO.WHATSAPP_URL, variant: 'secondary' },
+      { text: "Empezá hoy", href: "/asesorias", variant: "primary" },
+      {
+        text: "Consultá por WhatsApp",
+        href: CONTACTO.WHATSAPP_URL,
+        variant: "secondary",
+      },
     ]}
-    image={{ src: 'https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+PT', alt: 'Ludmila entrenando' }}
+    image={{ src: bannerImage.src, alt: "Ludmila entrenando" }}
   />
 
   <section class="section">
@@ -58,13 +82,17 @@ const testimonios: Testimonio[] = [
     <div class="section__container">
       <h2 class="section__title">Servicio destacado</h2>
       <div class="servicios-grid">
-        {servicios.map((s) => (
-          <article class="servicio-card">
-            <h3 class="servicio-card__title">{s.title}</h3>
-            <p class="servicio-card__description">{s.description}</p>
-            <a href={s.cta.href} class="servicio-card__cta">{s.cta.text} →</a>
-          </article>
-        ))}
+        {
+          servicios.map((s) => (
+            <article class="servicio-card">
+              <h3 class="servicio-card__title">{s.title}</h3>
+              <p class="servicio-card__description">{s.description}</p>
+              <a href={s.cta.href} class="servicio-card__cta">
+                {s.cta.text} →
+              </a>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -73,12 +101,18 @@ const testimonios: Testimonio[] = [
     <div class="section__container">
       <h2 class="section__title">Resultados reales</h2>
       <div class="testimonios-grid">
-        {testimonios.map((t) => (
-          <TestimonialCard nombre={t.nombre} texto={t.texto} />
-        ))}
+        {
+          testimonios.map((t) => (
+            <TestimonialCard nombre={t.nombre} texto={t.texto} />
+          ))
+        }
       </div>
       <div class="section__cta">
-        <a href={CONTACTO.INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">Ver resultados en Instagram →</a>
+        <a
+          href={CONTACTO.INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer">Ver resultados en Instagram →</a
+        >
       </div>
     </div>
   </section>
@@ -86,7 +120,9 @@ const testimonios: Testimonio[] = [
   <section class="section section--cta">
     <div class="section__container">
       <h2 class="section__title">¿Lista/o para empezar tu transformación?</h2>
-      <Button href={CONTACTO.WHATSAPP_URL} variant="primary">Escribime por WhatsApp</Button>
+      <Button href={CONTACTO.WHATSAPP_URL} variant="primary"
+        >Escribime por WhatsApp</Button
+      >
     </div>
   </section>
 </Layout>

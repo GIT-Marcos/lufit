@@ -16,7 +16,9 @@ const { steps } = Astro.props;
   {
     steps.map((step) => (
       <div class="step">
-        <div class="step__numero" aria-hidden="true">{step.numero}</div>
+        <div class="step__numero" aria-hidden="true">
+          {step.numero}
+        </div>
         <h3 class="step__titulo">{step.titulo}</h3>
         <p class="step__descripcion">{step.descripcion}</p>
       </div>

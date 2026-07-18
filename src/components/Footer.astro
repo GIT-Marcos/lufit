@@ -1,16 +1,28 @@
 ---
-import IconWhatsApp from './icons/IconWhatsApp.astro';
-import IconInstagram from './icons/IconInstagram.astro';
-import IconEmail from './icons/IconEmail.astro';
-import { CONTACTO } from '../data/contacto';
+import IconWhatsApp from "./icons/IconWhatsApp.astro";
+import IconInstagram from "./icons/IconInstagram.astro";
+import IconEmail from "./icons/IconEmail.astro";
+import { CONTACTO } from "../data/contacto";
 ---
 
 <footer class="footer">
   <div class="footer__social">
-    <a href={CONTACTO.WHATSAPP_URL} class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+    <a
+      href={CONTACTO.WHATSAPP_URL}
+      class="footer__social-link"
+      aria-label="WhatsApp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <IconWhatsApp />
     </a>
-    <a href={CONTACTO.INSTAGRAM_URL} class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+    <a
+      href={CONTACTO.INSTAGRAM_URL}
+      class="footer__social-link"
+      aria-label="Instagram"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <IconInstagram />
     </a>
     <a href={CONTACTO.EMAIL_URL} class="footer__social-link" aria-label="Email">
