@@ -5,4 +5,4 @@ Allow: /
 # No se agregan reglas de bloqueo para GPTBot, ClaudeBot,
 # PerplexityBot ni Google-Extended.
 
-Sitemap: https://[dominio]/sitemap.xml
+Sitemap: https://ludmila-personal-trainer.vercel.app/sitemap-index.xml
