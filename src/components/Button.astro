@@ -1,14 +1,25 @@
 ---
+import IconWhatsApp from "./icons/IconWhatsApp.astro";
+import IconInstagram from "./icons/IconInstagram.astro";
+
 export interface Props {
   variant?: "primary" | "secondary" | "outline" | "whatsapp" | "internal" | "instagram";
   href: string;
+  icon?: "whatsapp" | "instagram" | "arrow";
 }
 
-const { variant = "primary", href } = Astro.props;
+const { variant = "primary", href, icon } = Astro.props;
 ---
 
-<a href={href} class={`button button--${variant}`}>
+<a href={href} class={`button button--${variant}${icon ? " button--with-icon" : ""}`}>
   <slot />
+  {icon === "whatsapp" && <IconWhatsApp />}
+  {icon === "instagram" && <IconInstagram />}
+  {icon === "arrow" && (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </svg>
+  )}
 </a>
 
 <style>
@@ -85,5 +96,9 @@ const { variant = "primary", href } = Astro.props;
   .button--instagram:hover {
     background: var(--color-instagram-dark);
     color: white;
+  }
+
+  .button--with-icon {
+    gap: 0.5rem;
   }
 </style>

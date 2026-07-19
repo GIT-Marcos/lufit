@@ -64,11 +64,12 @@ const testimonios: Testimonio[] = [
     subtitle="Planes de entrenamiento personalizados con acompañamiento continuo. Online o presencial, vos elegís."
     identity="Ludmila — Personal Trainer"
     ctas={[
-      { text: "Empezá hoy ->", href: "/asesorias", variant: "internal" },
+      { text: "Empezá hoy", href: "/asesorias", variant: "internal", icon: "arrow" },
       {
         text: "Consultá por WhatsApp",
         href: CONTACTO.WHATSAPP_URL,
         variant: "whatsapp",
+        icon: "whatsapp",
       },
     ]}
     image={{ src: bannerImage.src, alt: "Ludmila entrenando" }}
@@ -87,7 +88,7 @@ const testimonios: Testimonio[] = [
               <article class="servicio-card">
                 <h3 class="servicio-card__title">{s.title}</h3>
                 <p class="servicio-card__description">{s.description}</p>
-                <Button href={s.cta.href} variant="internal">{s.cta.text} -&gt;</Button>
+                <Button href={s.cta.href} variant="internal" icon="arrow">{s.cta.text}</Button>
               </article>
             ))
           }
@@ -106,7 +107,7 @@ const testimonios: Testimonio[] = [
         }
       </div>
       <div class="section__cta">
-        <Button href={CONTACTO.INSTAGRAM_URL} variant="instagram">Ver resultados en Instagram</Button>
+        <Button href={CONTACTO.INSTAGRAM_HIGHLIGHT_URL} variant="instagram" icon="instagram">Ver resultados en Instagram</Button>
       </div>
     </div>
   </section>
@@ -114,7 +115,7 @@ const testimonios: Testimonio[] = [
   <section class="section section--cta">
     <div class="section__container">
       <h2 class="section__title">¿Lista/o para empezar tu transformación?</h2>
-      <Button href={CONTACTO.WHATSAPP_URL} variant="whatsapp">Escribime por WhatsApp</Button>
+      <Button href={CONTACTO.WHATSAPP_URL} variant="whatsapp" icon="whatsapp">Escribime por WhatsApp</Button>
     </div>
   </section>
 </Layout>

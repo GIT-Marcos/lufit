@@ -5,6 +5,7 @@ export interface CTA {
   text: string;
   href: string;
   variant?: "primary" | "secondary" | "whatsapp" | "internal" | "instagram";
+  icon?: "whatsapp" | "instagram" | "arrow";
 }
 
 export interface Props {
@@ -37,7 +38,7 @@ const { title, subtitle, identity, ctas, image } = Astro.props;
       ctas && ctas.length > 0 && (
         <div class="hero__ctas">
           {ctas.map((cta) => (
-            <Button href={cta.href} variant={cta.variant || "primary"}>
+            <Button href={cta.href} variant={cta.variant || "primary"} icon={cta.icon}>
               {cta.text}
             </Button>
           ))}
