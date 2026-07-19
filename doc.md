@@ -1,3 +1,5 @@
+Esta documentación está deprecada. Sirvió para la primera iteración de desarrollo y se guarda como referencia
+
 # Lufit — Ludmila Personal Trainer
 
 ## 1. Descripción del proyecto
