@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "whatsapp" | "internal" | "instagram";
   href: string;
 }
 
@@ -54,6 +54,36 @@ const { variant = "primary", href } = Astro.props;
 
   .button--outline:hover {
     background: var(--color-primary);
+    color: white;
+  }
+
+  .button--whatsapp {
+    background: var(--color-secondary);
+    color: white;
+  }
+
+  .button--whatsapp:hover {
+    background: var(--color-secondary-dark);
+    color: white;
+  }
+
+  .button--internal {
+    background: var(--color-blue);
+    color: white;
+  }
+
+  .button--internal:hover {
+    background: var(--color-blue-dark);
+    color: white;
+  }
+
+  .button--instagram {
+    background: var(--color-instagram);
+    color: white;
+  }
+
+  .button--instagram:hover {
+    background: var(--color-instagram-dark);
     color: white;
   }
 </style>

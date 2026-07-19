@@ -64,11 +64,11 @@ const testimonios: Testimonio[] = [
     subtitle="Planes de entrenamiento personalizados con acompañamiento continuo. Online o presencial, vos elegís."
     identity="Ludmila — Personal Trainer"
     ctas={[
-      { text: "Empezá hoy", href: "/asesorias", variant: "primary" },
+      { text: "Empezá hoy ->", href: "/asesorias", variant: "internal" },
       {
         text: "Consultá por WhatsApp",
         href: CONTACTO.WHATSAPP_URL,
-        variant: "secondary",
+        variant: "whatsapp",
       },
     ]}
     image={{ src: bannerImage.src, alt: "Ludmila entrenando" }}
@@ -82,17 +82,15 @@ const testimonios: Testimonio[] = [
     <div class="section__container">
       <h2 class="section__title">Servicio destacado</h2>
       <div class="servicios-grid">
-        {
-          servicios.map((s) => (
-            <article class="servicio-card">
-              <h3 class="servicio-card__title">{s.title}</h3>
-              <p class="servicio-card__description">{s.description}</p>
-              <a href={s.cta.href} class="servicio-card__cta">
-                {s.cta.text} →
-              </a>
-            </article>
-          ))
-        }
+          {
+            servicios.map((s) => (
+              <article class="servicio-card">
+                <h3 class="servicio-card__title">{s.title}</h3>
+                <p class="servicio-card__description">{s.description}</p>
+                <Button href={s.cta.href} variant="internal">{s.cta.text} -&gt;</Button>
+              </article>
+            ))
+          }
       </div>
     </div>
   </section>
@@ -108,11 +106,7 @@ const testimonios: Testimonio[] = [
         }
       </div>
       <div class="section__cta">
-        <a
-          href={CONTACTO.INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer">Ver resultados en Instagram →</a
-        >
+        <Button href={CONTACTO.INSTAGRAM_URL} variant="instagram">Ver resultados en Instagram</Button>
       </div>
     </div>
   </section>
@@ -120,9 +114,7 @@ const testimonios: Testimonio[] = [
   <section class="section section--cta">
     <div class="section__container">
       <h2 class="section__title">¿Lista/o para empezar tu transformación?</h2>
-      <Button href={CONTACTO.WHATSAPP_URL} variant="primary"
-        >Escribime por WhatsApp</Button
-      >
+      <Button href={CONTACTO.WHATSAPP_URL} variant="whatsapp">Escribime por WhatsApp</Button>
     </div>
   </section>
 </Layout>
@@ -162,11 +154,6 @@ const testimonios: Testimonio[] = [
     margin-top: 2rem;
   }
 
-  .section__cta a {
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-
   .servicios-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -191,11 +178,6 @@ const testimonios: Testimonio[] = [
   .servicio-card__description {
     color: var(--color-text-secondary);
     margin-bottom: 1.5rem;
-  }
-
-  .servicio-card__cta {
-    font-weight: 600;
-    color: var(--color-primary);
   }
 
   .testimonios-grid {
