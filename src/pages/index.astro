@@ -14,19 +14,20 @@ interface Testimonio {
 
 const stats = [
   { valor: "5+", label: "años de experiencia" },
-  { valor: "100+", label: "alumnos transformados" },
+  { valor: "50+", label: "alumnos transformados" },
   { valor: "Online y Presencial", label: "modalidades" },
+  { valor: "100%", label: "resultados reales" },
 ];
 
 const servicios = [
-  {
-    title: "Online",
-    description: "Entrená desde tu casa",
+{
+    title: "Presencial",
+    description: "Entrená en mi gimnasio",
     cta: { text: "Conocé más", href: "/asesorias" },
   },
   {
-    title: "Presencial",
-    description: "Entrená en mi gimnasio",
+    title: "Online",
+    description: "Entrená desde tu casa",
     cta: { text: "Conocé más", href: "/asesorias" },
   },
 ];
@@ -83,7 +84,7 @@ const testimonios: Testimonio[] = [
 
   <section class="section section--featured">
     <div class="section__container">
-      <h2 class="section__title">Servicio destacado</h2>
+      <h2 class="section__title">Planes Personalizados con Seguimiento</h2>
       <div class="servicios-grid">
           {
             servicios.map((s) => (
