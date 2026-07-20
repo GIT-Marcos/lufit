@@ -3,6 +3,7 @@ const WHATSAPP_MESSAGE = '¡Hola! Quiero consultar por tus planes de entrenamien
 
 export const CONTACTO = {
   WHATSAPP_URL: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+  FORM_EVALUACION_URL: 'https://forms.gle/Dt3uX4nuirLFQRLb6',
   INSTAGRAM_URL: 'https://www.instagram.com/ludmiiiifit/',
   INSTAGRAM_HIGHLIGHT_URL: 'https://www.instagram.com/stories/highlights/17927137662126047/',
   EMAIL_URL: 'mailto:ludmi.asesoriasvirtuales@gmail.com',

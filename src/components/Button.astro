@@ -1,20 +1,24 @@
 ---
 import IconWhatsApp from "./icons/IconWhatsApp.astro";
 import IconInstagram from "./icons/IconInstagram.astro";
+import IconForm from "./icons/IconForm.astro";
 
 export interface Props {
-  variant?: "primary" | "secondary" | "outline" | "whatsapp" | "internal" | "instagram";
+  variant?: "primary" | "secondary" | "outline" | "whatsapp" | "evaluacion" | "internal" | "instagram";
   href: string;
-  icon?: "whatsapp" | "instagram" | "arrow";
+  icon?: "whatsapp" | "instagram" | "form" | "arrow";
+  target?: string;
+  rel?: string;
 }
 
-const { variant = "primary", href, icon } = Astro.props;
+const { variant = "primary", href, icon, target, rel } = Astro.props;
 ---
 
-<a href={href} class={`button button--${variant}${icon ? " button--with-icon" : ""}`}>
+<a href={href} target={target} rel={rel} class={`button button--${variant}${icon ? " button--with-icon" : ""}`}>
   <slot />
   {icon === "whatsapp" && <IconWhatsApp />}
   {icon === "instagram" && <IconInstagram />}
+  {icon === "form" && <IconForm />}
   {icon === "arrow" && (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
@@ -75,6 +79,16 @@ const { variant = "primary", href, icon } = Astro.props;
 
   .button--whatsapp:hover {
     background: var(--color-secondary-dark);
+    color: white;
+  }
+
+  .button--evaluacion {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .button--evaluacion:hover {
+    background: var(--color-primary-dark);
     color: white;
   }
 

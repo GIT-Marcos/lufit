@@ -66,10 +66,12 @@ const testimonios: Testimonio[] = [
     ctas={[
       { text: "Empezá hoy", href: "/asesorias", variant: "internal", icon: "arrow" },
       {
-        text: "Consultá por WhatsApp",
-        href: CONTACTO.WHATSAPP_URL,
-        variant: "whatsapp",
-        icon: "whatsapp",
+        text: "Completá tu evaluación",
+        href: CONTACTO.FORM_EVALUACION_URL,
+        variant: "evaluacion",
+        icon: "form",
+        target: "_blank",
+        rel: "noopener noreferrer",
       },
     ]}
     image={{ src: bannerImage.src, alt: "Ludmila entrenando" }}
@@ -107,7 +109,7 @@ const testimonios: Testimonio[] = [
         }
       </div>
       <div class="section__cta">
-        <Button href={CONTACTO.INSTAGRAM_HIGHLIGHT_URL} variant="instagram" icon="instagram">Ver resultados en Instagram</Button>
+        <Button href={CONTACTO.INSTAGRAM_HIGHLIGHT_URL} variant="instagram" icon="instagram" target="_blank" rel="noopener noreferrer">Ver resultados en Instagram</Button>
       </div>
     </div>
   </section>
@@ -115,7 +117,7 @@ const testimonios: Testimonio[] = [
   <section class="section section--cta">
     <div class="section__container">
       <h2 class="section__title">¿Lista/o para empezar tu transformación?</h2>
-      <Button href={CONTACTO.WHATSAPP_URL} variant="whatsapp" icon="whatsapp">Escribime por WhatsApp</Button>
+      <Button href={CONTACTO.FORM_EVALUACION_URL} variant="evaluacion" icon="form" target="_blank" rel="noopener noreferrer">Completá tu evaluación</Button>
     </div>
   </section>
 </Layout>
