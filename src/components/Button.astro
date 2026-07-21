@@ -5,16 +5,17 @@ import IconForm from "./icons/IconForm.astro";
 
 export interface Props {
   variant?: "primary" | "secondary" | "outline" | "whatsapp" | "evaluacion" | "internal" | "instagram";
+  size?: "sm" | "md" | "lg";
   href: string;
   icon?: "whatsapp" | "instagram" | "form" | "arrow";
   target?: string;
   rel?: string;
 }
 
-const { variant = "primary", href, icon, target, rel } = Astro.props;
+const { variant = "primary", size = "md", href, icon, target, rel } = Astro.props;
 ---
 
-<a href={href} target={target} rel={rel} class={`button button--${variant}${icon ? " button--with-icon" : ""}`}>
+<a href={href} target={target} rel={rel} class={`button button--${variant} button--${size}${icon ? " button--with-icon" : ""}`}>
   <slot />
   {icon === "whatsapp" && <IconWhatsApp />}
   {icon === "instagram" && <IconInstagram />}
@@ -31,33 +32,60 @@ const { variant = "primary", href, icon, target, rel } = Astro.props;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
     border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--transition-base),
+                color var(--transition-base),
+                box-shadow var(--transition-base),
+                transform var(--transition-base);
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .button:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-md), 0 0 0 3px rgba(234, 88, 12, 0.25);
+  }
+
+  .button--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .button--md {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .button--lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
   }
 
   .button--primary {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary), black 30%));
     color: white;
   }
 
   .button--primary:hover {
-    background: var(--color-primary-dark);
+    background: linear-gradient(135deg, var(--color-primary-dark), color-mix(in srgb, var(--color-primary-dark), black 30%));
     color: white;
   }
 
   .button--secondary {
-    background: var(--color-secondary);
+    background: linear-gradient(135deg, var(--color-secondary), color-mix(in srgb, var(--color-secondary), black 30%));
     color: white;
   }
 
   .button--secondary:hover {
-    background: var(--color-secondary-dark);
+    background: linear-gradient(135deg, var(--color-secondary-dark), color-mix(in srgb, var(--color-secondary-dark), black 30%));
     color: white;
   }
 
@@ -73,42 +101,42 @@ const { variant = "primary", href, icon, target, rel } = Astro.props;
   }
 
   .button--whatsapp {
-    background: var(--color-secondary);
+    background: linear-gradient(135deg, var(--color-secondary), color-mix(in srgb, var(--color-secondary), black 30%));
     color: white;
   }
 
   .button--whatsapp:hover {
-    background: var(--color-secondary-dark);
+    background: linear-gradient(135deg, var(--color-secondary-dark), color-mix(in srgb, var(--color-secondary-dark), black 30%));
     color: white;
   }
 
   .button--evaluacion {
-    background: #5a0cea;
+    background: linear-gradient(135deg, var(--color-evaluacion), color-mix(in srgb, var(--color-evaluacion), black 30%));
     color: white;
   }
 
   .button--evaluacion:hover {
-    background: #4a0bc0;
+    background: linear-gradient(135deg, var(--color-evaluacion-dark), color-mix(in srgb, var(--color-evaluacion-dark), black 30%));
     color: white;
   }
 
   .button--internal {
-    background: var(--color-blue);
+    background: linear-gradient(135deg, var(--color-blue), color-mix(in srgb, var(--color-blue), black 30%));
     color: white;
   }
 
   .button--internal:hover {
-    background: var(--color-blue-dark);
+    background: linear-gradient(135deg, var(--color-blue-dark), color-mix(in srgb, var(--color-blue-dark), black 30%));
     color: white;
   }
 
   .button--instagram {
-    background: var(--color-instagram);
+    background: linear-gradient(135deg, var(--color-instagram), color-mix(in srgb, var(--color-instagram), black 30%));
     color: white;
   }
 
   .button--instagram:hover {
-    background: var(--color-instagram-dark);
+    background: linear-gradient(135deg, var(--color-instagram-dark), color-mix(in srgb, var(--color-instagram-dark), black 30%));
     color: white;
   }
 
