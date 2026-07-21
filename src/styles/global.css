@@ -48,13 +48,13 @@ img {
   height: auto;
 }
 
-a {
+a:not(.header__link) {
   color: var(--color-primary);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-a:hover {
+a:not(.header__link):hover {
   color: var(--color-primary-dark);
 }
 
