@@ -81,6 +81,7 @@ const navItems: NavItem[] = [
   }
 
   .header__logo {
+    font-family: var(--font-heading), sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-secondary);
@@ -107,7 +108,12 @@ const navItems: NavItem[] = [
     cursor: pointer;
     padding: 0.5rem;
     color: var(--color-text);
+    transition: color 0.2s ease;
     z-index: 10;
+  }
+
+  .header__toggle:hover {
+    color: var(--color-secondary);
   }
 
   .header__toggle-icon--close {
@@ -192,6 +198,11 @@ const navItems: NavItem[] = [
 
     .header__link {
       padding: 0.5rem 0.75rem;
+    }
+
+    .header__link:not(:first-child) {
+      border-left: 1px solid var(--color-border);
+      padding-left: calc(0.75rem + 1px);
     }
 
     .header__link[aria-current="page"]::after {
