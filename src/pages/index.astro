@@ -6,25 +6,13 @@ import Stats from "../components/Stats.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import { CONTACTO } from "../data/contacto";
 import { STATS } from "../data/stats";
+import { ASESORIA_ONLINE, PRESENCIAL_ALERTA } from "../data/servicios";
 import bannerImage from "../assets/images/banner.jpg";
 
 interface Testimonio {
   nombre: string;
   texto: string;
 }
-
-const servicios = [
-{
-    title: "Presencial",
-    description: "Entrená en mi espacio",
-    cta: { text: "Conocé más", href: "/asesorias" },
-  },
-  {
-    title: "Online",
-    description: "Entrená desde tu casa",
-    cta: { text: "Conocé más", href: "/asesorias" },
-  },
-];
 
 const testimonios: Testimonio[] = [
   {
@@ -79,20 +67,44 @@ const testimonios: Testimonio[] = [
     </div>
   </section>
 
-  <section class="section section--featured">
+  <section class="section section--featured" aria-labelledby="servicios-heading">
     <div class="section__container">
-      <h2 class="section__title">Planes Personalizados con Seguimiento</h2>
-      <div class="servicios-grid">
+      <h2 id="servicios-heading" class="section__title">
+        Tu plan online, conmigo al lado
+      </h2>
+
+      <article class="servicio-card servicio-card--featured">
+        <span class="servicio-card__badge" aria-hidden="true">★ Recomendado</span>
+        <h3 class="servicio-card__title">{ASESORIA_ONLINE.titulo}</h3>
+        <p class="servicio-card__description">{ASESORIA_ONLINE.descripcion}</p>
+
+        <ul class="servicio-card__beneficios">
           {
-            servicios.map((s) => (
-              <article class="servicio-card">
-                <h3 class="servicio-card__title">{s.title}</h3>
-                <p class="servicio-card__description">{s.description}</p>
-                <Button href={s.cta.href} variant="internal" icon="arrow">{s.cta.text}</Button>
-              </article>
+            ASESORIA_ONLINE.beneficios.map((b) => (
+              <li class="servicio-card__beneficio">
+                <span class="servicio-card__beneficio-icono" aria-hidden="true">
+                  {b.icono}
+                </span>
+                <span>{b.texto}</span>
+              </li>
             ))
           }
-      </div>
+        </ul>
+
+        <Button
+          href={ASESORIA_ONLINE.cta.href}
+          variant="internal"
+          icon="arrow"
+          size="lg"
+        >
+          {ASESORIA_ONLINE.cta.texto}
+        </Button>
+      </article>
+
+      <p class="servicio-card__alternativa">
+        {PRESENCIAL_ALERTA.texto}{' '}
+        <a href={PRESENCIAL_ALERTA.linkHref}>{PRESENCIAL_ALERTA.linkTexto}</a>
+      </p>
     </div>
   </section>
 
@@ -121,18 +133,30 @@ const testimonios: Testimonio[] = [
 </Layout>
 
 <style>
-  .servicios-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .servicio-card--featured {
+    max-width: 38rem;
+    margin: 0 auto;
+    background: var(--color-surface);
+    border: 2px solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-md);
   }
 
-  .servicio-card {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 2rem;
-    text-align: center;
+  .servicio-card__badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.25rem 1rem;
+    border-radius: 999px;
+    white-space: nowrap;
   }
 
   .servicio-card__title {
@@ -145,6 +169,48 @@ const testimonios: Testimonio[] = [
   .servicio-card__description {
     color: var(--color-text-secondary);
     margin-bottom: 1.5rem;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .servicio-card__beneficios {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .servicio-card__beneficio {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  .servicio-card__beneficio-icono {
+    flex-shrink: 0;
+    font-size: 1.125rem;
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  .servicio-card__alternativa {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  .servicio-card__alternativa a {
+    font-weight: 600;
   }
 
   .testimonios-grid {
@@ -154,8 +220,13 @@ const testimonios: Testimonio[] = [
   }
 
   @media (min-width: 768px) {
-    .servicios-grid {
+    .servicio-card__beneficios {
       grid-template-columns: repeat(2, 1fr);
+      max-width: 32rem;
+    }
+
+    .servicio-card--featured {
+      padding: 3rem 2.5rem;
     }
 
     .testimonios-grid {
