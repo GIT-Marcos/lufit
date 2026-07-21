@@ -25,13 +25,17 @@ const paraQuien = [
 ];
 
 const faqItems = [
-  { pregunta: '¿Necesito experiencia previa para empezar?', respuesta: 'No, los planes están diseñados para cualquier nivel. Arrancamos desde donde estés.' },
-  { pregunta: '¿Cuántos días a la semana entreno?', respuesta: 'Depende de tu objetivo y disponibilidad. Lo definimos juntos en la evaluación inicial.' },
+  { pregunta: '¿Cómo inicio?', respuesta: 'Llenás el formulario desde el botón "Armemos tu plan" y yo me pondré en contacto con vos para que juntas armemos un plan de entrenamiento.' },
+  { pregunta: '¿Necesito experiencia previa para empezar?', respuesta: 'No, deseño los planes para cualquier nivel de experiencia. Arrancamos desde donde estés.' },
+  { pregunta: '¿Cuántos días a la semana entreno?', respuesta: 'Depende de tu objetivo y disponibilidad. Lo definimos juntos en el plan de entrenamiento.' },
+  { pregunta: '¿Cada cuánto se ajusta la rutina?', respuesta: 'Se ajusta según tu evolución. Las rutinas personalizadas van adaptándose a tu crecimiento y necesidades. Puede ser semanalmente o mensualmente dependiendo de las circunstancias.' },
+  { pregunta: '¿Cómo son los pagos?', respuesta: 'Coordinamos mes a mes. Podrás consultame por los medios de pago disponibles y montos.' },
+  { pregunta: '¿Necesito equipamiento como pesas, bandas elásticas, etc.?', respuesta: 'No es necesario. Puedo armarte un plan en el que no se necesite nigún tipo de equipamiento.' },
+  /*
   { pregunta: '¿Qué necesito para la modalidad online?', respuesta: 'Solo espacio en tu casa, conexión a internet y ganas de entrenar. El equipamiento lo adaptamos a lo que tengas.' },
-  { pregunta: '¿Cada cuánto se ajusta la rutina?', respuesta: 'Semanalmente según tu evolución. No trabajo con rutinas fijas de un mes.' },
   { pregunta: '¿Puedo combinar online y presencial?', respuesta: 'Sí, muchos alumnos combinan ambas modalidades según su semana.' },
-  { pregunta: '¿Cómo son los pagos?', respuesta: 'Coordinamos mes a mes. Consultame por los medios de pago disponibles.' },
   { pregunta: '¿Qué pasa si no puedo una semana?', respuesta: 'No hay problema, ajustamos el plan. La comunicación es clave para adaptarnos.' },
+  */
 ];
 ---
 
@@ -48,7 +52,14 @@ const faqItems = [
     subtitle="Online o presencial, vos elegís"
     image={{ src: bannerImage.src, alt: "Ludmila entrenando con una alumna" }}
     ctas={[
-      { text: "Armemos tu plan", href: CONTACTO.FORM_EVALUACION_URL, variant: "evaluacion", icon: "form", target: "_blank", rel: "noopener noreferrer" },
+      {
+        text: "Armemos tu plan",
+        href: CONTACTO.FORM_EVALUACION_URL,
+        variant: "evaluacion",
+        icon: "form",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
     ]}
   />
 
@@ -58,23 +69,23 @@ const faqItems = [
       <Comparativa
         columnas={[
           {
+            titulo: "Presencial",
+            items: [
+              "Entrená en mi espacio",
+              "Corrección de técnica en persona",
+              "Seguimiento presencial sesión a sesión",
+              "Acceso a equipamiento de entrenamiento",
+              "Gym con fecha y hora fija",
+            ],
+          },
+          {
             titulo: "Online",
             items: [
               "Entrená desde tu casa",
               "Sin traslados, máximo aprovechamiento del tiempo",
-              "Seguimiento por videollamada + WhatsApp",
+              "Seguimiento cercano por videollamada + WhatsApp",
               "Rutina adaptada a tu espacio y equipamiento",
               "Flexibilidad total de horarios",
-            ],
-          },
-          {
-            titulo: "Presencial",
-            items: [
-              "Entrená en mi gimnasio",
-              "Corrección de técnica en vivo",
-              "Seguimiento presencial sesión a sesión",
-              "Acceso a equipamiento completo",
-              "Gym con fecha y hora fija",
             ],
           },
         ]}
@@ -163,8 +174,14 @@ const faqItems = [
 
   <section class="section section--cta">
     <div class="section__container">
-      <h2 class="section__title">¿Lista/o para empezar?</h2>
-      <Button href={CONTACTO.FORM_EVALUACION_URL} variant="evaluacion" icon="form" target="_blank" rel="noopener noreferrer">Armemos tu plan</Button>
+      <h2 class="section__title">¿Lista para empezar?</h2>
+      <Button
+        href={CONTACTO.FORM_EVALUACION_URL}
+        variant="evaluacion"
+        icon="form"
+        target="_blank"
+        rel="noopener noreferrer">Armemos tu plan</Button
+      >
     </div>
   </section>
 </Layout>
