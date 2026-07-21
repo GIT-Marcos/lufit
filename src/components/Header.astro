@@ -62,6 +62,7 @@ const navItems: NavItem[] = [
       toggle.setAttribute("aria-expanded", String(!isOpen));
       toggle.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
       nav.classList.toggle("header__nav--open");
+      toggle.classList.toggle("header__toggle--open");
     });
   }
 </script>
@@ -120,11 +121,11 @@ const navItems: NavItem[] = [
     display: none;
   }
 
-  .header__nav--open ~ .header__toggle .header__toggle-icon--open {
+  .header__toggle--open .header__toggle-icon--open {
     display: none;
   }
 
-  .header__nav--open ~ .header__toggle .header__toggle-icon--close {
+  .header__toggle--open .header__toggle-icon--close {
     display: block;
   }
 

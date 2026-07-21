@@ -111,3 +111,53 @@ h3 {
 small {
   font-size: 0.875rem;
 }
+
+.section {
+  padding: 4rem 1rem;
+}
+
+.section--featured {
+  background: var(--color-surface);
+}
+
+.section--cta {
+  text-align: center;
+  background: var(--color-primary);
+  color: white;
+}
+
+.section--cta .section__title {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.section__container {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.section__container--narrow {
+  max-width: 48rem;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section__texto {
+  text-align: center;
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.section__cta-wrapper {
+  text-align: center;
+}
+
+.section__cta {
+  text-align: center;
+  margin-top: 2rem;
+}
