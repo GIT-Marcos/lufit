@@ -5,19 +5,13 @@ import Button from "../components/Button.astro";
 import Stats from "../components/Stats.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import { CONTACTO } from "../data/contacto";
+import { STATS } from "../data/stats";
 import bannerImage from "../assets/images/banner.jpg";
 
 interface Testimonio {
   nombre: string;
   texto: string;
 }
-
-const stats = [
-  { valor: "5+", label: "años de experiencia" },
-  { valor: "50+", label: "alumnas transformadas" },
-  { valor: "Online y Presencial", label: "modalidades" },
-  { valor: "100%", label: "resultados reales" },
-];
 
 const servicios = [
 {
@@ -79,7 +73,10 @@ const testimonios: Testimonio[] = [
   />
 
   <section class="section">
-    <Stats items={stats} />
+    <div class="section__container">
+      <h2 id="stats-heading" class="section__title">Resultados que hablan</h2>
+      <Stats items={STATS} />
+    </div>
   </section>
 
   <section class="section section--featured">
