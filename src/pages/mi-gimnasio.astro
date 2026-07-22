@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import { CONTACTO } from "../data/contacto";
 
 const galeria = [
   {
@@ -38,12 +39,17 @@ const galeria = [
       fetchpriority="high"
     />
     <div class="hero-gimnasio__content">
-      <h1 class="hero-gimnasio__title">Mi espacio de entrenamiento</h1>
+      <h1 class="hero-gimnasio__title">Así trabajo. Presencial u online.</h1>
       <p class="hero-gimnasio__texto">
-        Este es mi gimnasio, donde recibimos a quienes prefieren el
-        entrenamiento presencial. Pero mi método también está disponible 100%
-        online — vos elegís.
+        Este es el espacio donde entrenan mis alumnas presenciales. El mismo
+        método, el mismo acompañamiento, funciona igual de bien donde sea que
+        estés.
       </p>
+      <div class="hero-gimnasio__cta">
+        <Button href="/asesorias" variant="internal" icon="arrow" size="lg">
+          Ver planes online
+        </Button>
+      </div>
     </div>
   </section>
 
@@ -67,6 +73,29 @@ const galeria = [
 
   <section class="section section--featured">
     <div class="section__container section__container--narrow">
+      <h2 class="section__title">El mismo método, donde sea que estés</h2>
+      <p class="section__texto">
+        Mi plan online tiene el mismo nivel de personalización, seguimiento
+        y corrección que el presencial. Sin traslados, con flexibilidad total.
+        Entrená cuando quieras, donde quieras.
+      </p>
+      <div class="section__cta-wrapper">
+        <Button
+          href={CONTACTO.FORM_EVALUACION_URL}
+          variant="evaluacion"
+          icon="form"
+          size="lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Empezá con tu plan online
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__container section__container--narrow">
       <h2 class="section__title">Dirección y horarios</h2>
       <div class="info-box">
         <p class="info-box__line">
@@ -75,19 +104,6 @@ const galeria = [
         <p class="info-box__line">
           Horarios: Consultá disponibilidad de turnos
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section__container section__container--narrow">
-      <h2 class="section__title">¿No estás en la zona?</h2>
-      <p class="section__texto">
-        Todos mis planes personalizados también están disponibles 100% online
-        con el mismo seguimiento. Entrená desde tu casa con mi método.
-      </p>
-      <div class="section__cta-wrapper">
-        <Button href="/asesorias" variant="internal" icon="arrow">Conocé los planes</Button>
       </div>
     </div>
   </section>
@@ -132,6 +148,23 @@ const galeria = [
     font-size: 1.0625rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
+  }
+
+  .hero-gimnasio__cta {
+    margin-top: 1.5rem;
+  }
+
+  .section__texto {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  .section__cta-wrapper {
+    text-align: center;
   }
 
   .galeria-grid {
