@@ -7,15 +7,7 @@ import Steps from "../components/Steps.astro";
 import FAQ from "../components/FAQ.astro";
 import bannerImage from "../assets/images/asesorias-placeholder.svg";
 import { CONTACTO } from "../data/contacto";
-
-const diferenciales = [
-  "Planes 100% a tu medida — no hay rutinas genéricas ni copiadas",
-  "Ajustes semanales según tu evolución real",
-  "Acompañamiento por WhatsApp — no soy un bot, respondo yo",
-  "Corrección de técnica para evitar lesiones y maximizar resultados",
-  "Flexibilidad total: online, presencial o combinado",
-  "No necesitás experiencia previa — arrancamos desde donde estés",
-];
+import { COMPARATIVA_COLUMNAS, STEPS, DIFERENCIALES } from "../data/asesorias";
 
 const paraQuien = [
   { texto: 'Principiantes que nunca pisaron un gimnasio', icono: '🏃' },
@@ -30,7 +22,7 @@ const faqItems = [
   { pregunta: '¿Cuántos días a la semana entreno?', respuesta: 'Depende de tu objetivo y disponibilidad. Lo definimos juntos en el plan de entrenamiento.' },
   { pregunta: '¿Cada cuánto se ajusta la rutina?', respuesta: 'Se ajusta según tu evolución. Las rutinas personalizadas van adaptándose a tu crecimiento y necesidades. Puede ser semanalmente o mensualmente dependiendo de las circunstancias.' },
   { pregunta: '¿Cómo son los pagos?', respuesta: 'Coordinamos mes a mes. Podrás consultame por los medios de pago disponibles y montos.' },
-  { pregunta: '¿Necesito equipamiento como pesas, bandas elásticas, etc.?', respuesta: 'No es necesario. Puedo armarte un plan en el que no se necesite nigún tipo de equipamiento.' },
+  { pregunta: '¿Necesito equipamiento como pesas, bandas elásticas, etc.?', respuesta: 'No es necesario. Puedo armarte un plan en el que no se necesite nigún tipo de equipamiento. Si tenés bandas, mancuernas podés usarlo, yo te diré cómo.' },
   /*
   { pregunta: '¿Qué necesito para la modalidad online?', respuesta: 'Solo espacio en tu casa, conexión a internet y ganas de entrenar. El equipamiento lo adaptamos a lo que tengas.' },
   { pregunta: '¿Puedo combinar online y presencial?', respuesta: 'Sí, muchos alumnos combinan ambas modalidades según su semana.' },
@@ -48,7 +40,7 @@ const faqItems = [
   ]}
 >
   <Hero
-    title="Planes Personalizados con Seguimiento"
+    title="Un plan que se adapta a vos —no al revés—"
     subtitle="Online o presencial, vos elegís"
     image={{ src: bannerImage.src, alt: "Ludmila entrenando con una alumna" }}
     ctas={[
@@ -65,30 +57,9 @@ const faqItems = [
 
   <section id="presencial" class="section">
     <div class="section__container">
-      <h2 class="section__title">¿Online o presencial?</h2>
+      <h2 class="section__title">Online o presencial: ¿qué es mejor para vos?</h2>
       <Comparativa
-        columnas={[
-          {
-            titulo: "Presencial",
-            items: [
-              "Entrená en mi espacio",
-              "Corrección de técnica en persona",
-              "Seguimiento presencial sesión a sesión",
-              "Acceso a equipamiento de entrenamiento",
-              "Gym con fecha y hora fija",
-            ],
-          },
-          {
-            titulo: "Online",
-            items: [
-              "Entrená desde tu casa",
-              "Sin traslados, máximo aprovechamiento del tiempo",
-              "Seguimiento cercano por videollamada + WhatsApp",
-              "Rutina adaptada a tu espacio y equipamiento",
-              "Flexibilidad total de horarios",
-            ],
-          },
-        ]}
+        columnas={COMPARATIVA_COLUMNAS}
       />
     </div>
   </section>
@@ -97,55 +68,26 @@ const faqItems = [
     <div class="section__container">
       <h2 class="section__title">Cómo funciona</h2>
       <Steps
-        steps={[
-          {
-            numero: 1,
-            titulo: "Llenado de formulario",
-            descripcion:
-              "Completa el formulario para conocerte, definir objetivos y evaluar tu condición física",
-          },
-          {
-            numero: 2,
-            titulo: "Plan a tu medida",
-            descripcion:
-              "Diseño de rutina personalizada que se ajuste a vos, según tus metas, horarios y equipamiento + guía de alimentación",
-          },
-          {
-            numero: 3,
-            titulo: "Seguimiento continuo",
-            descripcion:
-              "Acompañamiento cercano con ajustes según evolución (online o presencial). Videos explicativos de ejercicios y correcciones de técnica",
-          },
-          {
-            numero: 4,
-            titulo: "Resultados reales",
-            descripcion:
-              "Cambios visibles en fuerza, composición corporal y bienestar general",
-          },
-        ]}
+        steps={STEPS}
       />
     </div>
   </section>
 
-  <!--
-  <section class="section">
+  <section class="section section--featured">
     <div class="section__container">
-      <h2 class="section__title">Diferenciales</h2>
+      <h2 class="section__title">¿Por qué es diferente?</h2>
       <div class="diferenciales-grid">
         {
-          diferenciales.map((d) => (
+          DIFERENCIALES.map((d) => (
             <div class="diferencial">
-              <span class="diferencial__check" aria-hidden="true">
-                ✓
-              </span>
-              <p class="diferencial__texto">{d}</p>
+              <span class="diferencial__icono" aria-hidden="true">{d.icono}</span>
+              <p class="diferencial__texto">{d.texto}</p>
             </div>
           ))
         }
       </div>
     </div>
   </section>
-  -->
 
   <section class="section section--featured">
     <div class="section__container">
@@ -214,19 +156,20 @@ const faqItems = [
 
   .diferencial {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.875rem;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 1.25rem;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
   }
 
-  .diferencial__check {
-    color: var(--color-secondary);
-    font-weight: 700;
-    font-size: 1.25rem;
+  .diferencial__icono {
     flex-shrink: 0;
+    font-size: 1.375rem;
+    width: 1.75rem;
+    text-align: center;
+    line-height: 1.5;
   }
 
   .diferencial__texto {
