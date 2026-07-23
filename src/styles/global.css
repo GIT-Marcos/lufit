@@ -35,7 +35,13 @@
   font-size: 1rem;
   line-height: 1.5;
   color: var(--color-text);
+  --bg-noise: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .92 0 0 0 0 .35 0 0 0 0 .05 .18 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --bg-noise-size: 200px;
+
   background-color: var(--color-bg);
+  background-image: var(--bg-noise);
+  background-repeat: repeat;
+  background-size: var(--bg-noise-size);
 }
 
 html {
@@ -128,7 +134,10 @@ small {
 }
 
 .section--featured {
-  background: var(--color-surface);
+  background-color: var(--color-surface);
+  background-image: var(--bg-noise);
+  background-repeat: repeat;
+  background-size: var(--bg-noise-size);
 }
 
 .section--cta {
