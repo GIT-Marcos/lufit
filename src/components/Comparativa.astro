@@ -39,6 +39,13 @@ const { columnas } = Astro.props;
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
     padding: 1.5rem;
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base);
+  }
+
+  .comparativa__columna:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
   }
 
   .comparativa__titulo {

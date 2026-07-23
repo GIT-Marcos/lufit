@@ -162,6 +162,13 @@ const faqItems = [
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base);
+  }
+
+  .diferencial:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
   }
 
   .diferencial__icono {
@@ -194,6 +201,13 @@ const faqItems = [
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base);
+  }
+
+  .para-quien-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
   }
 
   .para-quien-item__icono {
