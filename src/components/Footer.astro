@@ -3,49 +3,104 @@ import IconWhatsApp from "./icons/IconWhatsApp.astro";
 import IconInstagram from "./icons/IconInstagram.astro";
 import IconEmail from "./icons/IconEmail.astro";
 import { CONTACTO } from "../data/contacto";
+import { FOOTER, FOOTER_NAV } from "../data/footer";
 ---
 
 <footer class="footer">
-  <div class="footer__social">
-    <a
-      href={CONTACTO.WHATSAPP_URL}
-      class="footer__social-link"
-      aria-label="WhatsApp"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <IconWhatsApp />
-    </a>
-    <a
-      href={CONTACTO.INSTAGRAM_URL}
-      class="footer__social-link"
-      aria-label="Instagram"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <IconInstagram />
-    </a>
-    <a href={CONTACTO.EMAIL_URL} class="footer__social-link" aria-label="Email">
-      <IconEmail />
-    </a>
+  <div class="footer__container">
+    <nav class="footer__nav" aria-label="Enlaces del pie de página">
+      {
+        FOOTER_NAV.map((item, i) => (
+          <>
+            <a href={item.href} class="footer__nav-link">{item.label}</a>
+            {i < FOOTER_NAV.length - 1 && <span class="footer__nav-sep" aria-hidden="true">·</span>}
+          </>
+        ))
+      }
+    </nav>
+    <div class="footer__row">
+      <div class="footer__social">
+        <a
+          href={CONTACTO.WHATSAPP_URL}
+          class="footer__social-link"
+          aria-label="WhatsApp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconWhatsApp />
+        </a>
+        <a
+          href={CONTACTO.INSTAGRAM_URL}
+          class="footer__social-link"
+          aria-label="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconInstagram />
+        </a>
+        <a href={CONTACTO.EMAIL_URL} class="footer__social-link" aria-label="Email">
+          <IconEmail />
+        </a>
+      </div>
+      <p class="footer__copyright">&copy; {new Date().getFullYear()} {FOOTER.COPYRIGHT}</p>
+    </div>
   </div>
-  <p class="footer__copyright">&copy; Ludmila</p>
 </footer>
 
 <style>
   .footer {
+    background: var(--color-surface);
+    background-image: var(--bg-noise);
+    background-repeat: repeat;
+    background-size: var(--bg-noise-size);
+    border-top: 3px solid var(--color-secondary);
+    padding: 1.5rem 1rem;
+  }
+
+  .footer__container {
+    max-width: 64rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 2rem 1rem;
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer__nav-link {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
+
+  .footer__nav-link:hover {
+    color: var(--color-secondary);
+  }
+
+  .footer__nav-sep {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    user-select: none;
+  }
+
+  .footer__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .footer__social {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .footer__social-link {
@@ -53,7 +108,7 @@ import { CONTACTO } from "../data/contacto";
     align-items: center;
     justify-content: center;
     color: var(--color-text-secondary);
-    transition: color 0.2s ease;
+    transition: color var(--transition-base);
   }
 
   .footer__social-link:hover {
@@ -61,7 +116,7 @@ import { CONTACTO } from "../data/contacto";
   }
 
   .footer__copyright {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--color-text-secondary);
   }
 </style>
