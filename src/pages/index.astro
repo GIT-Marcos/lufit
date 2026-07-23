@@ -133,16 +133,27 @@ const testimonios: Testimonio[] = [
 </Layout>
 
 <style>
+  .section--featured {
+    background: var(--color-bg);
+  }
+
   .servicio-card--featured {
     max-width: 38rem;
     margin: 0 auto;
-    background: var(--color-surface);
+    background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--color-primary), transparent 88%), var(--color-surface) 70%);
     border: 2px solid var(--color-primary);
     border-radius: 1rem;
     padding: 2.5rem 2rem;
     text-align: center;
     position: relative;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base);
+  }
+
+  .servicio-card--featured:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
   }
 
   .servicio-card__badge {

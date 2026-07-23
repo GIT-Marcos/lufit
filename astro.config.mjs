@@ -27,5 +27,14 @@ export default defineConfig({
       subsets: ['latin', 'latin-ext'],
       fallbacks: ['sans-serif'],
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Outfit',
+      cssVariable: '--font-hero',
+      weights: [400, 500],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      fallbacks: ['sans-serif'],
+    },
   ],
 });

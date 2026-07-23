@@ -26,6 +26,7 @@
   /* Sombras */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 8px -4px rgba(0, 0, 0, 0.06);
 
   /* Transiciones */
   --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,7 +114,17 @@ small {
 }
 
 .section {
-  padding: 4rem 1rem;
+  padding: 5rem 1rem;
+}
+
+.section--sm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section--lg {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .section--featured {
@@ -160,4 +171,25 @@ small {
 .section__cta {
   text-align: center;
   margin-top: 2rem;
+}
+
+/* === Separadores entre secciones === */
+.section + .section::before {
+  content: "";
+  display: block;
+  width: 30rem;
+  height: 3px;
+  margin: 0 auto 4rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary) 50%,
+    transparent
+  );
+  border-radius: 2px;
+}
+
+.section--cta::before,
+.section + .section--cta::before {
+  display: none;
 }
