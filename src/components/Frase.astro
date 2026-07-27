@@ -1,0 +1,95 @@
+---
+export interface Props {
+  texto: string;
+  autor?: string;
+}
+
+const { texto, autor } = Astro.props;
+---
+
+<figure class="frase">
+  <blockquote class="frase__cita">
+    <p class="frase__texto">{texto}</p>
+  </blockquote>
+  {
+    autor && (
+      <figcaption class="frase__autor">— {autor}</figcaption>
+    )
+  }
+</figure>
+
+<style>
+  .frase {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2.5rem 3rem;
+    text-align: center;
+  }
+
+  .frase::before,
+  .frase::after {
+    content: '"';
+    position: absolute;
+    font-size: 6rem;
+    line-height: 1;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--color-primary);
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .frase::before {
+    top: -0.25rem;
+    left: 0;
+  }
+
+  .frase::after {
+    bottom: -1.5rem;
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  .frase__cita {
+    margin: 0;
+  }
+
+  .frase__texto {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .frase__autor {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    font-style: normal;
+  }
+
+  @media (max-width: 767px) {
+    .frase {
+      padding: 2rem 1.5rem;
+    }
+
+    .frase__texto {
+      font-size: 1.25rem;
+    }
+
+    .frase::before,
+    .frase::after {
+      font-size: 4rem;
+    }
+
+    .frase::before {
+      top: 0;
+    }
+
+    .frase::after {
+      bottom: -1rem;
+    }
+  }
+</style>

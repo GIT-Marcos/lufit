@@ -209,3 +209,8 @@ small {
 .section + .section--cta::before {
   display: none;
 }
+
+.section--no-separator::before,
+.section + .section--no-separator::before {
+  display: none;
+}

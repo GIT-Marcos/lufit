@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Frase from "../components/Frase.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import { CONTACTO } from "../data/contacto";
 
@@ -80,8 +81,10 @@ const testimonios = [
             de nosotros mismos.
           </p>
           <p class="bio__texto">
-            No se trata de tener tiempo, se trata de <strong>hacerte</strong> tiempo;
-            tu cuerpo te lo agradece.
+            <strong>
+              Un cuerpo fuerte empieza con un movimiento bien hecho.
+              Acá vas a encontrar un entrenamiento con propósito, fuerza y conciencia corporal.
+            </strong>
           </p>
         </div>
         <div class="bio__parrafo">
@@ -122,11 +125,9 @@ const testimonios = [
 
   <section class="section section--featured">
     <div class="section__container section__container--narrow">
-      <blockquote class="frase">
-        <p class="frase__texto">
-          [Frase personal de Ludmila — placeholder. Lorem ipsum dolor sit amet.]
-        </p>
-      </blockquote>
+      <Frase
+        texto="[Frase personal de Ludmila — placeholder. Lorem ipsum dolor sit amet.]"
+      />
     </div>
   </section>
 
@@ -225,22 +226,6 @@ const testimonios = [
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .frase {
-    background: var(--color-bg);
-    border-left: 4px solid var(--color-primary);
-    border-radius: 0.5rem;
-    padding: 2rem;
-    margin: 0;
-  }
-
-  .frase__texto {
-    font-size: 1.25rem;
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
   }
 
   @media (min-width: 768px) {
