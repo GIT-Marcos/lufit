@@ -113,11 +113,24 @@ const { variant = "primary", size = "md", href, icon, target, rel } = Astro.prop
   .button--evaluacion {
     background: linear-gradient(135deg, var(--color-evaluacion), color-mix(in srgb, var(--color-evaluacion), black 20%));
     color: white;
+    animation: button-glow 2.5s ease-in-out infinite;
   }
 
   .button--evaluacion:hover {
     background: linear-gradient(135deg, var(--color-evaluacion-dark), color-mix(in srgb, var(--color-evaluacion-dark), black 20%));
     color: white;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 24px color-mix(in srgb, var(--color-evaluacion), transparent 20%);
+    animation: none;
+  }
+
+  @keyframes button-glow {
+    0%, 100% {
+      box-shadow: 0 0 8px color-mix(in srgb, var(--color-evaluacion), transparent 60%);
+    }
+    50% {
+      box-shadow: 0 0 18px color-mix(in srgb, var(--color-evaluacion), transparent 30%);
+    }
   }
 
   .button--internal {
