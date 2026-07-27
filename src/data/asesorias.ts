@@ -58,9 +58,9 @@ export const STEPS: Step[] = [
 
 export const DIFERENCIALES: Diferencial[] = [
   { icono: "🎯", texto: "Planes 100% a tu medida — nada de rutinas genéricas ni prefabricadas" },
-  { icono: "📈", texto: "Ajustes semanales según tu evolución real — no esperes meses para ver cambios" },
+  { icono: "📈", texto: "Ajustes según tu evolución real — no esperes meses para ver cambios" },
   { icono: "💬", texto: "Acompañamiento por WhatsApp — respondo yo, no un bot" },
   { icono: "🎥", texto: "Corrección de técnica por video para que entrenes segura y sin lesiones" },
-  { icono: "🔄", texto: "Online, presencial o combinado: vos elegís cómo cada mes" },
   { icono: "🌱", texto: "No necesitás experiencia previa — arrancamos desde donde estés" },
+  { icono: "🏆", texto: "Sin efectos rebote — vas a lograr una transformación para toda tu vida" },
 ];

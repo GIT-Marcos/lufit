@@ -10,10 +10,17 @@ import { CONTACTO } from "../data/contacto";
 import { COMPARATIVA_COLUMNAS, STEPS, DIFERENCIALES } from "../data/asesorias";
 
 const paraQuien = [
-  { texto: 'Principiantes que nunca pisaron un gimnasio', icono: '🏃' },
-  { texto: 'Personas que quieren retomar después de un tiempo', icono: '🔄' },
-  { texto: 'Intermedios que estancaron y no ven resultados', icono: '📈' },
-  { texto: 'Cualquiera que busque un cambio real con acompañamiento profesional', icono: '🎯' },
+  { texto: 'Para las que quieren ganar fuerza, masa muscular y movilidad', icono: '🏃‍♀️' },
+  { texto: 'Para las mujeres que quieren sobre todo sentirse saludable, segura y con más energía', icono: '💃' },
+  { texto: 'Para las que necesitan lograr que entrenar sea una parte central en su vida', icono: '📈' },
+  { texto: 'Para las mujeres que buscan transformar la relación que tienen con su cuerpo', icono: '🤸‍♀️' },
+];
+
+const paraQuienNoEs = [
+  { texto: 'Personas que buscan resultados mágicos sin esfuerzo', icono: '🚫' },
+  { texto: 'Quienes esperan ver cambios en una semana', icono: '🚫' },
+  { texto: 'Los que no están dispuestos a recibir correcciones técnicas', icono: '🚫' },
+  { texto: 'Unicamente querés perder peso y nada más', icono: '🚫' },
 ];
 
 const faqItems = [
@@ -108,6 +115,28 @@ const faqItems = [
   </section>
 
   <section class="section">
+    <div class="section__container">
+      <h2 class="section__title">¿Para quién no es?</h2>
+      <p class="section__texto">
+        Esto no es para todos, y está bien. Si te identificás con alguno de estos perfiles,
+        quizás este no sea tu momento — y no hay nada de malo en eso.
+      </p>
+      <div class="para-quien-grid">
+        {
+          paraQuienNoEs.map((item) => (
+            <div class="para-quien-item">
+              <span class="para-quien-item__icono" aria-hidden="true">
+                {item.icono}
+              </span>
+              <p class="para-quien-item__texto">{item.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Preguntas frecuentes</h2>
       <FAQ items={faqItems} />
@@ -182,7 +211,7 @@ const faqItems = [
   .diferencial__texto {
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--color-text-secondary);
+    color: var(--color-text);
   }
 
   .para-quien-grid {
