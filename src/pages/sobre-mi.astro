@@ -3,14 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import Frase from "../components/Frase.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
+import CertificationCard from "../components/CertificationCard.astro";
 import { CONTACTO } from "../data/contacto";
-
-const certificaciones = [
-  "Certificación en Entrenamiento Personal",
-  "Especialización en Nutrición Deportiva",
-  "Técnicas de Corrección Postural",
-  "Entrenamiento Funcional Avanzado",
-];
+import { CERTIFICACIONES } from "../data/certificaciones";
 
 const testimonios = [
   {
@@ -44,8 +39,7 @@ const testimonios = [
       />
       <h1 class="hero-sobremi__title">Ludmila — Personal Trainer</h1>
       <p class="hero-sobremi__proposito">
-        Ayudo a personas como vos a transformar su cuerpo y su relación con el
-        movimiento
+        Ayudo a mujeres como vos a transformar su relación con el movimiento y el entrenamiento
       </p>
     </div>
   </section>
@@ -57,9 +51,7 @@ const testimonios = [
         <div class="bio__parrafo">
           <h3 class="bio__heading">Quién soy</h3>
           <p class="bio__texto">
-            [Texto placeholder — presentación personal, qué me llevó al fitness.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.]
+            [Texto placeholder — presentación personal, qué me llevó al fitness.]
           </p>
         </div>
         <div class="bio__parrafo">
@@ -93,8 +85,7 @@ const testimonios = [
             Que el entrenamiento deje de ser un castigo y se convierta en una
             herramienta para sentirse mejor, para vivir mejor, con más libertad,
             con más salud. Que sientas que entrenar no es solamente querer
-            cambiar cómo se ve tu cuerpo, sino también transformar la menera en
-            la que lo habitas.
+            cambiar cómo se ve tu cuerpo, sino también <strong>transformar la menera en la que lo habitas.</strong>
           </p>
         </div>
       </div>
@@ -105,11 +96,11 @@ const testimonios = [
     <div class="section__container">
       <h2 class="section__title">Certificaciones</h2>
       <div class="cert-grid">
-        {certificaciones.map((cert) => <div class="cert-badge">{cert}</div>)}
+        {CERTIFICACIONES.map((cert) => <CertificationCard {...cert} />)}
       </div>
     </div>
   </section>
-
+<!--
   <section class="section">
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Lo que dicen</h2>
@@ -122,11 +113,11 @@ const testimonios = [
       </div>
     </div>
   </section>
-
+   -->
   <section class="section section--featured">
     <div class="section__container section__container--narrow">
       <Frase
-        texto="No se trata solo de hacer ejercicios, sino de aprender a moverte mejor"
+        texto="No se trata solo de hacer ejercicios, sino de aprender a moverte mejor."
       />
     </div>
   </section>
@@ -207,19 +198,8 @@ const testimonios = [
 
   .cert-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .cert-badge {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text);
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .testimonios-inline {
@@ -230,7 +210,7 @@ const testimonios = [
 
   @media (min-width: 768px) {
     .cert-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .testimonios-inline {
