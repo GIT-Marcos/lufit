@@ -2,6 +2,7 @@
 export interface Columna {
   titulo: string;
   items: string[];
+  destacada?: boolean;
 }
 
 export interface Props {
@@ -14,7 +15,8 @@ const { columnas } = Astro.props;
 <div class="comparativa">
   {
     columnas.map((columna) => (
-      <div class="comparativa__columna">
+      <div class="comparativa__columna" class:list={{ 'comparativa__columna--destacada': columna.destacada }}>
+        {columna.destacada && <span class="comparativa__badge">✨ Recomendado</span>}
         <h3 class="comparativa__titulo">{columna.titulo}</h3>
         <ul class="comparativa__lista">
           {columna.items.map((item) => (
@@ -77,6 +79,30 @@ const { columnas } = Astro.props;
     left: 0;
     color: var(--color-secondary);
     font-weight: 900;
+  }
+
+  .comparativa__columna--destacada {
+    border-color: var(--color-primary);
+    border-width: 2px;
+    position: relative;
+  }
+
+  .comparativa__columna--destacada .comparativa__titulo {
+    color: var(--color-primary-dark);
+  }
+
+  .comparativa__badge {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
   }
 
   @media (min-width: 768px) {

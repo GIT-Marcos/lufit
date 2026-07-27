@@ -9,22 +9,23 @@ export interface Diferencial {
 export const COMPARATIVA_COLUMNAS: [Columna, Columna] = [
   {
     titulo: "Online",
+    destacada: true,
     items: [
-      "Entrená cuando y donde quieras — sin horarios fijos ni traslados",
-      "Correcciones por video como si estuviera al lado tuyo",
+      "Entrená donde quieras — sin horarios fijos ni traslados",
+      "Indicaciones y correcciones por video como si estuviera al lado tuyo",
       "Seguimiento por WhatsApp: respondo yo, no un bot",
       "Plan hecho para tu casa con lo que tengas (o sin nada)",
-      "Flexibilidad total: elegís días, horarios y ritmo",
+      "Guía de alimentación incluida con el plan de entrenamiento",
+      "Sin compromiso mensual — probás y decidís",
     ],
   },
   {
     titulo: "Presencial",
     items: [
-      "Entrená en mi espacio con todo el equipamiento",
+      "Entrená en mi espacio con equipamiento completo",
       "Corrección de técnica en persona, paso a paso",
-      "Acompañamiento presencial en cada sesión",
-      "Acceso a equipamiento completo",
-      "Días y horarios fijos, rutina estable",
+      "Atención 1 a 1 durante toda la sesión — no compartís turno",
+      "Cupos limitados: cada alumna tiene su lugar asegurado",
     ],
   },
 ];
@@ -34,7 +35,7 @@ export const STEPS: Step[] = [
     numero: 1,
     titulo: "Contame de vos",
     descripcion:
-      "Completá el formulario para contarme tus objetivos, tu rutina y tu punto de partida. Nos conocemos sin compromiso.",
+      "Completá el formulario para contarme tus objetivos, tus capacidades y tu punto de partida. Nos conocemos sin compromiso.",
   },
   {
     numero: 2,
