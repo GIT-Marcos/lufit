@@ -5,8 +5,8 @@ import { CONTACTO } from "../data/contacto";
 
 const galeria = [
   {
-    src: "https://placehold.co/800x600/EA580C/FFFFFF?text=Zona+de+entrenamiento",
-    alt: "Zona de entrenamiento del gimnasio de Ludmila",
+    src: "/images/LibraFit.jpg",
+    alt: "Logo de LibraFit",
   },
   {
     src: "https://placehold.co/800x600/1C1917/FAFAF9?text=Equipamiento",
@@ -55,7 +55,7 @@ const galeria = [
 
   <section class="section">
     <div class="section__container">
-      <h2 class="section__title">Galería</h2>
+      <h2 class="section__title">Mi espacio presencial</h2>
       <div class="galeria-grid">
         {
           galeria.map((foto) => (
@@ -176,7 +176,7 @@ const galeria = [
 
   .galeria__img {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 0.75rem;
   }
@@ -202,7 +202,6 @@ const galeria = [
     }
 
     .galeria__img {
-      height: 240px;
     }
   }
 </style>
