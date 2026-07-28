@@ -113,6 +113,8 @@ const { variant = "primary", size = "md", href, icon, target, rel } = Astro.prop
   .button--evaluacion {
     background: linear-gradient(135deg, var(--color-evaluacion), color-mix(in srgb, var(--color-evaluacion), black 20%));
     color: white;
+    outline: 1px solid color-mix(in srgb, var(--color-evaluacion), white 30%);
+    outline-offset: -3px;
     animation: button-glow 2.5s ease-in-out infinite;
   }
 
