@@ -1,8 +1,12 @@
 const WHATSAPP_NUMBER = '5493516431504';
-const WHATSAPP_MESSAGE = '¡Hola! Quiero consultar por tus planes de entrenamiento.';
+const WHATSAPP_DEFAULT_MESSAGE = '¡Hola! Quiero consultar por tus planes de entrenamiento.';
+
+export function getWhatsAppUrl(message: string = WHATSAPP_DEFAULT_MESSAGE): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 export const CONTACTO = {
-  WHATSAPP_URL: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+  WHATSAPP_BASE_URL: `https://wa.me/${WHATSAPP_NUMBER}`,
   FORM_EVALUACION_URL: 'https://forms.gle/Dt3uX4nuirLFQRLb6',
   INSTAGRAM_URL: 'https://www.instagram.com/ludmiiiifit/',
   INSTAGRAM_HIGHLIGHT_URL: 'https://www.instagram.com/stories/highlights/17927137662126047/',

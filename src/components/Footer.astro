@@ -2,7 +2,7 @@
 import IconWhatsApp from "./icons/IconWhatsApp.astro";
 import IconInstagram from "./icons/IconInstagram.astro";
 import IconEmail from "./icons/IconEmail.astro";
-import { CONTACTO } from "../data/contacto";
+import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
 import { FOOTER, FOOTER_NAV } from "../data/footer";
 ---
 
@@ -21,7 +21,7 @@ import { FOOTER, FOOTER_NAV } from "../data/footer";
     <div class="footer__row">
       <div class="footer__social">
         <a
-          href={CONTACTO.WHATSAPP_URL}
+          href={getWhatsAppUrl()}
           class="footer__social-link"
           aria-label="WhatsApp"
           target="_blank"

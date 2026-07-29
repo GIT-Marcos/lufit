@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import ContactIcons from "../components/ContactIcons.astro";
 import { CONTACTO } from "../data/contacto";
 
 const galeria = [
@@ -68,6 +69,13 @@ const galeria = [
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section class="section section--sm">
+    <div class="section__container section__container--narrow">
+      <h2 class="section__title">Para venir presencial contactame por acá</h2>
+      <ContactIcons whatsappMessage="¡Hola! Quiero consultar por las sesiones presenciales en tu gimnasio." />
     </div>
   </section>
 

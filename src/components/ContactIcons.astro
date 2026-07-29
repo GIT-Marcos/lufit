@@ -1,0 +1,84 @@
+---
+import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
+
+export interface Props {
+  showWhatsapp?: boolean;
+  showInstagram?: boolean;
+  showEmail?: boolean;
+  whatsappMessage?: string;
+}
+
+const {
+  showWhatsapp = true,
+  showInstagram = true,
+  showEmail = true,
+  whatsappMessage = "¡Hola!",
+} = Astro.props;
+---
+
+<div class="contact-icons">
+  {showWhatsapp && (
+    <a
+      href={getWhatsAppUrl(whatsappMessage)}
+      class="contact-icons__link"
+      aria-label="WhatsApp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="/whatsapp-icon.svg" alt="" class="contact-icons__img" width="28" height="28" />
+    </a>
+  )}
+  {showInstagram && (
+    <a
+      href={CONTACTO.INSTAGRAM_URL}
+      class="contact-icons__link"
+      aria-label="Instagram"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="/insta-icon.svg" alt="" class="contact-icons__img" width="28" height="28" />
+    </a>
+  )}
+  {showEmail && (
+    <a
+      href={CONTACTO.EMAIL_URL}
+      class="contact-icons__link"
+      aria-label="Correo electrónico"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="/gmail-icon.svg" alt="" class="contact-icons__img" width="28" height="28" />
+    </a>
+  )}
+</div>
+
+<style>
+  .contact-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .contact-icons__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transition-base);
+    line-height: 0;
+  }
+
+  .contact-icons__link:hover .contact-icons__img {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    transform: scale(1.1);
+  }
+
+  .contact-icons__img {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    transition: var(--transition-base);
+  }
+</style>

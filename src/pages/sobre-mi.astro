@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import ContactIcons from "../components/ContactIcons.astro";
 import Frase from "../components/Frase.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import CertificationCard from "../components/CertificationCard.astro";
@@ -100,6 +101,13 @@ const testimonios = [
       </div>
     </div>
   </section>
+
+  <section class="section section--sm">
+    <div class="section__container section__container--narrow">
+      <h2 class="section__title">Contacto</h2>
+      <ContactIcons />
+    </div>
+  </section>
 <!--
   <section class="section">
     <div class="section__container section__container--narrow">
@@ -143,7 +151,7 @@ const testimonios = [
       "Personal trainer. Ayudo a personas a transformar su cuerpo y su relación con el movimiento.",
     jobTitle: "Personal Trainer",
     knowsAbout: "Personal Training",
-    sameAs: [CONTACTO.WHATSAPP_URL, CONTACTO.INSTAGRAM_URL, CONTACTO.EMAIL_URL],
+    sameAs: [CONTACTO.WHATSAPP_BASE_URL, CONTACTO.INSTAGRAM_URL, CONTACTO.EMAIL_URL],
   })}
 />
 
