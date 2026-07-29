@@ -11,7 +11,16 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Sora',
+      name: 'Kanit',
+      cssVariable: '--font-hero',
+      weights: [700],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Kanit',
       cssVariable: '--font-heading',
       weights: [600, 700],
       styles: ['normal'],
@@ -20,7 +29,7 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Inter',
+      name: 'Parkisans',
       cssVariable: '--font-body',
       weights: [400, 500],
       styles: ['normal'],
@@ -29,8 +38,17 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Outfit',
-      cssVariable: '--font-hero',
+      name: 'Sora',
+      cssVariable: '--font-button',
+      weights: [400],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Anybody',
+      cssVariable: '--font-phrase',
       weights: [400, 500],
       styles: ['normal'],
       subsets: ['latin', 'latin-ext'],

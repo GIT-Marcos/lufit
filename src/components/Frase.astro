@@ -33,7 +33,7 @@ const { texto, autor } = Astro.props;
     position: absolute;
     font-size: 6rem;
     line-height: 1;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-phrase), sans-serif;
     color: var(--color-primary);
     opacity: 0.12;
     pointer-events: none;
@@ -56,6 +56,7 @@ const { texto, autor } = Astro.props;
   }
 
   .frase__texto {
+    font-family: var(--font-phrase), sans-serif;
     margin: 0;
     font-size: 1.5rem;
     font-weight: 500;
@@ -64,6 +65,7 @@ const { texto, autor } = Astro.props;
   }
 
   .frase__autor {
+    font-family: var(--font-phrase), sans-serif;
     margin-top: 1rem;
     font-size: 1rem;
     color: var(--color-text-secondary);

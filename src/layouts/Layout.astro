@@ -46,8 +46,11 @@ const ogImage = new URL(bannerImage.src, Astro.url.origin).href;
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImage} />
+    <Font cssVariable="--font-hero" preload />
     <Font cssVariable="--font-heading" preload />
     <Font cssVariable="--font-body" preload />
+    <Font cssVariable="--font-button" preload />
+    <Font cssVariable="--font-phrase" preload />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Ir al contenido</a>
