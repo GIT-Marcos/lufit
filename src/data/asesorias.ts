@@ -16,7 +16,7 @@ export const COMPARATIVA_COLUMNAS: [Columna, Columna] = [
       "Seguimiento por WhatsApp: respondo yo, no un bot",
       "Plan hecho para tu casa con lo que tengas (o sin nada)",
       "Guía de alimentación incluida con el plan de entrenamiento",
-      "Sin compromiso mensual — probás y decidís",
+      "2 tipos de asesorías: estándar y premium",
     ],
   },
   {
@@ -24,8 +24,9 @@ export const COMPARATIVA_COLUMNAS: [Columna, Columna] = [
     items: [
       "Entrená en mi espacio con equipamiento completo",
       "Corrección de técnica en persona, paso a paso",
-      "Atención 1 a 1 durante toda la sesión — no compartís turno",
+      "Entrená junto con otras chicas en tu mismo camino",
       "Cupos limitados: cada alumna tiene su lugar asegurado",
+      "Guía de alimentación incluida con el plan de entrenamiento",
     ],
   },
 ];
