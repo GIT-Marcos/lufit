@@ -1,0 +1,179 @@
+---
+import type { PlanListo } from "../data/planes-listos";
+import { getWhatsAppUrl } from "../data/contacto";
+
+export interface Props {
+  plan: PlanListo;
+}
+
+const { plan } = Astro.props;
+const mensaje = `¡Hola! Quiero consultar por el plan de ${plan.titulo}.`;
+const whatsappUrl = getWhatsAppUrl(mensaje);
+---
+
+<article class="pl-card">
+  <div class="pl-card__header">
+    <span class="pl-card__icono" aria-hidden="true">{plan.icono}</span>
+    <h3 class="pl-card__titulo">{plan.titulo}</h3>
+  </div>
+
+  <p class="pl-card__descripcion">{plan.descripcion}</p>
+
+  <div class="pl-card__tags">
+    <span class="pl-card__tag">
+      <span class="pl-card__tag-label">Objetivo</span>
+      <span class="pl-card__tag-value">{plan.objetivo}</span>
+    </span>
+    <span class="pl-card__tag">
+      <span class="pl-card__tag-label">Nivel</span>
+      <span class="pl-card__tag-value">{plan.nivel}</span>
+    </span>
+    <span class="pl-card__tag">
+      <span class="pl-card__tag-label">Duración</span>
+      <span class="pl-card__tag-value">{plan.duracion}</span>
+    </span>
+  </div>
+
+  <div class="pl-card__cuerpo">
+    <p class="pl-card__publico">
+      <strong>Para:</strong> {plan.publicoObjetivo}
+    </p>
+    <ul class="pl-card__caracteristicas">
+      {plan.caracteristicas.map((c) => (
+        <li class="pl-card__caracteristica">{c}</li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="pl-card__cta">
+    <a
+      href={whatsappUrl}
+      class="button button--whatsapp button--md button--with-icon"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Consultar por este plan
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</article>
+
+<style>
+  .pl-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base);
+  }
+
+  .pl-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .pl-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .pl-card__icono {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .pl-card__titulo {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .pl-card__descripcion {
+    padding: 0.75rem 1.5rem 0;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .pl-card__tags {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem 0;
+    flex-wrap: wrap;
+  }
+
+  .pl-card__tag {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pl-card__tag-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+  }
+
+  .pl-card__tag-value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .pl-card__cuerpo {
+    padding: 1.25rem 1.5rem 0;
+    flex: 1;
+  }
+
+  .pl-card__publico {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .pl-card__caracteristicas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pl-card__caracteristica {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .pl-card__caracteristica::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: 700;
+  }
+
+  .pl-card__cta {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .pl-card__cta .button {
+    width: 100%;
+  }
+</style>
