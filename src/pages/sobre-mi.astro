@@ -6,6 +6,14 @@ import Frase from "../components/Frase.astro";
 import CertificationCard from "../components/CertificationCard.astro";
 import { CONTACTO } from "../data/contacto";
 import { CERTIFICACIONES } from "../data/certificaciones";
+import ipefLogo from "../assets/images/certificaciones/ipef-logo.png";
+import amaipLogo from "../assets/images/certificaciones/amaip.png";
+import retratoPlaceholder from "../assets/images/about/retrato.svg";
+
+const certLogos: Record<string, string> = {
+  "IPEF": ipefLogo.src,
+  "AMAIP": amaipLogo.src,
+};
 
 const testimonios = [
   {
@@ -32,7 +40,7 @@ const testimonios = [
   <section class="hero-sobremi">
     <div class="hero-sobremi__content">
       <img
-        src="https://placehold.co/400x400/05804A/FFFFFF?text=Ludmila"
+        src={retratoPlaceholder.src}
         alt="Retrato de Ludmila, personal trainer"
         class="hero-sobremi__image"
         fetchpriority="high"
@@ -96,7 +104,9 @@ const testimonios = [
     <div class="section__container">
       <h2 class="section__title">Certificaciones</h2>
       <div class="cert-grid">
-        {CERTIFICACIONES.map((cert) => <CertificationCard {...cert} />)}
+        {CERTIFICACIONES.map((cert) => (
+  <CertificationCard {...cert} logo={certLogos[cert.acronym]} />
+))}
       </div>
     </div>
   </section>

@@ -3,24 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import ContactIcons from "../components/ContactIcons.astro";
 import { CONTACTO } from "../data/contacto";
+import libraFitImg from "../assets/images/galeria/LibraFit.jpg";
+import heroGimnasioImg from "../assets/images/hero/gimnasio-hero.svg";
+import gym1Img from "../assets/images/galeria/gym1.jpeg";
+import gym2Img from "../assets/images/galeria/gym2.jpeg";
+import gym3Img from "../assets/images/galeria/gym3.jpeg";
 
 const galeria = [
-  {
-    src: "/images/LibraFit.jpg",
-    alt: "Logo de LibraFit",
-  },
-  {
-    src: "https://placehold.co/800x600/1C1917/FAFAF9?text=Equipamiento",
-    alt: "Equipamiento del gimnasio",
-  },
-  {
-    src: "https://placehold.co/800x600/EA580C/FFFFFF?text=Ambiente",
-    alt: "Ambiente del gimnasio de Ludmila",
-  },
-  {
-    src: "https://placehold.co/800x600/1C1917/FAFAF9?text=Box+de+entrenamiento",
-    alt: "Box de entrenamiento personal",
-  },
+  { src: libraFitImg.src, alt: "Logo de LibraFit" },
+  { src: gym1Img.src, alt: "Espacio de entrenamiento — Ludmila PT" },
+  { src: gym2Img.src, alt: "Sesión de entrenamiento — Ludmila PT" },
+  { src: gym3Img.src, alt: "Box de entrenamiento — Ludmila PT" },
 ];
 ---
 
@@ -34,7 +27,7 @@ const galeria = [
 >
   <section class="hero-gimnasio">
     <img
-      src="https://placehold.co/1200x600/EA580C/FFFFFF?text=Ludmila+en+mi+gimnasio"
+      src={heroGimnasioImg.src}
       alt="Ludmila en su gimnasio"
       class="hero-gimnasio__image"
       fetchpriority="high"

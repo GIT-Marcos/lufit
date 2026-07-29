@@ -1,5 +1,8 @@
 ---
 import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
+import whatsappIcon from "../assets/images/iconos/whatsapp-icon.svg";
+import instaIcon from "../assets/images/iconos/insta-icon.svg";
+import gmailIcon from "../assets/images/iconos/gmail-icon.svg";
 
 export interface Props {
   showWhatsapp?: boolean;
@@ -25,7 +28,7 @@ const {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src="/whatsapp-icon.svg" alt="" class="contact-icons__img" width="28" height="28" />
+      <img src={whatsappIcon.src} alt="" class="contact-icons__img" width="28" height="28" />
     </a>
   )}
   {showInstagram && (
@@ -36,7 +39,7 @@ const {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src="/insta-icon.svg" alt="" class="contact-icons__img" width="28" height="28" />
+      <img src={instaIcon.src} alt="" class="contact-icons__img" width="28" height="28" />
     </a>
   )}
   {showEmail && (
@@ -47,7 +50,7 @@ const {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src="/gmail-icon.svg" alt="" class="contact-icons__img" width="28" height="28" />
+      <img src={gmailIcon.src} alt="" class="contact-icons__img" width="28" height="28" />
     </a>
   )}
 </div>
