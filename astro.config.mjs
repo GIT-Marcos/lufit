@@ -29,7 +29,7 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Parkisans',
+      name: 'Parkinsans',
       cssVariable: '--font-body',
       weights: [400, 500],
       styles: ['normal'],
