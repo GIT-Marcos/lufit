@@ -8,8 +8,7 @@ import TestimonialCard from "../components/TestimonialCard.astro";
 import { CONTACTO } from "../data/contacto";
 import { STATS } from "../data/stats";
 import { ASESORIA_ONLINE, PRESENCIAL_ALERTA } from "../data/servicios";
-import heroImage from "../assets/images/inicio.jpeg";
-import heroImage2 from "../assets/images/galeria/gym1.jpeg";
+import heroImage from "../assets/images/galeria/gym1.jpeg";
 
 interface Testimonio {
   nombre: string;
@@ -67,7 +66,8 @@ const testimonios: Testimonio[] = [
         rel: "noopener noreferrer",
       },
     ]}
-    image={{ src: heroImage.src, alt: "Ludmila" }}
+    image={heroImage}
+    imageAlt="Ludmila"
   />
 
   <section class="section">

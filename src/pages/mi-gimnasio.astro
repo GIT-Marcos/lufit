@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
 import ContactIcons from "../components/ContactIcons.astro";
 import { CONTACTO } from "../data/contacto";
 import { PLANES_PRESENCIALES } from "../data/planes-presenciales";
 import libraFitImg from "../assets/images/galeria/LibraFit.jpg";
-import heroGimnasioImg from "../assets/images/hero/gimnasio-hero.svg";
+import heroImage from "../assets/images/galeria/gym1.jpeg";
 import gym1Img from "../assets/images/galeria/gym1.jpeg";
 import gym2Img from "../assets/images/galeria/gym2.jpeg";
 import gym3Img from "../assets/images/galeria/gym3.jpeg";
@@ -26,27 +27,21 @@ const galeria = [
     { label: "Mi Gimnasio", href: "/mi-gimnasio" },
   ]}
 >
-  <section class="hero-gimnasio">
-    <img
-      src={heroGimnasioImg.src}
-      alt="Ludmila en su gimnasio"
-      class="hero-gimnasio__image"
-      fetchpriority="high"
-    />
-    <div class="hero-gimnasio__content">
-      <h1 class="hero-gimnasio__title">Así trabajo. Presencial u online.</h1>
-      <p class="hero-gimnasio__texto">
-        Este es el espacio donde entrenan mis alumnas presenciales. El mismo
-        método, el mismo acompañamiento, funciona igual de bien donde sea que
-        estés.
-      </p>
-      <div class="hero-gimnasio__cta">
-        <Button href="/asesorias" variant="internal" icon="arrow" size="lg">
-          Ver planes online
-        </Button>
-      </div>
-    </div>
-  </section>
+  <Hero
+    title="Así trabajo. Presencial u online."
+    subtitle="Este es el espacio donde entrenan mis alumnas presenciales. El mismo método, el mismo acompañamiento, funciona igual de bien donde sea que estés."
+    image={heroImage}
+    imageAlt="Ludmila en su gimnasio"
+    ctas={[
+      {
+        text: "Ver planes online",
+        href: "/asesorias",
+        variant: "internal",
+        icon: "arrow",
+        size: "lg",
+      },
+    ]}
+  />
 
   <section class="section" aria-labelledby="modalidades-heading">
     <div class="section__container">
@@ -155,51 +150,6 @@ const galeria = [
 </Layout>
 
 <style>
-  .hero-gimnasio {
-    position: relative;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-
-  .hero-gimnasio__image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .hero-gimnasio__content {
-    position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 0.75rem;
-    max-width: 40rem;
-  }
-
-  .hero-gimnasio__title {
-    font-family: var(--font-hero), sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .hero-gimnasio__texto {
-    font-size: 1.0625rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-  }
-
-  .hero-gimnasio__cta {
-    margin-top: 1.5rem;
-  }
-
   .section__texto {
     font-size: 1.0625rem;
     color: var(--color-text-secondary);

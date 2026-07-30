@@ -1,4 +1,6 @@
 ---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Button from "./Button.astro";
 
 export interface CTA {
@@ -16,19 +18,35 @@ export interface Props {
   subtitle?: string;
   identity?: string;
   ctas?: CTA[];
-  image?: { src: string; alt: string };
+  image?: ImageMetadata;
+  imageAlt?: string;
 }
 
-const { title, subtitle, identity, ctas, image } = Astro.props;
+const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
+const isSvg = image?.format === 'svg';
 ---
 
 <section class="hero">
   {
-    image && (
+    image && isSvg && (
       <img
         src={image.src}
-        alt={image.alt}
+        alt={imageAlt || ""}
         class="hero__image"
+        fetchpriority="high"
+      />
+    )
+  }
+  {
+    image && !isSvg && (
+      <Picture
+        src={image}
+        alt={imageAlt || ""}
+        class="hero__image"
+        formats={["webp"]}
+        widths={[640, 1280, 1920]}
+        sizes="100vw"
+        loading="eager"
         fetchpriority="high"
       />
     )
@@ -50,7 +68,6 @@ const { title, subtitle, identity, ctas, image } = Astro.props;
     }
   </div>
 </section>
-
 <style>
   .hero {
     position: relative;
