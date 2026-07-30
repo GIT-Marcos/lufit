@@ -136,13 +136,31 @@ const galeria = [
 
   <section class="section">
     <div class="section__container section__container--narrow">
-      <h2 class="section__title">Dirección y horarios</h2>
+      <h2 class="section__title">Horarios</h2>
       <div class="info-box">
+        <p class="info-box__dias">Lunes a viernes</p>
+        <div class="info-box__turnos">
+          <div class="info-box__turno">
+            <span class="info-box__turno-label" aria-hidden="true">🌅</span>
+            <div>
+              <span class="info-box__turno-nombre">Mañana</span>
+              <span class="info-box__turno-horario">8 a 11 h</span>
+            </div>
+          </div>
+          <div class="info-box__turno">
+            <span class="info-box__turno-label" aria-hidden="true">🌙</span>
+            <div>
+              <span class="info-box__turno-nombre">Tarde</span>
+              <span class="info-box__turno-horario">16 a 20 h</span>
+            </div>
+          </div>
+        </div>
+        <hr class="info-box__divider" />
         <p class="info-box__line">
-          Dirección: [Dirección del gimnasio — placeholder]
+          📍 La Calera, Córdoba
         </p>
-        <p class="info-box__line">
-          Horarios: Consultá disponibilidad de turnos
+        <p class="info-box__note">
+          Recibirás la dirección al inscribirte
         </p>
       </div>
     </div>
@@ -189,6 +207,69 @@ const galeria = [
   .info-box__line {
     font-size: 1rem;
     color: var(--color-text-secondary);
+  }
+
+  .info-box__dias {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .info-box__turnos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .info-box__turno {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+
+  .info-box__turno-label {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .info-box__turno-nombre {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .info-box__turno-horario {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 480px) {
+    .info-box__turnos {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .info-box__divider {
+    border: none;
+    height: 1px;
+    background: var(--color-border);
+    margin: 0.25rem 0;
+  }
+
+  .info-box__note {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-style: italic;
   }
 
   @media (min-width: 768px) {

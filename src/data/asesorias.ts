@@ -36,25 +36,25 @@ export const STEPS: Step[] = [
     numero: 1,
     titulo: "Contame de vos",
     descripcion:
-      "Completá el formulario para contarme tus objetivos, tus capacidades y tu punto de partida. Nos conocemos sin compromiso.",
+      "Completás el formulario para contarme tus objetivos, tus capacidades y tu punto de partida para que yo pueda ponerme en contacto con vos y realizar tu inscripción.",
   },
   {
     numero: 2,
     titulo: "Diseño tu plan",
     descripcion:
-      "Creo una rutina 100% a tu medida, con la guía de alimentación incluida. Todo ajustado a tu equipamiento, horarios y nivel.",
+      "Diseño una rutina 100% a tu medida y recibís acceso a la plataforma con los ejercicios. Todo ajustado a tu equipamiento, horarios y nivel.",
   },
   {
     numero: 3,
     titulo: "No estás sola",
     descripcion:
-      "Acompañamiento continuo por WhatsApp con ajustes según tu evolución. Videos explicativos y correcciones de técnica incluidas.",
+      "Tendrás acompañamiento continuo por WhatsApp con ajustes según tu evolución. Videos explicativos y correcciones de técnica incluidas en la plataforma.",
   },
   {
     numero: 4,
     titulo: "Resultados reales",
     descripcion:
-      "Cambios visibles en fuerza, composición corporal y bienestar general. Verlos te da más ganas de seguir.",
+      "Sentirás cambios visibles en fuerza, composición corporal y bienestar general. Vamos ajustando tu plan mes a mes acorde a tu progreso.",
   },
 ];
 
