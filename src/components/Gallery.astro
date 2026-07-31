@@ -18,7 +18,7 @@ const { items, variant = "portrait" } = Astro.props;
           src={item.src}
           alt={item.alt}
           class="gallery__img"
-          formats={["webp"]}
+          formats={["avif", "webp"]}
           widths={[480, 640, 960]}
           sizes="(min-width: 768px) 33vw, 50vw"
           loading="lazy"

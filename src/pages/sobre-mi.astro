@@ -16,19 +16,6 @@ const certLogos: Record<string, string> = {
   "IPEF": ipefLogo.src,
   "AMAIP": amaipLogo.src,
 };
-
-const testimonios = [
-  {
-    nombre: "María G.",
-    texto:
-      "Entrenar con Ludmila cambió mi forma de ver el ejercicio. Su acompañamiento es inigualable.",
-  },
-  {
-    nombre: "Carlos P.",
-    texto:
-      "Después de años sin resultados, en 3 meses vi cambios que no creía posibles. Recomiendo su método.",
-  },
-];
 ---
 
 <Layout
@@ -126,20 +113,7 @@ const testimonios = [
       <ContactIcons />
     </div>
   </section>
-<!--
-  <section class="section">
-    <div class="section__container section__container--narrow">
-      <h2 class="section__title">Lo que dicen</h2>
-      <div class="testimonios-inline">
-        {
-          testimonios.map((t) => (
-            <TestimonialCard nombre={t.nombre} texto={t.texto} />
-          ))
-        }
-      </div>
-    </div>
-  </section>
-   -->
+
   <section class="section section--featured">
     <div class="section__container section__container--narrow">
       <Frase
