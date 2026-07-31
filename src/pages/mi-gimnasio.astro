@@ -5,6 +5,7 @@ import Button from "../components/Button.astro";
 import ContactIcons from "../components/ContactIcons.astro";
 import { CONTACTO } from "../data/contacto";
 import { PLANES_PRESENCIALES } from "../data/planes-presenciales";
+import { HORARIOS, TIPO_CLASE_LABEL } from "../data/horarios";
 import libraFitImg from "../assets/images/galeria/LibraFit.jpg";
 import heroImage from "../assets/images/galeria/gym1.jpeg";
 import gym1Img from "../assets/images/galeria/gym1.jpeg";
@@ -138,22 +139,26 @@ const galeria = [
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Horarios</h2>
       <div class="info-box">
-        <p class="info-box__dias">Lunes a viernes</p>
-        <div class="info-box__turnos">
-          <div class="info-box__turno">
-            <span class="info-box__turno-label" aria-hidden="true">🌅</span>
-            <div>
-              <span class="info-box__turno-nombre">Mañana</span>
-              <span class="info-box__turno-horario">8 a 11 h</span>
-            </div>
-          </div>
-          <div class="info-box__turno">
-            <span class="info-box__turno-label" aria-hidden="true">🌙</span>
-            <div>
-              <span class="info-box__turno-nombre">Tarde</span>
-              <span class="info-box__turno-horario">16 a 20 h</span>
-            </div>
-          </div>
+        <div class="horarios-grid">
+          {
+            HORARIOS.map((grupo) => (
+              <div class="horarios-dia">
+                <p class="horarios-dia__titulo">{grupo.dias}</p>
+                <ul class="horarios-dia__lista">
+                  {grupo.clases.map((clase) => (
+                    <li class="horarios-dia__clase">
+                      <span class="horarios-dia__hora">{clase.hora}</span>
+                      <span
+                        class={`horarios-dia__tipo horarios-dia__tipo--${clase.tipo}`}
+                      >
+                        {TIPO_CLASE_LABEL[clase.tipo]}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
         </div>
         <hr class="info-box__divider" />
         <p class="info-box__line">
@@ -209,52 +214,77 @@ const galeria = [
     color: var(--color-text-secondary);
   }
 
-  .info-box__dias {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text);
-    text-align: center;
-    margin-bottom: 0.25rem;
-  }
-
-  .info-box__turnos {
+  .horarios-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .info-box__turno {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  .horarios-dia {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
-  .info-box__turno-label {
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  .info-box__turno-nombre {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .info-box__turno-horario {
-    display: block;
-    font-size: 0.9375rem;
+  .horarios-dia__titulo {
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 1rem;
   }
 
-  @media (max-width: 480px) {
-    .info-box__turnos {
-      grid-template-columns: 1fr;
+  .horarios-dia__lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .horarios-dia__clase {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .horarios-dia__clase:last-child {
+    border-bottom: none;
+  }
+
+  .horarios-dia__hora {
+    font-weight: 700;
+    color: var(--color-text);
+    flex-shrink: 0;
+  }
+
+  .horarios-dia__tipo {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .horarios-dia__tipo--funcional {
+    background: color-mix(in srgb, var(--color-primary), transparent 85%);
+    color: var(--color-primary-dark);
+  }
+
+  .horarios-dia__tipo--personalizado {
+    background: color-mix(in srgb, var(--color-secondary), transparent 85%);
+    color: var(--color-secondary-dark);
+  }
+
+  .horarios-dia__tipo--yoga {
+    background: color-mix(in srgb, var(--color-blue), transparent 85%);
+    color: var(--color-blue-dark);
+  }
+
+  @media (min-width: 768px) {
+    .horarios-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
