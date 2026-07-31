@@ -15,7 +15,7 @@ export const FOOTER = {
   TAGLINE: "Entrenamiento personal online y presencial",
   CTA_TEXT: "Comenzá hoy",
   CTA_HREF: "/asesorias",
-  COPYRIGHT: "Ludmila. Todos los derechos reservados.",
+  COPYRIGHT: "Ludmila.",
   DEVELOPER_NAME: "Marcos",
   DEVELOPER_URL: "https://github.com/GIT-Marcos",
 } as const;

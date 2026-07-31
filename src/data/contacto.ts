@@ -12,4 +12,8 @@ export const CONTACTO = {
   INSTAGRAM_HIGHLIGHT_URL: 'https://www.instagram.com/stories/highlights/17927137662126047/',
   EMAIL_URL: 'mailto:ludmi.asesoriasvirtuales@gmail.com',
   INSTAGRAM_HANDLE: '@ludmiiiifit',
+  // Handle de X/Twitter (con @). Vacío hasta que confirmar cuenta de X.
+  // Mientras esté vacío, el Layout NO emite twitter:site ni twitter:creator.
+  // NO reutilizar el handle de Instagram: los handles de X e IG no son intercambiables.
+  TWITTER_HANDLE: '',
 };
