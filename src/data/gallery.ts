@@ -15,8 +15,8 @@ export interface GalleryItem {
 
 export const GALLERY: GalleryItem[] = [
   { src: lumo1, alt: "Ludmila tu entrenadora" },
-  { src: lumo2, alt: "Ludmila tu entrenadora" },
   { src: lumo3, alt: "Ludmila tu entrenadora" },
+  { src: lumo2, alt: "Ludmila tu entrenadora" },
 ];
 
 export const GALLERY_GIMNASIO: GalleryItem[] = [
