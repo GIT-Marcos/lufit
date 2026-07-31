@@ -44,6 +44,12 @@ import { FOOTER, FOOTER_NAV } from "../data/footer";
       </div>
       <p class="footer__copyright">&copy; {new Date().getFullYear()} {FOOTER.COPYRIGHT}</p>
     </div>
+    <p class="footer__credit">
+      Diseñado y desarrollado por{" "}
+      <a href={FOOTER.DEVELOPER_URL} class="footer__credit-link" target="_blank" rel="noopener noreferrer">
+        {FOOTER.DEVELOPER_NAME}
+      </a>
+    </p>
   </div>
 </footer>
 
@@ -63,7 +69,7 @@ import { FOOTER, FOOTER_NAV } from "../data/footer";
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.3rem;
   }
 
   .footer__nav {
@@ -118,5 +124,19 @@ import { FOOTER, FOOTER_NAV } from "../data/footer";
   .footer__copyright {
     font-size: 0.8125rem;
     color: var(--color-text-secondary);
+  }
+
+  .footer__credit {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer__credit-link {
+    color: var(--color-text-secondary);
+    transition: color var(--transition-base);
+  }
+
+  .footer__credit-link:hover {
+    color: var(--color-primary);
   }
 </style>
