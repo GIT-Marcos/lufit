@@ -4,8 +4,10 @@ import Button from "../components/Button.astro";
 import ContactIcons from "../components/ContactIcons.astro";
 import Frase from "../components/Frase.astro";
 import CertificationCard from "../components/CertificationCard.astro";
+import Gallery from "../components/Gallery.astro";
 import { CONTACTO } from "../data/contacto";
 import { CERTIFICACIONES } from "../data/certificaciones";
+import { GALLERY } from "../data/gallery";
 import ipefLogo from "../assets/images/certificaciones/ipef-logo.png";
 import amaipLogo from "../assets/images/certificaciones/amaip.png";
 import retratoPlaceholder from "../assets/images/about/retrato.svg";
@@ -97,6 +99,13 @@ const testimonios = [
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__container">
+      <h2 class="section__title">Ludmila tu entrenadora</h2>
+      <Gallery items={GALLERY} />
     </div>
   </section>
 

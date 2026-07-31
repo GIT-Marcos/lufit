@@ -1,0 +1,74 @@
+---
+import { Picture } from "astro:assets";
+import type { GalleryItem } from "../data/gallery";
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="gallery">
+  {items.map((item) => (
+    <li class="gallery__item">
+      <figure class="gallery__figure">
+        <Picture
+          src={item.src}
+          alt={item.alt}
+          class="gallery__img"
+          formats={["webp"]}
+          widths={[480, 640, 960]}
+          sizes="(min-width: 768px) 33vw, 50vw"
+          loading="lazy"
+        />
+        {item.caption && (
+          <figcaption class="gallery__caption">{item.caption}</figcaption>
+        )}
+      </figure>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    list-style: none;
+  }
+
+  .gallery__figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gallery__img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    transition:
+      transform var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .gallery__item:hover .gallery__img {
+    transform: scale(1.03);
+  }
+
+  .gallery__caption {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 767px) {
+    .gallery__item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
