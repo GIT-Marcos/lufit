@@ -20,7 +20,7 @@ const { title, description, breadcrumb } = Astro.props;
 const currentPage = Astro.url.pathname.replace(/\/$/, "") || "/";
 const siteOrigin = Astro.site?.origin ?? Astro.url.origin;
 const canonicalUrl = siteOrigin + (Astro.url.pathname.replace(/\/$/, "") || "/");
-const ogImage = new URL(favicon.src, Astro.url.origin).href;
+const ogImage = new URL("/og/og-default.jpg", siteOrigin).href;
 ---
 
 <!doctype html>
@@ -37,6 +37,9 @@ const ogImage = new URL(favicon.src, Astro.url.origin).href;
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ludmila — Personal Trainer Online y Presencial" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
