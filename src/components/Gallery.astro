@@ -4,12 +4,13 @@ import type { GalleryItem } from "../data/gallery";
 
 interface Props {
   items: GalleryItem[];
+  variant?: "portrait" | "landscape";
 }
 
-const { items } = Astro.props;
+const { items, variant = "portrait" } = Astro.props;
 ---
 
-<ul class="gallery">
+<ul class={`gallery gallery--${variant}`}>
   {items.map((item) => (
     <li class="gallery__item">
       <figure class="gallery__figure">
@@ -33,9 +34,13 @@ const { items } = Astro.props;
 <style>
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1rem;
     list-style: none;
+  }
+
+  .gallery--portrait {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 
   .gallery__figure {
@@ -56,6 +61,10 @@ const { items } = Astro.props;
       box-shadow var(--transition-base);
   }
 
+  .gallery--landscape .gallery__img {
+    aspect-ratio: 4 / 3;
+  }
+
   .gallery__item:hover .gallery__img {
     transform: scale(1.03);
   }
@@ -67,8 +76,14 @@ const { items } = Astro.props;
   }
 
   @media (max-width: 767px) {
-    .gallery__item:last-child:nth-child(odd) {
+    .gallery--portrait .gallery__item:last-child:nth-child(odd) {
       grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .gallery--landscape {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>

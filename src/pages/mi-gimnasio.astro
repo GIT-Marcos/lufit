@@ -2,22 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/Button.astro";
+import Gallery from "../components/Gallery.astro";
 import ContactIcons from "../components/ContactIcons.astro";
 import { CONTACTO } from "../data/contacto";
 import { PLANES_PRESENCIALES } from "../data/planes-presenciales";
 import { HORARIOS, TIPO_CLASE_LABEL } from "../data/horarios";
-import libraFitImg from "../assets/images/galeria/LibraFit.jpg";
+import { GALLERY_GIMNASIO } from "../data/gallery";
 import heroImage from "../assets/images/galeria/gym1.jpeg";
-import gym1Img from "../assets/images/galeria/gym1.jpeg";
-import gym2Img from "../assets/images/galeria/gym2.jpeg";
-import gym3Img from "../assets/images/galeria/gym3.jpeg";
-
-const galeria = [
-  { src: libraFitImg.src, alt: "Logo de LibraFit" },
-  { src: gym1Img.src, alt: "Espacio de entrenamiento — Ludmila PT" },
-  { src: gym2Img.src, alt: "Sesión de entrenamiento — Ludmila PT" },
-  { src: gym3Img.src, alt: "Box de entrenamiento — Ludmila PT" },
-];
 ---
 
 <Layout
@@ -90,18 +81,7 @@ const galeria = [
   <section class="section">
     <div class="section__container">
       <h2 class="section__title">Mi espacio presencial</h2>
-      <div class="galeria-grid">
-        {
-          galeria.map((foto) => (
-            <img
-              src={foto.src}
-              alt={foto.alt}
-              class="galeria__img"
-              loading="lazy"
-            />
-          ))
-        }
-      </div>
+      <Gallery items={GALLERY_GIMNASIO} variant="landscape" />
     </div>
   </section>
 
@@ -184,19 +164,6 @@ const galeria = [
 
   .section__cta-wrapper {
     text-align: center;
-  }
-
-  .galeria-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .galeria__img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 0.75rem;
   }
 
   .info-box {
@@ -300,15 +267,6 @@ const galeria = [
     color: var(--color-text-secondary);
     text-align: center;
     font-style: italic;
-  }
-
-  @media (min-width: 768px) {
-    .galeria-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .galeria__img {
-    }
   }
 
   .planes-grid {
