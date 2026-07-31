@@ -13,6 +13,7 @@ import Layout from "../layouts/Layout.astro";
      import PlanListoCard from "../components/PlanListoCard.astro";
      import { PLANES_LISTOS } from "../data/planes-listos";
      import { getWhatsAppUrl } from "../data/contacto";
+     import heroImage from "../assets/images/galeria/gym1.jpeg";
 
      const faqItems = [ ... ];
      const siteOrigin = Astro.site?.origin ?? "";
@@ -49,7 +50,9 @@ import Layout from "../layouts/Layout.astro";
   <Hero
     title="Planes listos para arrancar"
     subtitle="Elegí tu objetivo y empezá hoy — planes pre-diseñados con estructura profesional"
-    image={{ src: bannerImage.src, alt: "Planes de entrenamiento listos para empezar" }}
+    identity="Ludmila — Personal Trainer"
+    image={heroImage}
+    imageAlt="Ludmila"
     ctas={[
       { text: "Ver planes", href: "#planes", variant: "primary", size: "lg" },
       {
