@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
+import HeroSplit from "../components/HeroSplit.astro";
 import Button from "../components/Button.astro";
 import Comparativa from "../components/Comparativa.astro";
 import Steps from "../components/Steps.astro";
 import FAQ from "../components/FAQ.astro";
-import heroImage from "../assets/images/galeria/gym1.jpeg";
+import heroImage from "../assets/images/hero/asesorias.jpeg";
 import { CONTACTO } from "../data/contacto";
 import { COMPARATIVA_COLUMNAS, STEPS, DIFERENCIALES } from "../data/asesorias";
 
@@ -46,7 +46,7 @@ const faqItems = [
     { label: "Asesorías", href: "/asesorias" },
   ]}
 >
-  <Hero
+  <HeroSplit
     title="Un plan que se adapta a vos —no al revés—"
     subtitle="Online o presencial, vos elegís"
     image={heroImage}

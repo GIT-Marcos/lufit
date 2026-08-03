@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
+import HeroSplit from "../components/HeroSplit.astro";
 import Button from "../components/Button.astro";
 import Stats from "../components/Stats.astro";
 import Frase from "../components/Frase.astro";
@@ -8,7 +8,7 @@ import TestimonialCard from "../components/TestimonialCard.astro";
 import { CONTACTO } from "../data/contacto";
 import { STATS } from "../data/stats";
 import { ASESORIA_ONLINE, PRESENCIAL_ALERTA } from "../data/servicios";
-import heroImage from "../assets/images/galeria/gym1.jpeg";
+import heroImage from "../assets/images/hero/inicio.jpeg";
 
 interface Testimonio {
   nombre: string;
@@ -50,7 +50,7 @@ const testimonios: Testimonio[] = [
   title="Entrenadora Personal Online y Presencial | Ludmila"
   description="Entrenadora personal online y presencial en La Calera, Córdoba. Planes personalizados con acompañamiento continuo. Empezá hoy tu cambio."
 >
-  <Hero
+  <HeroSplit
     title="Entrenar no es solamente verse mejor, también es sentirse mejor"
     subtitle="Planes de entrenamiento personalizados con acompañamiento continuo. Online o presencial, vos elegís."
     identity="Ludmila — Personal Trainer"
