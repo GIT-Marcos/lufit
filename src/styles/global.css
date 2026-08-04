@@ -29,6 +29,9 @@
   --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 8px -4px rgba(0, 0, 0, 0.06);
   --shadow-hover: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
 
+  /* Spacing */
+  --section-gap: 4rem;
+
   /* Transiciones */
   --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -123,17 +126,16 @@ small {
 }
 
 .section {
-  padding: 5rem 1rem;
+  padding-block: var(--section-gap);
+  padding-inline: 1rem;
 }
 
 .section--sm {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-block: calc(var(--section-gap) * 0.6);
 }
 
 .section--lg {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-block: calc(var(--section-gap) * 1.5);
 }
 
 .section--featured {
@@ -195,7 +197,9 @@ small {
   max-width: 30rem;
   width: 100%;
   height: 3px;
-  margin: 0 auto 4rem;
+  margin: 0 auto;
+  margin-top: calc(var(--section-gap) / 2 - 1.5px);
+  margin-bottom: calc(var(--section-gap) / 2 - 1.5px);
   background: linear-gradient(
     90deg,
     transparent,
@@ -203,6 +207,12 @@ small {
     transparent
   );
   border-radius: 2px;
+}
+
+.section--sm + .section::before,
+.section + .section--sm::before {
+  margin-top: calc((var(--section-gap) * 0.6) / 2 - 1.5px);
+  margin-bottom: calc((var(--section-gap) * 0.6) / 2 - 1.5px);
 }
 
 .section--cta::before,
