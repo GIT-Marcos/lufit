@@ -20,23 +20,23 @@ const certLogos: Record<string, string> = {
 ---
 
 <Layout
-  title="Sobre Ludmila — Entrenadora Personal Certificada"
-  description="Conocé a Ludmila, entrenadora personal certificada. Filosofía, certificaciones y experiencia. Entrenamiento online y presencial en La Calera, Córdoba."
+  title="Sobre Ludmila — Profesora de Educación Física"
+  description="Conocé a Ludmila, profesora de Educación Física. Filosofía, formación y acompañamiento profesional. Entrenamiento online y presencial en La Calera, Córdoba."
   breadcrumb={[
     { label: "Inicio", href: "/" },
     { label: "Sobre Mí", href: "/sobre-mi" },
   ]}
 >
   <HeroSplit
-    title="Ludmila — Personal Trainer"
+    title="Ludmila — Prof. Ed. Física"
     subtitle="Ayudo a mujeres como vos a transformar su relación con el movimiento y el entrenamiento"
     image={retrato}
-    imageAlt="Retrato de Ludmila, personal trainer"
+    imageAlt="Ludmila, profesora de Educación Física"
   />
 
   <section class="section">
     <div class="section__container section__container--narrow">
-      <h2 class="section__title">Biografía</h2>
+      <h2 class="section__title">Conocé tu profesora</h2>
       <div class="bio">
         <div class="bio__parrafo">
           <h3 class="bio__heading">Quién soy</h3>
@@ -89,7 +89,7 @@ const certLogos: Record<string, string> = {
 
   <section class="section">
     <div class="section__container">
-      <h2 class="section__title">Ludmila tu entrenadora</h2>
+      <h2 class="section__title">Ludmila</h2>
       <Gallery items={GALLERY} />
     </div>
   </section>
@@ -138,10 +138,10 @@ const certLogos: Record<string, string> = {
     "@type": "Person",
     name: "Ludmila",
     description:
-      "Personal trainer. Ayudo a personas a transformar su cuerpo y su relación con el movimiento.",
+      "Profesora de Educación Física. Acompaño a personas a transformar su relación con el movimiento y el entrenamiento.",
     image: new URL(retrato.src, import.meta.env.SITE).href,
-    jobTitle: "Personal Trainer",
-    knowsAbout: "Personal Training",
+    jobTitle: "Profesora de Educación Física",
+    knowsAbout: ["Educación Física", "Entrenamiento", "Salud", "Bienestar"],
     sameAs: [CONTACTO.WHATSAPP_BASE_URL, CONTACTO.INSTAGRAM_URL, CONTACTO.EMAIL_URL],
   })}
 />

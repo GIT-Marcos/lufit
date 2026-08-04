@@ -12,7 +12,7 @@ export const FOOTER_NAV: NavItem[] = [
 
 export const FOOTER = {
   BRAND_NAME: "Ludmila",
-  TAGLINE: "Entrenamiento personal online y presencial",
+  TAGLINE: "Entrenamiento con fundamento — online y presencial",
   CTA_TEXT: "Comenzá hoy",
   CTA_HREF: "/asesorias",
   COPYRIGHT: "Ludmila.",
