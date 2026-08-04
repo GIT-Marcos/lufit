@@ -35,8 +35,8 @@ const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
             alt={imageAlt || ""}
             class="hero-split__image"
             formats={["webp"]}
-            widths={[320, 640, 1280]}
-            sizes="(min-width: 768px) 34rem, 100vw"
+            widths={[320, 640, 1280, 1920]}
+            sizes="(min-width: 768px) 40rem, 100vw"
             loading="eager"
             fetchpriority="high"
           />
@@ -84,7 +84,7 @@ const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
   .hero-split__media {
     position: relative;
     width: 100%;
-    max-width: 34rem;
+    max-width: 40rem;
     margin: 0 auto;
   }
 
@@ -135,7 +135,7 @@ const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
 
   @media (min-width: 768px) {
     .hero-split__content {
-      grid-template-columns: minmax(0, 34rem) 1fr;
+      grid-template-columns: minmax(0, 40rem) 1fr;
       align-items: center;
     }
 
