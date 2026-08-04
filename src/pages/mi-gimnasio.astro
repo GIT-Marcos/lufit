@@ -4,11 +4,25 @@ import HeroSplit from "../components/HeroSplit.astro";
 import Button from "../components/Button.astro";
 import Gallery from "../components/Gallery.astro";
 import ContactIcons from "../components/ContactIcons.astro";
-import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
+import PilaresCard from "../components/PilaresCard.astro";
+import { getWhatsAppUrl } from "../data/contacto";
 import { PLANES_PRESENCIALES } from "../data/planes-presenciales";
 import { HORARIO } from "../data/horarios";
 import { GALLERY_GIMNASIO } from "../data/gallery";
 import heroImage from "../assets/images/hero/mi-gym.jpeg";
+
+const PILARES = [
+  { titulo: "Educación", descripcion: "Entendé qué hacés y por qué", icono: "📚" },
+  { titulo: "Técnica", descripcion: "Movimientos seguros y efectivos", icono: "🎯" },
+  { titulo: "Acompañamiento", descripcion: "Seguimiento personalizado", icono: "🤝" },
+];
+
+const BENEFICIOS_PILARES = [
+  "Entrenar con mayor seguridad",
+  "Conocer mejor tu cuerpo",
+  "Mejorar tu técnica",
+  "Desarrollar autonomía a largo plazo",
+];
 ---
 
 <Layout
@@ -20,8 +34,8 @@ import heroImage from "../assets/images/hero/mi-gym.jpeg";
   ]}
 >
   <HeroSplit
-    title="Así trabajo. Presencial u online."
-    subtitle="Este es el espacio donde entrenan mis alumnas presenciales. El mismo método, el mismo acompañamiento, funciona igual de bien donde sea que estés."
+    title="Mi espacio para entrenamientos presenciales."
+    subtitle="Trabajo el ejercicio como una herramienta de salud, no como un castigo ni como una forma de “compensar” lo que comemos."
     image={heroImage}
     imageAlt="Ludmila en su gimnasio"
     ctas={[
@@ -85,33 +99,21 @@ import heroImage from "../assets/images/hero/mi-gym.jpeg";
     </div>
   </section>
 
+  <section id="presencial" class="section section--sm section--no-separator">
+    <div class="section__container">
+      <h2 class="section__title">Enfoque de entrenamiento consciente</h2>
+      <p class="section__texto">
+        Mi método se basa en tres pilares: <strong>educación, técnica y acompañamiento personalizado. </strong>
+        Promuevo un entrenamiento consciente, donde no solo realizás ejercicios, sino que entendés qué hacés y por qué.
+      </p>
+      <PilaresCard pilares={PILARES} beneficios={BENEFICIOS_PILARES} />
+    </div>
+  </section>
+
   <section class="section section--sm">
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Para comenzar presencial contactame por acá</h2>
       <ContactIcons whatsappMessage="¡Hola! Quiero consultar por las sesiones presenciales en tu gimnasio." />
-    </div>
-  </section>
-
-  <section class="section section--featured">
-    <div class="section__container section__container--narrow">
-      <h2 class="section__title">El mismo método, donde sea que estés</h2>
-      <p class="section__texto">
-        Mi plan online tiene el mismo nivel de personalización, seguimiento
-        y corrección que el presencial. Sin traslados, con flexibilidad total.
-        Entrená cuando quieras, donde quieras.
-      </p>
-      <div class="section__cta-wrapper">
-        <Button
-          href={CONTACTO.FORM_EVALUACION_URL}
-          variant="evaluacion"
-          icon="form"
-          size="lg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Empezá con tu plan online
-        </Button>
-      </div>
     </div>
   </section>
 
@@ -137,6 +139,20 @@ import heroImage from "../assets/images/hero/mi-gym.jpeg";
           </Button>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section section--cta">
+    <div class="section__container section__container--narrow">
+      <h2 class="section__title">¿Querés entrenar online?</h2>
+      <Button
+        href="/asesorias"
+        variant="internal"
+        icon="arrow"
+        size="lg"
+      >
+        Ver asesorías online
+      </Button>
     </div>
   </section>
 </Layout>
