@@ -4,9 +4,9 @@ import HeroSplit from "../components/HeroSplit.astro";
 import Button from "../components/Button.astro";
 import Gallery from "../components/Gallery.astro";
 import ContactIcons from "../components/ContactIcons.astro";
-import { CONTACTO } from "../data/contacto";
+import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
 import { PLANES_PRESENCIALES } from "../data/planes-presenciales";
-import { HORARIOS, TIPO_CLASE_LABEL } from "../data/horarios";
+import { HORARIO } from "../data/horarios";
 import { GALLERY_GIMNASIO } from "../data/gallery";
 import heroImage from "../assets/images/hero/mi-gym.jpeg";
 ---
@@ -115,38 +115,27 @@ import heroImage from "../assets/images/hero/mi-gym.jpeg";
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section--featured">
     <div class="section__container section__container--narrow">
       <h2 class="section__title">Horarios</h2>
-      <div class="info-box">
-        <div class="horarios-grid">
-          {
-            HORARIOS.map((grupo) => (
-              <div class="horarios-dia">
-                <p class="horarios-dia__titulo">{grupo.dias}</p>
-                <ul class="horarios-dia__lista">
-                  {grupo.clases.map((clase) => (
-                    <li class="horarios-dia__clase">
-                      <span class="horarios-dia__hora">{clase.hora}</span>
-                      <span
-                        class={`horarios-dia__tipo horarios-dia__tipo--${clase.tipo}`}
-                      >
-                        {TIPO_CLASE_LABEL[clase.tipo]}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))
-          }
-        </div>
-        <hr class="info-box__divider" />
-        <p class="info-box__line">
-          📍 La Calera, Córdoba
-        </p>
-        <p class="info-box__note">
+      <div class="horarios-card">
+        <p class="horarios-card__dias">📅 {HORARIO.dias}</p>
+        <p class="horarios-card__ubicacion">{HORARIO.ubicacion}</p>
+        <p class="horarios-card__note">
           Recibirás la dirección al inscribirte
         </p>
+        <div class="horarios-card__cta">
+          <Button
+            href={getWhatsAppUrl("¡Hola! Quiero consultar por los horarios y actividades presenciales.")}
+            variant="whatsapp"
+            icon="whatsapp"
+            size="lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consultar horarios y actividades
+          </Button>
+        </div>
       </div>
     </div>
   </section>
@@ -166,107 +155,40 @@ import heroImage from "../assets/images/hero/mi-gym.jpeg";
     text-align: center;
   }
 
-  .info-box {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .info-box__line {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-  }
-
-  .horarios-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .horarios-dia {
+  .horarios-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-  }
-
-  .horarios-dia__titulo {
-    font-weight: 700;
-    color: var(--color-text);
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .horarios-dia__lista {
-    list-style: none;
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .horarios-dia__clase {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--color-border);
+    gap: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    max-width: 32rem;
+    margin: 0 auto;
   }
 
-  .horarios-dia__clase:last-child {
-    border-bottom: none;
-  }
-
-  .horarios-dia__hora {
+  .horarios-card__dias {
+    font-size: 1.75rem;
     font-weight: 700;
-    color: var(--color-text);
-    flex-shrink: 0;
+    color: var(--color-primary);
   }
 
-  .horarios-dia__tipo {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
-    border-radius: 999px;
+  .horarios-card__ubicacion {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
   }
 
-  .horarios-dia__tipo--funcional {
-    background: color-mix(in srgb, var(--color-primary), transparent 85%);
-    color: var(--color-primary-dark);
-  }
-
-  .horarios-dia__tipo--personalizado {
-    background: color-mix(in srgb, var(--color-secondary), transparent 85%);
-    color: var(--color-secondary-dark);
-  }
-
-  .horarios-dia__tipo--yoga {
-    background: color-mix(in srgb, var(--color-blue), transparent 85%);
-    color: var(--color-blue-dark);
-  }
-
-  @media (min-width: 768px) {
-    .horarios-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .info-box__divider {
-    border: none;
-    height: 1px;
-    background: var(--color-border);
-    margin: 0.25rem 0;
-  }
-
-  .info-box__note {
+  .horarios-card__note {
     font-size: 0.875rem;
     color: var(--color-text-secondary);
-    text-align: center;
     font-style: italic;
+  }
+
+  .horarios-card__cta {
+    margin-top: 0.5rem;
   }
 
   .planes-grid {
