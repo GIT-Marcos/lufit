@@ -10,5 +10,6 @@
   <rect x="480" y="120" width="70" height="240" rx="14" fill="#EA580C"/>
   <rect x="480" y="300" width="200" height="70" rx="14" fill="#05804A"/>
   <text x="600" y="470" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="700" fill="#1C1917" letter-spacing="6">LUDMILA</text>
-  <text x="600" y="540" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" fill="#57534E" letter-spacing="2">Personal Trainer Online &amp; Presencial</text>
+  <text x="600" y="540" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="400" fill="#57534E" letter-spacing="2">Profesora de Educación Física</text>
+  <text x="600" y="584" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" fill="#57534E" letter-spacing="2">Online y Presencial</text>
 </svg>
