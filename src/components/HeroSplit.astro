@@ -20,9 +20,11 @@ export interface Props {
   ctas?: CTA[];
   image?: ImageMetadata;
   imageAlt?: string;
+  titleSize?: string;
+  subtitleSize?: string;
 }
 
-const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
+const { title, subtitle, identity, ctas, image, imageAlt, titleSize, subtitleSize } = Astro.props;
 ---
 
 <section class="hero-split">
@@ -45,8 +47,8 @@ const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
     }
     <div class="hero-split__texto">
       {identity && <p class="hero-split__identity">{identity}</p>}
-      <h1 class="hero-split__title">{title}</h1>
-      {subtitle && <p class="hero-split__subtitle">{subtitle}</p>}
+      <h1 class="hero-split__title" style={titleSize ? `--hero-title-size: ${titleSize}` : undefined}>{title}</h1>
+      {subtitle && <p class="hero-split__subtitle" style={subtitleSize ? `--hero-subtitle-size: ${subtitleSize}` : undefined}>{subtitle}</p>}
       {
         ctas && ctas.length > 0 && (
           <div class="hero-split__ctas">
@@ -115,12 +117,12 @@ const { title, subtitle, identity, ctas, image, imageAlt } = Astro.props;
 
   .hero-split__title {
     font-family: var(--font-hero), sans-serif;
-    font-size: 2.5rem;
+    font-size: var(--hero-title-size, 2.5rem);
     margin-bottom: 1rem;
   }
 
   .hero-split__subtitle {
-    font-size: 1.125rem;
+    font-size: var(--hero-subtitle-size, 1.125rem);
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin-bottom: 2rem;
