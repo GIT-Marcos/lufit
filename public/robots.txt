@@ -1,8 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /dist/
+Disallow: /.astro/
 
 # AI crawlers — permitidos (contenido original con valor EEAT)
 # No se agregan reglas de bloqueo para GPTBot, ClaudeBot,
 # PerplexityBot ni Google-Extended.
 
-Sitemap: https://ludmila-personal-trainer.vercel.app/sitemap-index.xml
+Sitemap: https://ludmi-fit.vercel.app/sitemap-index.xml

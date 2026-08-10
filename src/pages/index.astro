@@ -40,7 +40,7 @@ const testimonios: Testimonio[] = [
 ---
 
 <Layout
-  title="Profesora de Educación Física — Entrenamiento Online y Presencial | Ludmila"
+  title="Entrenamiento Personalizado para Mujeres — Online y Presencial | Ludmila"
   description="Profesora de Educación Física. Planes de entrenamiento personalizados con acompañamiento continuo. Online o presencial en La Calera, Córdoba."
 >
   <HeroSplit
@@ -156,6 +156,32 @@ const testimonios: Testimonio[] = [
       <Button href={CONTACTO.FORM_EVALUACION_URL} variant="evaluacion" size="lg" icon="form" target="_blank" rel="noopener noreferrer">Armemos tu plan</Button>
     </div>
   </section>
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ludmila — Prof. Ed. Física",
+      "description": "Entrenamiento personalizado para mujeres. Online y presencial en La Calera, Córdoba.",
+      "image": new URL(heroImage.src, import.meta.env.SITE).href,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "La Calera",
+        "addressRegion": "Córdoba",
+        "addressCountry": "AR"
+      },
+      "telephone": "+5493516431504",
+      "url": import.meta.env.SITE,
+      "sameAs": [
+        CONTACTO.INSTAGRAM_URL,
+        CONTACTO.WHATSAPP_BASE_URL
+      ],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00"
+    })}
+  />
 </Layout>
 
 <style>

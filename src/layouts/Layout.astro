@@ -15,9 +15,10 @@ export interface Props {
   title: string;
   description?: string;
   breadcrumb?: BreadcrumbItem[];
+  noindex?: boolean;
 }
 
-const { title, description, breadcrumb } = Astro.props;
+const { title, description, breadcrumb, noindex } = Astro.props;
 const { TWITTER_HANDLE } = CONTACTO;
 const currentPage = Astro.url.pathname.replace(/\/$/, "") || "/";
 const siteOrigin = Astro.site?.origin ?? Astro.url.origin;
@@ -35,7 +36,7 @@ const ogImage = new URL("/og/og-default.jpg", siteOrigin).href;
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
 
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
