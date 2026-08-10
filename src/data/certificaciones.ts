@@ -7,7 +7,7 @@ export interface Certification {
 
 export const CERTIFICACIONES: Certification[] = [
   {
-    institution: "Instituto Provincial de Educación Física IPEF",
+    institution: "Facultad de Educación Física IPEF",
     acronym: "IPEF",
     year: 2023,
     title: "Profesora de Educación Física",

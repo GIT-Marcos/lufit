@@ -6,7 +6,7 @@ import ContactIcons from "../components/ContactIcons.astro";
 import Frase from "../components/Frase.astro";
 import CertificationCard from "../components/CertificationCard.astro";
 import Gallery from "../components/Gallery.astro";
-import { CONTACTO } from "../data/contacto";
+import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
 import { CERTIFICACIONES } from "../data/certificaciones";
 import { GALLERY } from "../data/gallery";
 import ipefLogo from "../assets/images/certificaciones/ipef.png";
@@ -32,6 +32,24 @@ const certLogos: Record<string, string> = {
     subtitle="Ayudo a mujeres como vos a transformar su relación con el movimiento y el entrenamiento"
     image={retrato}
     imageAlt="Ludmila, profesora de Educación Física"
+    ctas={[
+      {
+        text: "Conocé mis asesorías",
+        href: "/asesorias",
+        variant: "internal",
+        icon: "arrow",
+      },
+      {
+        text: "Escribime",
+        href: getWhatsAppUrl(
+          "¡Hola! Quiero saber sobre los entrenamientos"
+        ),
+        variant: "whatsapp",
+        icon: "whatsapp",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    ]}
   />
 
   <section class="section">
