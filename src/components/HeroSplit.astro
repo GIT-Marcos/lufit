@@ -8,6 +8,7 @@ export interface CTA {
   href: string;
   variant?: "primary" | "secondary" | "whatsapp" | "internal" | "instagram" | "evaluacion";
   size?: "sm" | "md" | "lg";
+  fontSize?: string;
   icon?: "whatsapp" | "instagram" | "form" | "arrow";
   target?: string;
   rel?: string;
@@ -57,6 +58,7 @@ const { title, subtitle, identity, ctas, image, imageAlt, titleSize, subtitleSiz
                 href={cta.href}
                 variant={cta.variant || "primary"}
                 size={cta.size}
+                fontSize={cta.fontSize}
                 icon={cta.icon}
                 target={cta.target}
                 rel={cta.rel}

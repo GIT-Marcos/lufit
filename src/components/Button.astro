@@ -10,12 +10,13 @@ export interface Props {
   icon?: "whatsapp" | "instagram" | "form" | "arrow";
   target?: string;
   rel?: string;
+  fontSize?: string;
 }
 
-const { variant = "primary", size = "md", href, icon, target, rel } = Astro.props;
+const { variant = "primary", size = "md", href, icon, target, rel, fontSize } = Astro.props;
 ---
 
-<a href={href} target={target} rel={rel} class={`button button--${variant} button--${size}${icon ? " button--with-icon" : ""}`}>
+<a href={href} target={target} rel={rel} class={`button button--${variant} button--${size}${icon ? " button--with-icon" : ""}`} style={fontSize ? `--button-font-size: ${fontSize}` : undefined}>
   <slot />
   {icon === "whatsapp" && <IconWhatsApp />}
   {icon === "instagram" && <IconInstagram />}
@@ -57,17 +58,17 @@ const { variant = "primary", size = "md", href, icon, target, rel } = Astro.prop
 
   .button--sm {
     padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    font-size: var(--button-font-size, 0.875rem);
   }
 
   .button--md {
     padding: 0.75rem 1.5rem;
-    font-size: 1rem;
+    font-size: var(--button-font-size, 1rem);
   }
 
   .button--lg {
     padding: 1rem 2rem;
-    font-size: 1.125rem;
+    font-size: var(--button-font-size, 1.125rem);
   }
 
   .button--primary {
