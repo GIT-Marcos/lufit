@@ -1,7 +1,7 @@
 ---
 export interface FAQItem {
   pregunta: string;
-  respuesta: string;
+  respuesta: string; // Puede contener HTML inline (ej: <svg>, <strong>)
 }
 
 export interface Props {
@@ -22,7 +22,7 @@ const { items } = Astro.props;
           </span>
         </summary>
         <div class="faq__respuesta">
-          <p>{item.respuesta}</p>
+          <p set:html={item.respuesta} />
         </div>
       </details>
     ))
