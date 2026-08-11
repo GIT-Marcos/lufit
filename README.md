@@ -10,7 +10,7 @@
 
 Sitio web estático de presentación y venta para **Ludmila García**, Profesora de Educación Física. Entrenamiento online y presencial en Córdoba - Argentina.
 
-[Sitio en vivo](https://ludmila-personal-trainer.vercel.app)
+[Sitio en vivo](https://ludmi-fit.vercel.app)
 
 ## Características
 

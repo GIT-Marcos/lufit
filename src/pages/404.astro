@@ -1,43 +1,34 @@
 ---
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
-import favicon from "../assets/images/favicon.svg";
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={favicon.src} />
-    <title>Página no encontrada — Ludmila PT</title>
-    <meta name="robots" content="noindex" />
-  </head>
-  <body class="body-404">
-    <main class="main-404">
-      <h1 class="title-404">Página no encontrada</h1>
-      <p class="subtitle-404">
-        Parece que te perdiste... pero siempre estás a tiempo de volver al
-        movimiento
-      </p>
-      <Button href="/" variant="internal" icon="arrow">Volver al inicio</Button>
-    </main>
-  </body>
-</html>
+<Layout
+  title="Página no encontrada — Ludmila | Prof. Ed. Física"
+  description="La página que buscás no existe. Volvé al inicio para descubrir los planes de entrenamiento online y presencial de Ludmila, Prof. de Ed. Física."
+  noindex={true}
+>
+  <div class="main-404">
+    <h1 class="title-404">Página no encontrada</h1>
+    <p class="subtitle-404">
+      Parece que te perdiste... pero siempre estás a tiempo de volver al
+      movimiento
+    </p>
+    <Button href="/" variant="internal" icon="arrow">Volver al inicio</Button>
+  </div>
+</Layout>
 
 <style>
-  .body-404 {
-    min-height: 100vh;
+  .main-404 {
+    min-height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--color-text);
-  }
-
-  .main-404 {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
     max-width: 28rem;
+    margin: 0 auto;
   }
 
   .title-404 {
@@ -53,6 +44,4 @@ import favicon from "../assets/images/favicon.svg";
     line-height: 1.6;
     margin-bottom: 2rem;
   }
-
-
 </style>
