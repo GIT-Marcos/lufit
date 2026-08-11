@@ -5,7 +5,7 @@ import Button from "../components/Button.astro";
 import Gallery from "../components/Gallery.astro";
 import ContactIcons from "../components/ContactIcons.astro";
 import PilaresCard from "../components/PilaresCard.astro";
-import { getWhatsAppUrl } from "../data/contacto";
+import { CONTACTO, getWhatsAppUrl } from "../data/contacto";
 import { PLANES_PRESENCIALES } from "../data/planes-presenciales";
 import { HORARIO } from "../data/horarios";
 import { GALLERY_GIMNASIO } from "../data/gallery";
@@ -155,6 +155,54 @@ const BENEFICIOS_PILARES = [
       </Button>
     </div>
   </section>
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ludmila — Prof. Ed. Física (Presencial)",
+      "description": "Entrenamiento presencial en La Calera, Córdoba. Sesiones personalizadas y en grupo con profesora de Educación Física.",
+      "image": new URL(heroImage.src, import.meta.env.SITE).href,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "La Calera",
+        "addressRegion": "Córdoba",
+        "addressCountry": "AR"
+      },
+      "url": import.meta.env.SITE,
+      "sameAs": [
+        CONTACTO.INSTAGRAM_URL,
+        CONTACTO.WHATSAPP_BASE_URL
+      ],
+      // openingHours deliberadamente omitido: los horarios son por
+      // conveniencia del cliente y cambian frecuentemente. Incluirlos
+      // con valores incorrectos perjudica la confianza de Google.
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Entrenamiento presencial",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Entrenamiento grupal en grupos funcionales",
+              "description": "Sesiones grupales de entrenamiento funcional en La Calera."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Entrenamiento personalizado en grupos pequeños",
+              "description": "Sesiones personalizadas en grupos reducidos en La Calera."
+            }
+          }
+        ]
+      }
+    })}
+  />
 </Layout>
 
 <style>
