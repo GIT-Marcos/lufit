@@ -32,6 +32,7 @@ const ogImage = new URL("/og/og-default.jpg", siteOrigin).href;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={favicon.src} />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
@@ -57,7 +58,6 @@ const ogImage = new URL("/og/og-default.jpg", siteOrigin).href;
     {TWITTER_HANDLE && <meta name="twitter:site" content={TWITTER_HANDLE} />}
     {TWITTER_HANDLE && <meta name="twitter:creator" content={TWITTER_HANDLE} />}
     <Font cssVariable="--font-hero" preload />
-    <Font cssVariable="--font-heading" preload />
     <Font cssVariable="--font-body" preload />
     <Font cssVariable="--font-button" />
     <Font cssVariable="--font-phrase" />

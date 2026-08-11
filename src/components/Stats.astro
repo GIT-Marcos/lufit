@@ -11,16 +11,16 @@ export interface Props {
 const { items } = Astro.props;
 ---
 
-<dl class="stats" role="list" aria-labelledby="stats-heading">
+<ul class="stats" role="list" aria-labelledby="stats-heading">
   {
     items.map((item) => (
-      <div class="stats__item">
-        <dt class="stats__valor">{item.valor}</dt>
-        <dd class="stats__label">{item.label}</dd>
-      </div>
+      <li class="stats__item">
+        <strong class="stats__valor">{item.valor}</strong>
+        <span class="stats__label">{item.label}</span>
+      </li>
     ))
   }
-</dl>
+</ul>
 
 <style>
   .stats {
