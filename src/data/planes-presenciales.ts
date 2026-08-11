@@ -24,7 +24,7 @@ export const PLANES_PRESENCIALES: PlanPresencial[] = [
       "Mejorás fuerza, resistencia y movilidad en una misma sesión",
       "La energía del grupo te motiva a dar siempre un poco más",
       "Recibís correcciones personalizadas a pesar de ser clase grupal",
-      "Ideal para quienes arrancan o quieren mantener una rutina constante",
+      "Ideal para las que buscan entrenar todo su cuerpo, combinando fuerza y resistencia, en una sesión 3 veces por semana.",
     ],
     cta: {
       texto: "Reservá tu lugar →",
@@ -43,8 +43,8 @@ export const PLANES_PRESENCIALES: PlanPresencial[] = [
     beneficios: [
       "Rutina única diseñada para tu objetivo, no para el grupo",
       "Trabajás a tu ritmo sin tener que seguir el paso de otras personas",
-      "Ideal si tenés lesiones, limitaciones o necesidades específicas",
       "Corrección constante y seguimiento más cercano por grupo reducido",
+      "Ideal para quienes nunca entrenaron, para las que buscan algo más específico, o necesitan de un plan que se ajuste a su condición fisica.",
     ],
     cta: {
       texto: "Quiero mi plan personalizado →",

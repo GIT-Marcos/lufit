@@ -27,6 +27,7 @@ export const COMPARATIVA_COLUMNAS: [Columna, Columna] = [
       "Entrená junto con otras chicas en tu mismo camino",
       "Cupos limitados: cada alumna tiene su lugar asegurado",
       "Guía de alimentación incluida con el plan de entrenamiento",
+      "2 tipos de entrenamientos: funcional y personalizados"
     ],
   },
 ];
