@@ -21,7 +21,7 @@ export const GALLERY: GalleryItem[] = [
 
 export const GALLERY_GIMNASIO: GalleryItem[] = [
   { src: libraFit, alt: "Logo de LibraFit" },
-  { src: gym1, alt: "Espacio de entrenamiento — Ludmila PT" },
-  { src: gym2, alt: "Sesión de entrenamiento — Ludmila PT" },
-  { src: gym3, alt: "Box de entrenamiento — Ludmila PT" },
+  { src: gym1, alt: "Espacio de entrenamiento — Ludmila" },
+  { src: gym2, alt: "Sesión de entrenamiento — Ludmila" },
+  { src: gym3, alt: "Box de entrenamiento — Ludmila" },
 ];
