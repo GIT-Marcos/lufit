@@ -6,6 +6,7 @@ export interface NavItem {
 export const FOOTER_NAV: NavItem[] = [
   { label: "Inicio", href: "/" },
   { label: "Asesorías", href: "/asesorias" },
+  { label: "Planes listos", href: "/planes-listos" },
   { label: "Mi Gimnasio", href: "/mi-gimnasio" },
   { label: "Sobre Mí", href: "/sobre-mi" },
 ];
