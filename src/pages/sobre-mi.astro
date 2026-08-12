@@ -156,13 +156,36 @@ const certLogos: Record<string, string> = {
   set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Ludmila",
-    description:
-      "Profesora de Educación Física. Acompaño a personas a transformar su relación con el movimiento y el entrenamiento.",
-    image: new URL(retrato.src, import.meta.env.SITE).href,
-    jobTitle: "Profesora de Educación Física",
-    knowsAbout: ["Educación Física", "Entrenamiento", "Salud", "Bienestar"],
-    sameAs: [CONTACTO.WHATSAPP_BASE_URL, CONTACTO.INSTAGRAM_URL, CONTACTO.EMAIL_URL],
+    "@id": "https://ludmi-fit.vercel.app/#person",
+    "name": "Ludmila García",
+    "description": "Profesora Universitaria de Educación Física y fundadora de Librafit, un espacio dedicado al entrenamiento y la salud para mujeres.",
+    "image": new URL(retrato.src, import.meta.env.SITE).href,
+    "jobTitle": "Profesora de Educación Física",
+    "knowsAbout": ["Educación Física", "Entrenamiento", "Salud", "Bienestar", "Nutrición para la Fuerza e Hipertrofia"],
+    "sameAs": [CONTACTO.WHATSAPP_BASE_URL, CONTACTO.INSTAGRAM_URL, CONTACTO.EMAIL_URL],
+    "worksFor": {
+      "@id": "https://ludmi-fit.vercel.app/#localbusiness"
+    },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Profesora de Educación Física",
+        "credentialCategory": "degree",
+        "recognizedBy": {
+          "@type": "EducationalOrganization",
+          "name": "Facultad de Educación Física IPEF"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Instructora en Entrenamiento y Nutrición para la Fuerza e Hipertrofia",
+        "credentialCategory": "certification",
+        "recognizedBy": {
+          "@type": "EducationalOrganization",
+          "name": "Asociación Mutual Argentina de Instructores y Profesores AMAIP"
+        }
+      }
+    ]
   })}
 />
 

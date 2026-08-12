@@ -11,8 +11,11 @@ const { image, extraSchema = {} } = Astro.props;
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": BUSINESS_DATA.id,
   "name": BUSINESS_DATA.name,
   "description": BUSINESS_DATA.description,
+  "url": BUSINESS_DATA.url,
+  "logo": BUSINESS_DATA.logo,
   "image": image,
   "address": {
     "@type": "PostalAddress",
@@ -20,10 +23,23 @@ const schema = {
     "addressRegion": BUSINESS_DATA.address.region,
     "addressCountry": BUSINESS_DATA.address.country
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": BUSINESS_DATA.geo.latitude,
+    "longitude": BUSINESS_DATA.geo.longitude
+  },
+  "areaServed": BUSINESS_DATA.areaServed.map(area => ({
+    "@type": area.type,
+    "name": area.name
+  })),
   "telephone": BUSINESS_DATA.telephone,
-  "url": Astro.site?.href,
   "sameAs": BUSINESS_DATA.sameAs,
   "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://ludmi-fit.vercel.app/#person",
+    "name": "Ludmila García"
+  },
   // openingHours deliberadamente omitido: los horarios son por
   // conveniencia del cliente y cambian frecuentemente. Incluirlos
   // con valores incorrectos perjudica la confianza de Google.
