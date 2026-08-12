@@ -4,13 +4,13 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)
 ![Node](https://img.shields.io/badge/Node.js-%3E%3D22.12-339933?logo=nodedotjs&logoColor=white)
 ![Licencia MIT](https://img.shields.io/badge/Licencia-MIT-green)
-![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)
+![Deploy](https://img.shields.io/badge/Deploy-Netlify-000000?logo=netlify&logoColor=white)
 
 ## Descripción
 
 Sitio web estático de presentación y venta para **Ludmila**, Profesora de Educación Física. Entrenamiento online y presencial en Córdoba - Argentina.
 
-[Sitio en vivo](https://ludmi-fit.vercel.app)
+[Sitio en vivo](https://ludmi-fit.netlify.app)
 
 ## Características
 
@@ -108,7 +108,7 @@ Todo el contenido del sitio se edita desde `src/data/` sin tocar componentes:
 
 ## Despliegue
 
-El sitio se despliega en **Vercel** como sitio 100% estático (sin funciones serverless).
+El sitio se despliega en **Netlify** como sitio 100% estático (sin funciones serverless).
 
 - **Build command**: `npm run build`
 - **Output directory**: `dist`

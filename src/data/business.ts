@@ -24,11 +24,11 @@ export interface BusinessInfo {
 }
 
 export const BUSINESS_DATA: BusinessInfo = {
-  id: "https://ludmi-fit.vercel.app/#localbusiness",
+  id: "https://ludmi-fit.netlify.app/#localbusiness",
   name: "Ludmila — Prof. Ed. Física",
   description: "Entrenamiento personalizado para mujeres. Online y presencial en La Calera, Córdoba.",
-  url: "https://ludmi-fit.vercel.app",
-  logo: "https://ludmi-fit.vercel.app/favicon.svg",
+  url: "https://ludmi-fit.netlify.app",
+  logo: "https://ludmi-fit.netlify.app/favicon.svg",
   address: {
     locality: "La Calera",
     region: "Córdoba",

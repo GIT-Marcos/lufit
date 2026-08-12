@@ -7,4 +7,4 @@ Disallow: /.astro/
 # No se agregan reglas de bloqueo para GPTBot, ClaudeBot,
 # PerplexityBot ni Google-Extended.
 
-Sitemap: https://ludmi-fit.vercel.app/sitemap-index.xml
+Sitemap: https://ludmi-fit.netlify.app/sitemap-index.xml

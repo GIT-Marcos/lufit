@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ludmi-fit.vercel.app',
+  site: 'https://ludmi-fit.netlify.app',
   trailingSlash: 'never',
   integrations: [sitemap()],
   fonts: [
