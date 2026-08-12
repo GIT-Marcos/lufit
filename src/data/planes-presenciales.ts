@@ -44,7 +44,7 @@ export const PLANES_PRESENCIALES: PlanPresencial[] = [
       "Rutina única diseñada para tu objetivo, no para el grupo",
       "Trabajás a tu ritmo sin tener que seguir el paso de otras personas",
       "Corrección constante y seguimiento más cercano por grupo reducido",
-      "Ideal para quienes nunca entrenaron, para las que buscan algo más específico, o necesitan de un plan que se ajuste a su condición fisica.",
+      "Ideal para quienes nunca entrenaron, para las que buscan algo más específico, o necesitan de un plan que se ajuste a su condición física.",
     ],
     cta: {
       texto: "Quiero mi plan personalizado →",
