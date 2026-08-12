@@ -1,6 +1,6 @@
 # Lufit — Ludmila | Prof. Ed. Física
 
-![Astro](https://img.shields.io/badge/Astro-7.1-BC52EE?logo=astro&logoColor=white)
+![Astro](https://img.shields.io/badge/Astro-7.x-BC52EE?logo=astro&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)
 ![Node](https://img.shields.io/badge/Node.js-%3E%3D22.12-339933?logo=nodedotjs&logoColor=white)
 ![Licencia MIT](https://img.shields.io/badge/Licencia-MIT-green)
@@ -8,7 +8,7 @@
 
 ## Descripción
 
-Sitio web estático de presentación y venta para **Ludmila García**, Profesora de Educación Física. Entrenamiento online y presencial en Córdoba - Argentina.
+Sitio web estático de presentación y venta para **Ludmila**, Profesora de Educación Física. Entrenamiento online y presencial en Córdoba - Argentina.
 
 [Sitio en vivo](https://ludmi-fit.vercel.app)
 
@@ -26,10 +26,11 @@ Sitio web estático de presentación y venta para **Ludmila García**, Profesora
 
 | Tecnología                                                                           | Versión      | Uso                                               |
 | ------------------------------------------------------------------------------------ | ------------ | ------------------------------------------------- |
-| [Astro](https://astro.build)                                                         | `^7.1.6`     | Framework SSG                                     |
+| [Astro](https://astro.build)                                                         | `^7.2.1`     | Framework SSG                                     |
 | [TypeScript](https://www.typescriptlang.org)                                         | `^6.0.3`     | Tipado estático                                   |
 | CSS vanilla                                                                          | —            | Estilos con BEM + variables CSS                   |
 | [`@astrojs/sitemap`](https://docs.astro.build/en/guides/integrations-guide/sitemap/) | `^3.7.3`     | Generación de sitemap                             |
+| [`@astrojs/check`](https://docs.astro.build/en/reference/cli-reference/#astro-check)   | `^0.9.10`    | Chequeo de tipos (dev)                            |
 | [sharp](https://sharp.pixelplumbing.com)                                             | `^0.35.3`    | Optimización de imágenes y generación de OG image |
 | [Node.js](https://nodejs.org)                                                        | `>= 22.12.0` | Runtime (definido en `engines` de `package.json`) |
 
@@ -117,7 +118,7 @@ La URL del sitio está configurada en `site` de `astro.config.mjs`.
 
 ## Autoría y licencia
 
-Proyecto desarrollado por [Marcos](https://github.com/GIT-Marcos) para Ludmila (Prof. de Ed. Física).
+Proyecto desarrollado por [Marcos](https://github.com/GIT-Marcos) para Ludmila.
 
-- **Código**: licencia [MIT](LICENSE) © 2026 Marcos Pardo. Libre de usar, copiar y modificar.
+- **Código**: licencia [MIT](LICENSE) © 2026 Marcos. Libre de usar, copiar y modificar.
 - **Contenido**: textos, fotografías, marca y datos del sitio (incluidos los de `src/data/`) © Ludmila — **no cubiertos** por la licencia MIT. No reutilizarlos sin su autorización.
