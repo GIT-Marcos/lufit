@@ -8,6 +8,7 @@ import FAQ from "../components/FAQ.astro";
 import heroImage from "../assets/images/hero/asesorias.jpeg";
 import { CONTACTO } from "../data/contacto";
 import { COMPARATIVA_COLUMNAS, STEPS, DIFERENCIALES } from "../data/asesorias";
+import JSONLDLocalBusiness from "../components/seo/JSONLDLocalBusiness.astro";
 
 const paraQuien = [
   { texto: 'Para las que quieren ganar fuerza, masa muscular y movilidad', icono: '🏃‍♀️' },
@@ -178,6 +179,7 @@ function stripHtml(html: string): string {
       >
     </div>
   </section>
+  <JSONLDLocalBusiness image={new URL(heroImage.src, import.meta.env.SITE).href} />
 </Layout>
 
 <script

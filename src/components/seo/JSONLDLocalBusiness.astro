@@ -1,0 +1,33 @@
+---
+import { BUSINESS_DATA } from '../../data/business';
+
+interface Props {
+  image: string;
+  extraSchema?: Record<string, any>;
+}
+
+const { image, extraSchema = {} } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": BUSINESS_DATA.name,
+  "description": BUSINESS_DATA.description,
+  "image": image,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": BUSINESS_DATA.address.locality,
+    "addressRegion": BUSINESS_DATA.address.region,
+    "addressCountry": BUSINESS_DATA.address.country
+  },
+  "telephone": BUSINESS_DATA.telephone,
+  "url": Astro.site?.href,
+  "sameAs": BUSINESS_DATA.sameAs,
+  "priceRange": "$$",
+  // openingHours deliberadamente omitido: los horarios son por
+  // conveniencia del cliente y cambian frecuentemente. Incluirlos
+  // con valores incorrectos perjudica la confianza de Google.
+  ...extraSchema
+};
+---
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -12,6 +12,7 @@ import { GALLERY } from "../data/gallery";
 import ipefLogo from "../assets/images/certificaciones/ipef.png";
 import amaipLogo from "../assets/images/certificaciones/amaip.png";
 import retrato from "../assets/images/about/sobre-mi.jpeg";
+import JSONLDLocalBusiness from "../components/seo/JSONLDLocalBusiness.astro";
 
 const certLogos: Record<string, string> = {
   "IPEF": ipefLogo.src,
@@ -146,6 +147,7 @@ const certLogos: Record<string, string> = {
       </Button>
     </div>
   </section>
+  <JSONLDLocalBusiness image={new URL(retrato.src, import.meta.env.SITE).href} />
 </Layout>
 
 <script

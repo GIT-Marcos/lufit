@@ -10,6 +10,7 @@ import { STATS } from "../data/stats";
 import { ASESORIA_ONLINE, PRESENCIAL_ALERTA } from "../data/servicios";
 import { TESTIMONIOS } from "../data/testimonios";
 import heroImage from "../assets/images/hero/inicio2.jpeg";
+import JSONLDLocalBusiness from "../components/seo/JSONLDLocalBusiness.astro";
 ---
 
 <Layout
@@ -130,33 +131,7 @@ import heroImage from "../assets/images/hero/inicio2.jpeg";
     </div>
   </section>
 
-  <script
-    is:inline
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Ludmila — Prof. Ed. Física",
-      "description": "Entrenamiento personalizado para mujeres. Online y presencial en La Calera, Córdoba.",
-      "image": new URL(heroImage.src, import.meta.env.SITE).href,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "La Calera",
-        "addressRegion": "Córdoba",
-        "addressCountry": "AR"
-      },
-      "telephone": "+5493516431504",
-      "url": import.meta.env.SITE,
-      "sameAs": [
-        CONTACTO.INSTAGRAM_URL,
-        CONTACTO.WHATSAPP_BASE_URL
-      ],
-      "priceRange": "$$"
-      // openingHours deliberadamente omitido: los horarios son por
-      // conveniencia del cliente y cambian frecuentemente. Incluirlos
-      // con valores incorrectos perjudica la confianza de Google.
-    })}
-  />
+  <JSONLDLocalBusiness image={new URL(heroImage.src, import.meta.env.SITE).href} />
 </Layout>
 
 <style>
