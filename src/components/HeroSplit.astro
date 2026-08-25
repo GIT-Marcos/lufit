@@ -23,15 +23,30 @@ export interface Props {
   imageAlt?: string;
   titleSize?: string;
   subtitleSize?: string;
+  videoId?: string;
+  videoTitle?: string;
+  videoAspectRatio?: string;
 }
 
-const { title, subtitle, identity, ctas, image, imageAlt, titleSize, subtitleSize } = Astro.props;
+const { title, subtitle, identity, ctas, image, imageAlt, titleSize, subtitleSize, videoId, videoTitle, videoAspectRatio } = Astro.props;
 ---
 
 <section class="hero-split">
   <div class="hero-split__content">
     {
-      image && (
+      videoId ? (
+        <figure class="hero-split__media">
+          <iframe
+            class="hero-split__video"
+            style={videoAspectRatio ? `--video-ratio: ${videoAspectRatio}` : undefined}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&rel=0`}
+            title={videoTitle || "Video"}
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            loading="lazy"
+          />
+        </figure>
+      ) : image && (
         <figure class="hero-split__media">
           <Picture
             src={image}
@@ -97,6 +112,17 @@ const { title, subtitle, identity, ctas, image, imageAlt, titleSize, subtitleSiz
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 16px 40px 16px 40px;
+    border: none;
+    box-shadow: 0 20px 60px -10px rgba(234, 88, 12, 0.8),
+                0 8px 20px -6px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-split__video {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--video-ratio, 16 / 9);
     border-radius: 16px 40px 16px 40px;
     border: none;
     box-shadow: 0 20px 60px -10px rgba(234, 88, 12, 0.8),
