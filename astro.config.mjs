@@ -8,6 +8,10 @@ export default defineConfig({
   site: 'https://ludmi-fit.netlify.app',
   trailingSlash: 'never',
   integrations: [sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'tap',
+  },
   fonts: [
     {
       provider: fontProviders.fontsource(),
