@@ -9,7 +9,8 @@ export default defineConfig({
   trailingSlash: 'never',
   integrations: [sitemap()],
   prefetch: {
-    prefetchAll: true
+    prefetchAll: true,
+    defaultStrategy: 'tap',
   },
   fonts: [
     {
