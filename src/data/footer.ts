@@ -18,5 +18,5 @@ export const FOOTER = {
   CTA_HREF: "/asesorias",
   COPYRIGHT: "Ludmila.",
   DEVELOPER_NAME: "Marcos",
-  DEVELOPER_URL: "https://github.com/GIT-Marcos",
+  DEVELOPER_URL: "https://marcos-portfolio-dev.vercel.app/",
 } as const;
